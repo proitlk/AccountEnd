@@ -171,7 +171,8 @@
     <Compile Include="Account\frmM_Supplier.aspx.designer.cs">
       <DependentUpon>frmM_Supplier.aspx</DependentUpon>
     </Compile>
-    <Compile Include="cls_Connection.cs" />
+    <Compile Include="Common\cls_CommonFunctions.cs" />
+    <Compile Include="Common\cls_Connection.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -179,7 +180,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLog.cs">
+    <Compile Include="Common\ErrorLog.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

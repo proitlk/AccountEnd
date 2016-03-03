@@ -18,6 +18,7 @@ namespace Account
         private static ErrorLog error = new ErrorLog();
         private static MySqlConnection connect = null;
 
+        //Get Connection
         private static MySqlConnection DBConnect()
         {
             try
@@ -37,6 +38,8 @@ namespace Account
                 return null;
             }
         }
+
+        //Set Dataset
         public static void setData(String q)
         {
             MySqlCommand com;
@@ -66,6 +69,7 @@ namespace Account
                 closeConnection();
             }
         }
+
         public static MySqlDataReader getData(String q)
         {
             MySqlCommand com;
@@ -123,6 +127,7 @@ namespace Account
             }
         }
 
+        //Close Connection
         public static void closeConnection()
         {
             if (connect.State == System.Data.ConnectionState.Open)

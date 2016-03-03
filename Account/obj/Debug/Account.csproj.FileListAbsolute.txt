@@ -13,3 +13,8 @@ F:\My documents\KT\ProIT\Accounting\Account\Account\bin\Account.pdb
 F:\My documents\KT\ProIT\Accounting\Account\Account\obj\Debug\ResolveAssemblyReference.cache
 F:\My documents\KT\ProIT\Accounting\Account\Account\obj\Debug\Account.dll
 F:\My documents\KT\ProIT\Accounting\Account\Account\obj\Debug\Account.pdb
+F:\Work\PRO IT\Account\Account\AccountEnd\Account\bin\Account.dll
+F:\Work\PRO IT\Account\Account\AccountEnd\Account\bin\Account.pdb
+F:\Work\PRO IT\Account\Account\AccountEnd\Account\obj\Debug\ResolveAssemblyReference.cache
+F:\Work\PRO IT\Account\Account\AccountEnd\Account\obj\Debug\Account.dll
+F:\Work\PRO IT\Account\Account\AccountEnd\Account\obj\Debug\Account.pdb

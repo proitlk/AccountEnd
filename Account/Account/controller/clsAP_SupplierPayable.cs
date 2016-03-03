@@ -10,9 +10,10 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-namespace Account.Account.controller
+namespace Account.Account
 {
     public class clsAP_SupplierPayable
     {
+
     }
 }
