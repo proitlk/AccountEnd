@@ -252,8 +252,8 @@ textarea {
 
 .main {
 	padding-bottom: 2em;
-	
-	border-bottom: 1px solid #000;
+	/*border-bottom: 1px solid #000;*/
+	border-bottom: 1px solid #CCCCCC;
 }
 
 
@@ -316,7 +316,7 @@ textarea {
 	padding: 15px 0;
 	
 	font-size: 12px;
-	background: #111;
+	background: #666666;
 	color: #999;
 }
 
@@ -405,11 +405,10 @@ textarea {
 
 
 .widget-content {
-	padding: 20px 15px 15px;
+	padding: 15px 15px 15px;
 	
 	background: #FFF;
-	
-	
+		
 	border: 1px solid #D5D5D5;
 	
 	-moz-border-radius: 5px;

@@ -65,6 +65,7 @@
     <Compile Include="Account\Account.Master.designer.cs">
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
+    <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
     <Compile Include="Account\frmAP_AdvancedPAymenet.aspx.cs">
       <DependentUpon>frmAP_AdvancedPAymenet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,19 +171,16 @@
     <Compile Include="Account\frmM_Supplier.aspx.designer.cs">
       <DependentUpon>frmM_Supplier.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="cls_Connection.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorLog.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,7 +201,6 @@
     <Content Include="Account\frmGL_JournalVoucher.aspx" />
     <Content Include="Account\frmM_Bank.aspx" />
     <Content Include="Account\frmM_Supplier.aspx" />
-    <Content Include="Account\WebForm1.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
@@ -211,7 +208,6 @@
     <Content Include="CSS\font-awesome-ie7.min.css" />
     <Content Include="CSS\font-awesome.css" />
     <Content Include="CSS\font-awesome.min.css" />
-    <Content Include="CSS\sb-admin.css" />
     <Content Include="CSS\style.css" />
     <Content Include="font\fontawesome-webfont.svg" />
     <Content Include="js\base.js" />
