@@ -164,5 +164,62 @@ namespace Account
                 
             }
         }
+
+        public static bool IsCreate(string MenuTag)
+        {
+            clsU_User cUser = new clsU_User();
+            if (cUser.IsCreate(cls_LoginInfo.getLoginUser(), MenuTag) == true)
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("You have no permission to Create.....", Application.CompanyName + " " + Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
+            }
+        }
+
+        public static bool IsEdit(string MenuTag)
+        {
+            clsU_User cUser = new clsU_User();
+            if (cUser.IsEdit(cls_LoginInfo.getLoginUser(), MenuTag) == true)
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("You have no permission to Modify.....", Application.CompanyName + " " + Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
+            }
+        }
+
+        public static bool IsDelate(string MenuTag)
+        {
+            clsU_User cUser = new clsU_User();
+            if (cUser.IsDelete(cls_LoginInfo.getLoginUser(), MenuTag) == true)
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("You have no permission to Delate.....", Application.CompanyName + " " + Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
+            }
+        }
+
+        public static bool IsProcess(string MenuTag)
+        {
+            clsU_User cUser = new clsU_User();
+            if (cUser.IsProcess(cls_LoginInfo.getLoginUser(), MenuTag) == true)
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("You have no permission to Process.....", Application.CompanyName + " " + Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
+            }
+        }
+
     }
 }

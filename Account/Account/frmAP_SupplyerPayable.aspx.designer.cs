@@ -14,6 +14,15 @@ namespace Account.Account {
     public partial class frmAP_SupplyerPayable {
         
         /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        
+        /// <summary>
         /// cmbBranch control.
         /// </summary>
         /// <remarks>
@@ -30,6 +39,15 @@ namespace Account.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPayableNo;
+        
+        /// <summary>
+        /// hftxtSupplier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hftxtSupplier;
         
         /// <summary>
         /// txtSupplier control.
