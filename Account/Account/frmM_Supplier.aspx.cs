@@ -133,5 +133,19 @@ namespace Account.Account
             gdvSupplier.PageIndex = e.NewPageIndex;
             this.viewData();
         }
+
+        protected void gdvSupplier_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "View")
+            { // Retrieve the row index stored in the // CommandArgument property. 
+
+                int index = Convert.ToInt32(e.CommandArgument);
+                // Retrieve the row that contains the button
+                // from the Rows collection.
+                DataSet ds = supplier.GetSupplier();
+                GridViewRow row = gdvSupplier.Rows[index];
+                // Add code here to add the item to the shopping cart. 
+            } 
+        }
     }
 }

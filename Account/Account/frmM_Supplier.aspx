@@ -26,63 +26,83 @@
 				            <div class="col-lg-6">   
                                 <form id="frmMSupplier" class="form-horizontal" action = "">
 							        <fieldset>									
-							            <div class="form-group">											
+							            <div class="form-group">
+							                <div class="controls col-lg-3">											
 								            <label class="control-label" for="SupplierNo">Supplier No</label>
-								            <div class="controls">										    
-								                <asp:TextBox ID="txtSupNo" class="form-control" runat="server" required></asp:TextBox>										    
+								            </div> <!-- /controls -->
+								            <div class="controls col-lg-9">										    
+								                <asp:TextBox ID="txtSupNo" class="form-control" runat="server" Enabled="false" required></asp:TextBox>										    
 								            </div> <!-- /controls -->				
 							            </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">
+								            <div class="controls col-lg-3">												
 									        <label class="control-label" for="SupplierName">Supplier Name</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtSupplier" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">	
+								            <div class="controls col-lg-3">										
 									        <label class="control-label" for="ContactPerson">Contact Person</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtContactPerson" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">	
+								            <div class="controls col-lg-3">											
 									        <label class="control-label" for="Address">Address</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtAddress" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">	
+								            <div class="controls col-lg-3">											
 									        <label class="control-label" for="Telephone">Telephone</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtTelephone" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">	
+								        	<div class="controls col-lg-3">									
 									        <label class="control-label" for="Fax">Fax</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtFax" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
-								        <div class="form-group">											
+								        <div class="form-group">	
+								            <div class="controls col-lg-3">												
 									        <label class="control-label" for="EMail">E-Mail</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtEMail" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
-								        <div class="form-group">											
+								        <div class="form-group">
+								            <div class="controls col-lg-3">												
 									        <label class="control-label" for="VAT">VAT</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtVAT" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
-								        <div class="form-group">											
+								        <div class="form-group">
+								            <div class="controls col-lg-3">											
 									        <label class="control-label" for="NBT">NBT</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtNBT" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
-								        <div class="form-group">											
+								        <div class="form-group">
+								        	<div class="controls col-lg-3">											
 									        <label class="control-label" for="Remark">Remark</label>
-									        <div class="controls">
+									        </div> <!-- /controls -->
+									        <div class="controls col-lg-9">
 										        <asp:TextBox ID="txtRemark" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
@@ -94,22 +114,32 @@
 							            </div> <!-- /form-actions -->
 							        </fieldset>
 						        </form>
-						    </div> <!-- /span7 -->	
+						    </div> <!-- /col-lg-6 -->	
 						
 						    <div class="col-lg-6"> 
 						        <h4>Supplier Details</h4>
-                                <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="20">
+                                <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server" 
+                                    AutoGenerateColumns="false" AllowPaging="true" 
+                                    OnPageIndexChanging="OnPageIndexChanging" PageSize="10" onrowcommand="gdvSupplier_RowCommand">
                                     <Columns>
                                         <asp:BoundField ItemStyle-Width="100px" DataField="Supplier No" HeaderText="Supplier No" />
-                                        <asp:BoundField ItemStyle-Width="300px" DataField="Supplier Name" HeaderText="Supplier Name" />               
+                                        <asp:BoundField ItemStyle-Width="300px" DataField="Supplier Name" HeaderText="Supplier Name" />   
+                                        <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="View" runat="server" 
+                                                    CommandName="View"  class="btn btn-info"
+                                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" 
+                                                    Text="View" /> 
+                                            </ItemTemplate>
+                                        </asp:TemplateField>           
                                     </Columns>
                                 </asp:GridView>    								
-						    </div> <!-- /form-control col-md-3 -->			
+						    </div> <!-- /col-lg-6 -->			
                         </div> <!-- /widget-content -->						
                     </div> <!-- /widget -->	      		
-                </div> <!-- /span12 -->	      	
+                </div> <!-- /col-lg-12 -->	      	
             </div> <!-- /row -->	
         </div> <!-- /container -->	    
-    </div> <!-- /main-inner -->    
-</div> <!-- /main -->    
+    </div> <!-- /page-wrapper -->    
+</div> <!-- /wrapper -->    
 </asp:Content>

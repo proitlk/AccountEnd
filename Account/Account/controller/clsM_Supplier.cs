@@ -74,5 +74,28 @@ namespace Account.Account
             DataSet ds = cls_Connection.getDataSet(query);
             return ds;
         }
+
+        public bool GetSupplierDetails(int SupNo)
+        {
+            String query = "SELECT SUP_NO, SUP_NAME, SUP_CONTACTPERSON, SUP_ADDRESS, SUP_TELEPHONE, SUP_FAX, SUP_EMAIL, SUP_VAT, SUP_NBT, SUP_REMARK FROM tblm_supplier WHERE SUP_NO = '" + SupNo + "'";
+            DataSet ds = cls_Connection.getDataSet(query);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                Supplier = ds.Tables[0].Rows[0]["SUP_NAME"].ToString();
+                ContactPerson = ds.Tables[0].Rows[0]["SUP_CONTACTPERSON"].ToString();
+                Address = ds.Tables[0].Rows[0]["SUP_ADDRESS"].ToString();
+                Telephone = ds.Tables[0].Rows[0]["SUP_TELEPHONE"].ToString();
+                Fax = ds.Tables[0].Rows[0]["SUP_FAX"].ToString();
+                EMail = ds.Tables[0].Rows[0]["SUP_EMAIL"].ToString();
+                VAT = Convert.ToDouble(ds.Tables[0].Rows[0]["SUP_VAT"]);
+                NBT = Convert.ToDouble(ds.Tables[0].Rows[0]["SUP_NBT"]);
+                Remark = ds.Tables[0].Rows[0]["SUP_REMARK"].ToString();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
