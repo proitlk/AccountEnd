@@ -127,5 +127,11 @@ namespace Account.Account
         {
             Reset();
         }
+
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gdvSupplier.PageIndex = e.NewPageIndex;
+            this.viewData();
+        }
     }
 }

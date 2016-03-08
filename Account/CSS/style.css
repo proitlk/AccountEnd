@@ -41,7 +41,7 @@ textarea {
 .table td {
 	vertical-align: middle;
 }
-
+td,th{padding: 5px 10px;border: 1px solid silver;}
 .table-bordered th {
 	background: #E9E9E9;
 	background:-moz-linear-gradient(top, #E9E9E9 0%, #E9E9E9 100%); /* FF3.6+ */

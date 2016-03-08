@@ -98,7 +98,11 @@
 						
 						    <div class="col-lg-6"> 
 						        <h4>Supplier Details</h4>
-                                <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server">
+                                <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="20">
+                                    <Columns>
+                                        <asp:BoundField ItemStyle-Width="100px" DataField="Supplier No" HeaderText="Supplier No" />
+                                        <asp:BoundField ItemStyle-Width="300px" DataField="Supplier Name" HeaderText="Supplier Name" />               
+                                    </Columns>
                                 </asp:GridView>    								
 						    </div> <!-- /form-control col-md-3 -->			
                         </div> <!-- /widget-content -->						
