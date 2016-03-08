@@ -17,7 +17,9 @@ body {
 p { 
 	font: 13px/1.7em 'Open Sans'; 	
 }
-    
+th {
+    color: #000 !important;
+}    
 input,
 button,
 select,

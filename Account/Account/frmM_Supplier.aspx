@@ -1,86 +1,106 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true" CodeBehind="frmM_Supplier.aspx.cs" Inherits="Account.Account.frmM_Supplier" %>
+<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true" CodeBehind="frmM_Supplier.aspx.cs" Inherits="Account.Account.frmM_Supplier" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+        function HideLabel() {
+            var seconds = 5;
+            setTimeout(function() {
+            var div = document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+            
+            }, seconds * 1000);
+        };
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="main">	
+    <div class="main">	
     <div class="main-inner">
         <div class="container">	
             <div class="row">	      	
-                <div class="span12">   
-                    <div class="widget ">
+                <div class="col-lg-12">   
+                    <div class="widget ">                        
 	      			    <div class="widget-header">
 	      				    <i class="icon-user"></i>
 	      				    <h3>Supplier Master</h3>
 	  				    </div> <!-- /widget-header -->
-					    <div class="widget-content">
-                            <form id="edit-profile" class="form-horizontal">
-								<fieldset>									
-								    <div class="control-group">											
-									        <label class="control-label" for="SupplierNo">Supplier No</label>
-									    <div class="controls">
-										    <input type="text" class="span6" name="txtSupNo" id="txtSupNo" value="">
-									    </div> <!-- /controls -->				
-								    </div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="SupplierName">Supplier Name</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtSupplier" id="txtSupplier" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="ContactPerson">Contact Person</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtContactPerson" id="txtContactPerson" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="Address">Address</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtAddress" id="txtAddress" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="Telephone">Telephone</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtTelephone" id="txtTelephone" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="Fax">Fax</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtFax" id="txtFax" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->	
-									<div class="control-group">											
-										<label class="control-label" for="EMail">E-Mail</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtEMail" id="txtEMail" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->	
-									<div class="control-group">											
-										<label class="control-label" for="VAT">VAT</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtVAT" id="txtVAT" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->
-									<div class="control-group">											
-										<label class="control-label" for="NBT">NBT</label>
-										<div class="controls">
-											<input type="text" class="span6" name="txtNBT" id="txtNBT" value="">
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->	
-									<div class="control-group">											
-										<label class="control-label" for="Remark">Remark</label>
-										<div class="controls">
-											<textarea rows="3" class="span6" cols="40" name="txtRemark" maxlength="255"></textarea>
-										</div> <!-- /controls -->				
-									</div> <!-- /control-group -->	
-									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Save</button> 
-										<button class="btn">Cancel</button>
-									</div> <!-- /form-actions -->
-								</fieldset>
-							</form>		
+					    <div  class="widget-content">
+					    <div class="col-lg-12 row" runat="server" ID="lblMsg"></div>
+				            <div class="col-lg-5">   
+                                <form id="frmMSupplier" class="form-horizontal">
+							        <fieldset>									
+							            <div class="form-group">											
+								                <label class="control-label" for="SupplierNo">Supplier No</label>
+								            <div class="controls">										    
+								                <asp:TextBox ID="txtSupNo" class="form-control col-md-4" runat="server" required></asp:TextBox>										    
+								            </div> <!-- /controls -->				
+							            </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="SupplierName">Supplier Name</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtSupplier" class="form-control col-md-4" runat="server" required></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="ContactPerson">Contact Person</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtContactPerson" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="Address">Address</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtAddress" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="Telephone">Telephone</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtTelephone" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="Fax">Fax</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtFax" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->	
+								        <div class="form-group">											
+									        <label class="control-label" for="EMail">E-Mail</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtEMail" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->	
+								        <div class="form-group">											
+									        <label class="control-label" for="VAT">VAT</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtVAT" class="form-control col-md-4" runat="server" required></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->
+								        <div class="form-group">											
+									        <label class="control-label" for="NBT">NBT</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtNBT" class="form-control col-md-4" runat="server" required></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->	
+								        <div class="form-group">											
+									        <label class="control-label" for="Remark">Remark</label>
+									        <div class="controls">
+										        <asp:TextBox ID="txtRemark" class="form-control col-md-4" runat="server"></asp:TextBox>
+									        </div> <!-- /controls -->				
+								        </div> <!-- /form-group -->	
+								        <div class="form-actions">    
+                                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" 
+                                                Width="200px" onclick="btnSave_Click" />									
+                                            <asp:Button ID="btnCancel" class="btn" runat="server" Text="Cancel" 
+                                                onclick="btnCancel_Click" Width="200px" />	
+							            </div> <!-- /form-actions -->
+							        </fieldset>
+						        </form>
+						    </div> <!-- /span7 -->	
+						
+						    <div class="form-control col-md-4"> 
+						        <h4>Supplier Details</h4>
+                                <asp:GridView ID="gdvSupplier" CssClass="table table-hover table-condensed table-bordered" runat="server">
+                                </asp:GridView>    								
+						    </div> <!-- /form-control col-md-4 -->			
                         </div> <!-- /widget-content -->						
                     </div> <!-- /widget -->	      		
                 </div> <!-- /span12 -->	      	

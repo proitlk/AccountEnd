@@ -12,9 +12,7 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-
 using System.Web.Services;
-
 
 namespace Account.Account
 {
