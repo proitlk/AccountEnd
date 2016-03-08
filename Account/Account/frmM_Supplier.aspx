@@ -11,8 +11,8 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="main">	
-    <div class="main-inner">
+<div class="wrapper">	
+    <div class="page-wrapper">
         <div class="container">	
             <div class="row">	      	
                 <div class="col-lg-12">   
@@ -23,84 +23,84 @@
 	  				    </div> <!-- /widget-header -->
 					    <div  class="widget-content">
 					    <div class="col-lg-12 row" runat="server" ID="lblMsg"></div>
-				            <div class="col-lg-5">   
-                                <form id="frmMSupplier" class="form-horizontal">
+				            <div class="col-lg-6">   
+                                <form id="frmMSupplier" class="form-horizontal" action = "">
 							        <fieldset>									
 							            <div class="form-group">											
-								                <label class="control-label" for="SupplierNo">Supplier No</label>
+								            <label class="control-label" for="SupplierNo">Supplier No</label>
 								            <div class="controls">										    
-								                <asp:TextBox ID="txtSupNo" class="form-control col-md-4" runat="server" required></asp:TextBox>										    
+								                <asp:TextBox ID="txtSupNo" class="form-control" runat="server" required></asp:TextBox>										    
 								            </div> <!-- /controls -->				
 							            </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="SupplierName">Supplier Name</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtSupplier" class="form-control col-md-4" runat="server" required></asp:TextBox>
+										        <asp:TextBox ID="txtSupplier" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="ContactPerson">Contact Person</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtContactPerson" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtContactPerson" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="Address">Address</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtAddress" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtAddress" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="Telephone">Telephone</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtTelephone" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtTelephone" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="Fax">Fax</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtFax" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtFax" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
 								        <div class="form-group">											
 									        <label class="control-label" for="EMail">E-Mail</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtEMail" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtEMail" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
 								        <div class="form-group">											
 									        <label class="control-label" for="VAT">VAT</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtVAT" class="form-control col-md-4" runat="server" required></asp:TextBox>
+										        <asp:TextBox ID="txtVAT" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->
 								        <div class="form-group">											
 									        <label class="control-label" for="NBT">NBT</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtNBT" class="form-control col-md-4" runat="server" required></asp:TextBox>
+										        <asp:TextBox ID="txtNBT" class="form-control" runat="server" required></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
 								        <div class="form-group">											
 									        <label class="control-label" for="Remark">Remark</label>
 									        <div class="controls">
-										        <asp:TextBox ID="txtRemark" class="form-control col-md-4" runat="server"></asp:TextBox>
+										        <asp:TextBox ID="txtRemark" class="form-control" runat="server"></asp:TextBox>
 									        </div> <!-- /controls -->				
 								        </div> <!-- /form-group -->	
 								        <div class="form-actions">    
                                             <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" 
-                                                Width="200px" onclick="btnSave_Click" />									
+                                                Width="150px" onclick="btnSave_Click" />									
                                             <asp:Button ID="btnCancel" class="btn" runat="server" Text="Cancel" 
-                                                onclick="btnCancel_Click" Width="200px" />	
+                                                onclick="btnCancel_Click" Width="150px" />	
 							            </div> <!-- /form-actions -->
 							        </fieldset>
 						        </form>
 						    </div> <!-- /span7 -->	
 						
-						    <div class="form-control col-md-4"> 
+						    <div class="col-lg-6"> 
 						        <h4>Supplier Details</h4>
-                                <asp:GridView ID="gdvSupplier" CssClass="table table-hover table-condensed table-bordered" runat="server">
+                                <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server">
                                 </asp:GridView>    								
-						    </div> <!-- /form-control col-md-4 -->			
+						    </div> <!-- /form-control col-md-3 -->			
                         </div> <!-- /widget-content -->						
                     </div> <!-- /widget -->	      		
                 </div> <!-- /span12 -->	      	
