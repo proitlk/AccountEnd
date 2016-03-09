@@ -49,22 +49,43 @@ namespace Account.Account
             }
         }
 
+        public bool Update()
+        {
+            try
+            {
+                String query = @"UPDATE tblm_supplier SET `SUP_NAME` = '" + Supplier + "', `SUP_CONTACTPERSON` = '" + ContactPerson + "', `SUP_ADDRESS` = '" + Address + "' ,`SUP_TELEPHONE` = '" + Telephone + "', `SUP_FAX` = '" + Fax + "', `SUP_EMAIL` = '" + EMail + "', `SUP_VAT` = '" + VAT + "', `SUP_NBT` = '" + NBT + "', `SUP_REMARK` = '" + Remark + "', `SUP_UPDATEDATE` =  '" + Editdate + "', `SUP_UPDATEUSER`= '" + Edituser + "' WHERE `SUP_NO` = '" + SupNo + "'";
+                cls_Connection.setData(query);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public string GetNextNo()
         {
             int NextNo;
             String Number;
-            String query = "SELECT IFNULL(MAX(SUP_NO),0) AS SUP_NO FROM tblm_supplier";
-            DataSet ds = cls_Connection.getDataSet(query);
-            if (ds.Tables[0].Rows.Count > 0)
+            try
             {
-                NextNo = Convert.ToInt32(ds.Tables[0].Rows[0]["SUP_NO"]);
-                NextNo++;
+                String query = "SELECT IFNULL(MAX(SUP_NO),0) AS SUP_NO FROM tblm_supplier";
+                DataSet ds = cls_Connection.getDataSet(query);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    NextNo = Convert.ToInt32(ds.Tables[0].Rows[0]["SUP_NO"]);
+                    NextNo++;
+                }
+                else
+                {
+                    NextNo = 1;
+                }
+                Number = NextNo.ToString();
             }
-            else
-            {
-                NextNo = 1;
+            catch (Exception)
+            {                
+                Number = "";
             }
-            Number = NextNo.ToString();
             return Number;
         }
 
