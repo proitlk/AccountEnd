@@ -5,7 +5,7 @@
 
     <script type="text/javascript">
         function HideLabel() {
-            var seconds = 5;
+            var seconds = 3;
             setTimeout(function() {
                 var div = document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
                 var div1 = document.getElementById("<%=lblTelephone.ClientID %>").style.display = "none";
@@ -109,7 +109,8 @@
                                                     onkeypress="return IsNumeric(event);"></asp:TextBox>
                                                 <span id="errorPhone" style="color: Red; display: none">Please Enter Valid Phone Number
                                                 </span>
-                                                <div class="controls col-lg-9" runat="server" id = "lblTelephone"></div>
+                                                <div class="controls col-lg-9" runat="server" id="lblTelephone">
+                                                </div>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -124,7 +125,8 @@
                                                 <asp:TextBox ID="txtFax" class="form-control" runat="server" MaxLength="10" onkeypress="return IsNumericFax(event);"></asp:TextBox>
                                                 <span id="errorFax" style="color: Red; display: none">Please Enter Valid Fax Number
                                                 </span>
-                                                <div class="controls col-lg-9" runat="server" id = "lblFax" style="color: Red;" ></div>
+                                                <div class="controls col-lg-9" runat="server" id="lblFax" style="color: Red;">
+                                                </div>
                                             </div>
                                             <!-- /controls -->
                                         </div>

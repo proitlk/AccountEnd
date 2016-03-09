@@ -11,7 +11,7 @@
 namespace Account.Account {
     
     
-    public partial class frmM_Bank {
+    public partial class frmM_BankBranch {
         
         /// <summary>
         /// lblMsg control.
@@ -23,22 +23,31 @@ namespace Account.Account {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMsg;
         
         /// <summary>
-        /// txtBankNo control.
+        /// cmbBank control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBankNo;
+        protected global::System.Web.UI.WebControls.DropDownList cmbBank;
         
         /// <summary>
-        /// txtBank control.
+        /// txtBranchNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBank;
+        protected global::System.Web.UI.WebControls.TextBox txtBranchNo;
+        
+        /// <summary>
+        /// txtBranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBranch;
         
         /// <summary>
         /// btnSave control.
@@ -68,12 +77,12 @@ namespace Account.Account {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// gdvBank control.
+        /// gdvBankBranch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvBank;
+        protected global::System.Web.UI.WebControls.GridView gdvBankBranch;
     }
 }

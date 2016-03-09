@@ -66,6 +66,8 @@
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
+    <Compile Include="Account\controller\clsM_Bank.cs" />
+    <Compile Include="Account\controller\clsM_BankBranch.cs" />
     <Compile Include="Account\controller\clsM_Supplier.cs" />
     <Compile Include="Account\frmAP_AdvancedPAymenet.aspx.cs">
       <DependentUpon>frmAP_AdvancedPAymenet.aspx</DependentUpon>
@@ -172,6 +174,13 @@
     <Compile Include="Account\frmM_Supplier.aspx.designer.cs">
       <DependentUpon>frmM_Supplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\frmM_BankBranch.aspx.cs">
+      <DependentUpon>frmM_BankBranch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmM_BankBranch.aspx.designer.cs">
+      <DependentUpon>frmM_BankBranch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\clsU_User.cs" />
     <Compile Include="Common\cls_CommonFunctions.cs" />
     <Compile Include="Common\cls_Connection.cs" />
@@ -205,6 +214,7 @@
     <Content Include="Account\frmGL_JournalVoucher.aspx" />
     <Content Include="Account\frmM_Bank.aspx" />
     <Content Include="Account\frmM_Supplier.aspx" />
+    <Content Include="Account\frmM_BankBranch.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />

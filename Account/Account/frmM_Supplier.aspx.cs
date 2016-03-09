@@ -12,14 +12,17 @@ using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
-
+//==============================================================
+//By            :   Thilanka
+//Date          :   09-Mar-2016
+//Description   :   Master Files Supplier Form
+//==============================================================
 namespace Account.Account
 {
     public partial class frmM_Supplier : System.Web.UI.Page
     {
         private ErrorLog error = new ErrorLog();
         clsM_Supplier supplier = new clsM_Supplier();
-        bool invalid = false;
 
         private void Reset()
         {
@@ -33,7 +36,7 @@ namespace Account.Account
 
         private void Save()
         {
-            if (cls_CommonFunctions.IsCreate("AP004") == true)
+            if (cls_CommonFunctions.IsCreate("M003") == true)
             {
                 if (ValidateSupplier() == true)
                 {
@@ -84,7 +87,7 @@ namespace Account.Account
 
         private void Update()
         {
-            if (cls_CommonFunctions.IsEdit("AP004") == true)
+            if (cls_CommonFunctions.IsEdit("M003") == true)
             {
                 if (ValidateSupplier() == true)
                 {
@@ -251,7 +254,8 @@ namespace Account.Account
             if (e.CommandName == "View")
             { // Retrieve the row index stored in the // CommandArgument property. 
                 int index = Convert.ToInt32(e.CommandArgument);
-                LoadTexboxes(index);
+                int x = gdvSupplier.PageIndex;
+                LoadTexboxes(x * 10 + index);
             }
         }
     }

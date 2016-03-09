@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true"
-    CodeBehind="frmM_Bank.aspx.cs" Inherits="Account.Account.frmM_Bank" %>
+    CodeBehind="frmM_BankBranch.aspx.cs" Inherits="Account.Account.frmM_BankBranch" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -21,38 +21,51 @@
                     <div class="col-lg-12">
                         <div class="widget ">
                             <div class="widget-header">
-                                <i class="icon-home"></i>
+                                <i class="icon-sitemap"></i>
                                 <h3>
-                                    Bank</h3>
+                                    Bank Branch</h3>
                             </div>
                             <!-- /widget-header -->
                             <div class="widget-content">
                                 <div class="col-lg-12 row" runat="server" id="lblMsg">
                                 </div>
                                 <div class="col-lg-6">
-                                    <form id="frmMBank" class="form-horizontal" action="">
+                                    <form id="frmMBankBranch" class="form-horizontal" action="">
                                     <fieldset>
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="BankNo">
-                                                    Bank No</label>
+                                                    Bank</label>
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtBankNo" class="form-control" runat="server" Enabled="false" MaxLength="11"
-                                                    required></asp:TextBox>
+                                                <asp:DropDownList ID="cmbBank" runat="server" class="form-control"
+                                                    OnSelectedIndexChanged="cmbBank_SelectedIndexChanged" AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="BranchNo">
+                                                    Branch No</label>
+                                            </div>
+                                            <!-- /controls -->
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtBranchNo" class="form-control" runat="server" 
+                                                    MaxLength="11" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
                                         <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
-                                                <label class="control-label" for="BankName">
-                                                    Bank Name</label>
+                                                <label class="control-label" for="BranchName">
+                                                    Branch Name</label>
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtBank" class="form-control" runat="server" MaxLength="45" required></asp:TextBox>
+                                                <asp:TextBox ID="txtBranch" class="form-control" runat="server" MaxLength="45" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -72,12 +85,13 @@
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-6">
                                     <h4>
-                                        Bank Details</h4>
-                                    <asp:GridView ID="gdvBank" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" OnRowCommand="gdvBank_RowCommand">
+                                        Bank Branch Details</h4>
+                                    <asp:GridView ID="gdvBankBranch" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                        AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" onrowcommand="gdvBankBranch_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Bank No" HeaderText="Bank No" />
-                                            <asp:BoundField ItemStyle-Width="300px" DataField="Bank Name" HeaderText="Bank Name" />
+                                            <asp:BoundField ItemStyle-Width="300px" DataField="Branch No" HeaderText="Branch No" />
+                                            <asp:BoundField ItemStyle-Width="300px" DataField="Branch Name" HeaderText="Branch Name" />
                                             <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
                                                 <ItemTemplate>
                                                     <asp:LinkButton ID="View" runat="server" CommandName="View" class="btn btn-info"

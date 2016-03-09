@@ -38,7 +38,7 @@ namespace Account.Account
         {
             try
             {
-                String query = @"INSERT INTO tblm_supplier(`SUP_NO`,`SUP_NAME`,`SUP_CONTACTPERSON`,`SUP_ADDRESS`,`SUP_TELEPHONE`,`SUP_FAX`,`SUP_EMAIL`,`SUP_VAT`,`SUP_NBT`,`SUP_REMARK`,`SUP_ACTIVE`,`SUP_CREATEUSER`,`SUP_CREATEDATE`,`SUP_UPDATEUSER`,`SUP_UPDATEDATE`,`SUP_STATUS`) 
+                String query = @"INSERT INTO TBLM_SUPPLIER(`SUP_NO`,`SUP_NAME`,`SUP_CONTACTPERSON`,`SUP_ADDRESS`,`SUP_TELEPHONE`,`SUP_FAX`,`SUP_EMAIL`,`SUP_VAT`,`SUP_NBT`,`SUP_REMARK`,`SUP_ACTIVE`,`SUP_CREATEUSER`,`SUP_CREATEDATE`,`SUP_UPDATEUSER`,`SUP_UPDATEDATE`,`SUP_STATUS`) 
                                  VALUES ('" + SupNo + "','" + Supplier + "','" + ContactPerson + "','" + Address + "','" + Telephone + "','" + Fax + "','" + EMail + "','" + VAT + "','" + NBT + "','" + Remark + "','" + Active + "','" + Createuser + "','" + Createdate + "','" + Edituser + "','" + Editdate + "','" + Status + "');";
                 cls_Connection.setData(query);
                 return true;
@@ -53,7 +53,7 @@ namespace Account.Account
         {
             try
             {
-                String query = @"UPDATE tblm_supplier SET `SUP_NAME` = '" + Supplier + "', `SUP_CONTACTPERSON` = '" + ContactPerson + "', `SUP_ADDRESS` = '" + Address + "' ,`SUP_TELEPHONE` = '" + Telephone + "', `SUP_FAX` = '" + Fax + "', `SUP_EMAIL` = '" + EMail + "', `SUP_VAT` = '" + VAT + "', `SUP_NBT` = '" + NBT + "', `SUP_REMARK` = '" + Remark + "', `SUP_UPDATEDATE` =  '" + Editdate + "', `SUP_UPDATEUSER`= '" + Edituser + "' WHERE `SUP_NO` = '" + SupNo + "'";
+                String query = @"UPDATE TBLM_SUPPLIER SET `SUP_NAME` = '" + Supplier + "', `SUP_CONTACTPERSON` = '" + ContactPerson + "', `SUP_ADDRESS` = '" + Address + "' ,`SUP_TELEPHONE` = '" + Telephone + "', `SUP_FAX` = '" + Fax + "', `SUP_EMAIL` = '" + EMail + "', `SUP_VAT` = '" + VAT + "', `SUP_NBT` = '" + NBT + "', `SUP_REMARK` = '" + Remark + "', `SUP_UPDATEDATE` =  '" + Editdate + "', `SUP_UPDATEUSER`= '" + Edituser + "' WHERE `SUP_NO` = '" + SupNo + "'";
                 cls_Connection.setData(query);
                 return true;
             }
@@ -69,7 +69,7 @@ namespace Account.Account
             String Number;
             try
             {
-                String query = "SELECT IFNULL(MAX(SUP_NO),0) AS SUP_NO FROM tblm_supplier";
+                String query = "SELECT IFNULL(MAX(SUP_NO),0) AS SUP_NO FROM TBLM_SUPPLIER";
                 DataSet ds = cls_Connection.getDataSet(query);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -91,14 +91,14 @@ namespace Account.Account
 
         public DataSet GetSupplier()
         {
-            String query = "SELECT SUP_NO AS `Supplier No`, SUP_NAME AS `Supplier Name` FROM tblm_supplier;";
+            String query = "SELECT SUP_NO AS `Supplier No`, SUP_NAME AS `Supplier Name` FROM TBLM_SUPPLIER;";
             DataSet ds = cls_Connection.getDataSet(query);
             return ds;
         }
 
         public bool GetSupplierDetails(int SupNo)
         {
-            String query = "SELECT SUP_NO, SUP_NAME, SUP_CONTACTPERSON, SUP_ADDRESS, SUP_TELEPHONE, SUP_FAX, SUP_EMAIL, SUP_VAT, SUP_NBT, SUP_REMARK FROM tblm_supplier WHERE SUP_NO = '" + SupNo + "'";
+            String query = "SELECT SUP_NO, SUP_NAME, SUP_CONTACTPERSON, SUP_ADDRESS, SUP_TELEPHONE, SUP_FAX, SUP_EMAIL, SUP_VAT, SUP_NBT, SUP_REMARK FROM TBLM_SUPPLIER WHERE SUP_NO = '" + SupNo + "'";
             DataSet ds = cls_Connection.getDataSet(query);
             if (ds.Tables[0].Rows.Count > 0)
             {

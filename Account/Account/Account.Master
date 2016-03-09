@@ -64,6 +64,7 @@
 					    </a>				
 					    <ul class="dropdown-menu">
 					        <li><a href="../Account/frmM_Bank.aspx">Bank</a></li>
+					        <li><a href="../Account/frmM_BankBranch.aspx">Bank Branch</a></li>
                             <li><a href="../Account/frmM_Supplier.aspx">Supplier</a></li>
 						    <li><a href="../Account/frmAP_Invoice.aspx">Invoice</a></li>
                             <li><a href="../Account/frmAP_AdvancedPAymenet.aspx">Advanced Payment</a></li>
