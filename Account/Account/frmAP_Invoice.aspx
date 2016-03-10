@@ -13,6 +13,57 @@
                 //                buttonImage: '../Images/calendar.png'
             });
         });
+        
+        function HideLabel() {
+            var seconds = 3;
+            setTimeout(function() {
+                var div = document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+            }, seconds * 1000);
+        };
+
+        //Validate Numeric
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        function IsNumeric(e) {
+            var keyCode = e.which ? e.which : e.keyCode
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+            document.getElementById("error").style.display = ret ? "none" : "inline";
+            return ret;
+        }
+
+        //AutoComplete
+        $(function() {
+            $("[id$=txtSupplier]").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: '<%=ResolveUrl("~/Account/frmAP_Invoice.aspx/GetSupplier") %>',
+                        data: "{ 'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function(data) {
+                            response($.map(data.d, function(item) {
+                                return {
+                                    label: item.split('-')[0],
+                                    val: item.split('-')[1]
+                                }
+                            }))
+                        },
+                        error: function(response) {
+                            alert(response.responseText);
+                        },
+                        failure: function(response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function(e, i) {
+                    $("[id$=hftxtSupplier]").val(i.item.val);
+                },
+                minLength: 1
+            });
+        });
+
     </script>
 
 </asp:Content>
@@ -41,7 +92,7 @@
                                                     Date</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtDate" runat="server" class="form-control" MaxLength="25"></asp:TextBox>
+                                                <asp:TextBox ID="txtDate" runat="server" class="form-control" MaxLength="25" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -53,7 +104,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:DropDownList ID="cmbBank" runat="server" class="form-control" AutoPostBack="true">
+                                                <asp:DropDownList ID="cmbBranch" runat="server" class="form-control" 
+                                                    AutoPostBack="true" onselectedindexchanged="cmbBranch_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
@@ -65,18 +117,19 @@
                                                     Invoice No</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtInvoiceNo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtInvoiceNo" runat="server" class="form-control" MaxLength="11" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /form-group -->                                        
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Supplier">
                                                     Supplier</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtSupplier" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtSupplier" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:HiddenField ID="hftxtSupplier" runat="server" />
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -87,23 +140,30 @@
                                                     Amount</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" MaxLength="10" required onkeypress="return IsNumeric(event);"></asp:TextBox>
+                                                <span id="error" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /form-group -->                                        
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Remark">
                                                     Remark</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="145" ></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /form-group --> 
-                                        
+                                        <!-- /form-group -->
+                                        <div class="form-actions">
+                                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" Width="150px"
+                                                OnClick="btnSave_Click" />
+                                            <asp:Button ID="btnCancel" class="btn" runat="server" Text="Cancel" OnClick="btnCancel_Click"
+                                                Width="150px" />
+                                        </div>
+                                        <!-- /form-actions -->
                                     </fieldset>
                                     </form>
                                 </div>
