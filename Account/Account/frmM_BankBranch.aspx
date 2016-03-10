@@ -52,7 +52,7 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtBranchNo" class="form-control" runat="server" 
+                                                <asp:TextBox ID="txtBranchNo" class="form-control" runat="server" Enabled =false
                                                     MaxLength="11" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
@@ -90,7 +90,8 @@
                                         AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" onrowcommand="gdvBankBranch_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Bank No" HeaderText="Bank No" />
-                                            <asp:BoundField ItemStyle-Width="300px" DataField="Branch No" HeaderText="Branch No" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Bank Name" HeaderText="Bank Name" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Branch No" HeaderText="Branch No" />
                                             <asp:BoundField ItemStyle-Width="300px" DataField="Branch Name" HeaderText="Branch Name" />
                                             <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
                                                 <ItemTemplate>

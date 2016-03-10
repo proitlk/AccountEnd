@@ -82,7 +82,7 @@ namespace Account.Account
 
         public DataSet GetToGrid()
         {
-            String query = "SELECT BRC_BANK_BNK_NO AS `Bank No`, BRC_NO AS `Branch No`, BRC_BRANCHNAME AS Name FROM TBLM_BANK_BRANCH;";
+            String query = "SELECT BRC_BANK_BNK_NO AS `Bank No`, BNK_NAME AS 'Bank Name', BRC_NO AS `Branch No`, BRC_BRANCHNAME AS `Branch Name` FROM TBLM_BANK_BRANCH AS C INNER JOIN TBLM_BANK AS B ON C.BRC_BANK_BNK_NO = B.BNK_NO ORDER BY B.BNK_NO,BRC_NO;";
             DataSet ds = cls_Connection.getDataSet(query);
             return ds;
         }
