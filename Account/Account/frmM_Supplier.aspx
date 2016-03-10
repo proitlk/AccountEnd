@@ -12,6 +12,7 @@
             }, seconds * 1000);
         };
 
+        //Validate Numeric
         var specialKeys = new Array();
         specialKeys.push(8); //Backspace
         function IsNumeric(e) {
@@ -24,6 +25,18 @@
             var keyCode = e.which ? e.which : e.keyCode
             var ret = (((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1));
             document.getElementById("errorFax").style.display = ret ? "none" : "inline";
+            return ret;
+        }
+        function IsNumericVAT(e) {
+            var keyCode = e.which ? e.which : e.keyCode
+            var ret = (((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1));
+            document.getElementById("errorVAT").style.display = ret ? "none" : "inline";
+            return ret;
+        }
+        function IsNumericNBT(e) {
+            var keyCode = e.which ? e.which : e.keyCode
+            var ret = (((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1));
+            document.getElementById("errorNBT").style.display = ret ? "none" : "inline";
             return ret;
         }
     </script>
@@ -153,7 +166,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtVAT" class="form-control" runat="server" MaxLength="10" required></asp:TextBox>
+                                                <asp:TextBox ID="txtVAT" class="form-control" runat="server" MaxLength="10" required onkeypress="return IsNumericVAT(event);"></asp:TextBox>
+                                                <span id="errorVAT" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -165,7 +179,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtNBT" class="form-control" runat="server" MaxLength="10" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNBT" class="form-control" runat="server" MaxLength="10" required onkeypress="return IsNumericNBT(event);"></asp:TextBox>
+                                                <span id="errorNBT" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
                                         </div>
