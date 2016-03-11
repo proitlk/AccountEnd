@@ -89,7 +89,7 @@ namespace Account.Account
                     }
                     catch (Exception)
                     {
-                    } 
+                    }
                 }
                 else
                 {
@@ -140,7 +140,7 @@ namespace Account.Account
                 dr["Supplier"] = ds.Tables[0].Rows[0]["Supplier"].ToString();
                 dr["Amount"] = ds.Tables[0].Rows[0]["Amount"].ToString();
                 dr["Remark"] = ds.Tables[0].Rows[0]["Remark"].ToString();
-                
+
                 gdvInvoice.DataSource = ds.Tables[0];
                 gdvInvoice.DataBind();
                 dt = ds.Tables[0];
@@ -153,13 +153,30 @@ namespace Account.Account
             {
                 LoadBranch();
             }
-            if ( txtDate.Text == "")
+            if (txtDate.Text == "")
             {
-                 txtDate.Text = "dd/mm/yyyy";
+                txtDate.Text = "dd/mm/yyyy";
             }
             if (txtAmount.Text == "")
             {
                 cls_CommonFunctions.SetTextBoxToZero(txtAmount);
+            }
+            try
+            {
+                String item = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+                if (item != "Select...")
+                {
+                    txtInvoiceNo.Text = clsInvoice.GetNextNo(item);
+                    txtSupplier.Focus();
+                }
+                else
+                {
+                    txtInvoiceNo.Text = "";
+                }
+            }
+            catch (Exception)
+            {
+                txtInvoiceNo.Focus();
             }
             viewData();
             cmbBranch.Focus();
@@ -180,8 +197,15 @@ namespace Account.Account
             try
             {
                 String item = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
-                txtInvoiceNo.Text = clsInvoice.GetNextNo(item);
-                txtSupplier.Focus();
+                if (item != "Select...")
+                {
+                    txtInvoiceNo.Text = clsInvoice.GetNextNo(item);
+                    txtSupplier.Focus();
+                }
+                else
+                {
+                    txtInvoiceNo.Text = "";
+                }
             }
             catch (Exception)
             {

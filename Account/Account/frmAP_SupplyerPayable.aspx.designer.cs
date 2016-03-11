@@ -68,103 +68,22 @@ namespace Account.Account {
         protected global::System.Web.UI.WebControls.TextBox txtSupplier;
         
         /// <summary>
-        /// Table1 control.
+        /// btnLoad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.Button btnLoad;
         
         /// <summary>
-        /// TableRow1 control.
+        /// gdvInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow TableRow1;
-        
-        /// <summary>
-        /// TableCell1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell1;
-        
-        /// <summary>
-        /// TableCell2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell2;
-        
-        /// <summary>
-        /// TableCell3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell3;
-        
-        /// <summary>
-        /// TableCell4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell4;
-        
-        /// <summary>
-        /// TableRow2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow TableRow2;
-        
-        /// <summary>
-        /// TableCell5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell5;
-        
-        /// <summary>
-        /// TableCell6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell6;
-        
-        /// <summary>
-        /// TableCell7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell7;
-        
-        /// <summary>
-        /// TableCell8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableCell TableCell8;
+        protected global::System.Web.UI.WebControls.GridView gdvInvoice;
         
         /// <summary>
         /// txtAmount control.

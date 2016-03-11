@@ -7,10 +7,10 @@
         //Calender - Datetimepicker
         $(function() {
             $("[id$=txtDate]").datepicker({
-                dateFormat: "dd/mm/yy",
-                showOn: 'button',
-                buttonImageOnly: true,
-                buttonImage: '../Images/calendar.png'
+                dateFormat: "dd/mm/yy"
+                //                showOn: 'button',
+                //                buttonImageOnly: true,
+                //                buttonImage: '../Images/calendar.png'
             });
         });
 
@@ -47,6 +47,13 @@
             });
         });
 
+        function HideLabel() {
+            var seconds = 3;
+            setTimeout(function() {
+                var div = document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+            }, seconds * 1000);
+        };
+
     </script>
 
 </asp:Content>
@@ -69,76 +76,94 @@
                                 <div class="col-lg-6">
                                     <fieldset>
                                         <form id="frmSupplierPayable" action="#">
-                                        <div class="control-group">
-                                            <label class="control-label" for="Date">
-                                                Date</label>
-                                            <div class="controls">
-                                                <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Date">
+                                                    Date</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtDate" class="form-control" runat="server" requid></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="Branch">
-                                                Branch</label>
-                                            <div class="controls">
-                                                <asp:DropDownList ID="cmbBranch" runat="server">
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Branch">
+                                                    Branch/ Location</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:DropDownList ID="cmbBranch" class="form-control" runat="server" OnSelectedIndexChanged="cmbBranch_SelectedIndexChanged"
+                                                    AutoPostBack="true">
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="PayableNo">
-                                                Payable No</label>
-                                            <div class="controls">
-                                                <asp:TextBox ID="txtPayableNo" runat="server"></asp:TextBox></div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="PayableNo">
+                                                    Payable No</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtPayableNo" class="form-control" runat="server"></asp:TextBox></div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="Supplier">
-                                                Supplier</label>
-                                            <div class="controls">
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Supplier">
+                                                    Supplier</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
                                                 <asp:HiddenField ID="hftxtSupplier" runat="server" />
-                                                <asp:TextBox ID="txtSupplier" class="span4" runat="server"></asp:TextBox></div>
-                                            <!-- /controls -->
-                                        </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <asp:Table ID="Table1" class="table-bordered th" Width="45%" runat="server">
-                                                <asp:TableRow ID="TableRow1" runat="server" TableSection="TableHeader" class="table-bordered th">
-                                                    <asp:TableCell ID="TableCell1" runat="server">Invoice No</asp:TableCell>
-                                                    <asp:TableCell ID="TableCell2" runat="server">Date</asp:TableCell>
-                                                    <asp:TableCell ID="TableCell3" runat="server">Total Amount</asp:TableCell>
-                                                    <asp:TableCell ID="TableCell4" runat="server">Status </asp:TableCell>
-                                                </asp:TableRow>
-                                                <asp:TableRow ID="TableRow2" runat="server">
-                                                    <asp:TableCell ID="TableCell5" runat="server"><label class="control-label" for="Supplier"> </label></asp:TableCell>
-                                                    <asp:TableCell ID="TableCell6" runat="server"><label class="control-label" for="Supplier"> </label></asp:TableCell>
-                                                    <asp:TableCell ID="TableCell7" runat="server"><label class="control-label" for="Supplier"> </label></asp:TableCell>
-                                                    <asp:TableCell ID="TableCell8" runat="server"><label class="control-label" for="Supplier"> </label></asp:TableCell>
-                                                </asp:TableRow>
-                                            </asp:Table>
-                                        </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="Amount">
-                                                Amount</label>
-                                            <div class="controls">
-                                                <asp:TextBox ID="txtAmount" runat="server" CssClass="required"></asp:TextBox>
+                                                <asp:TextBox ID="txtSupplier" class="form-control" runat="server" AutoPostBack="true"></asp:TextBox>
+                                                <asp:Button ID="btnLoad" class="btn" runat="server" Text="Load" OnClick="btnLoad_Click" />
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="Remark">
-                                                Remark</label>
-                                            <div class="controls">
-                                                <asp:TextBox ID="txtRemark" class="span4" runat="server"></asp:TextBox></div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="col-lg-12">
+                                                <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False"
+                                                    AllowPaging="True">
+                                                    <Columns>
+                                                        <asp:BoundField ItemStyle-Width="100px" DataField="Date" HeaderText="Date" />
+                                                        <asp:BoundField ItemStyle-Width="100px" DataField="Invoice No" HeaderText="Invoice No" />
+                                                        <asp:BoundField ItemStyle-Width="100px" DataField="Total Amount" HeaderText="Total Amount" />
+                                                        <asp:BoundField ItemStyle-Width="200px" DataField="Remark" HeaderText="Remark" />
+                                                        <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
+                                                            <ItemTemplate>
+                                                                <asp:CheckBox ID="View" runat="server"/>
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Amount">
+                                                    Amount</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" required></asp:TextBox>
+                                            </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Remark">
+                                                    Remark</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtRemark" class="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
                                         <div class="form-actions">
                                             <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" OnClick="btnSave_Click"
                                                 Width="200px" />

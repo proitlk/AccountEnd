@@ -56,16 +56,16 @@ namespace Account.Account
 
         public MySqlDataReader LoadBranch()
         {
-            String query = "SELECT BRCH_BRANCHNO, BRCH_NAME FROM tblu_branch";
+            String query = "SELECT BRCH_BRANCHNO, BRCH_NAME FROM TBLU_BRANCH";
             MySqlDataReader drBranches = cls_Connection.getData(query);
             return drBranches;
         }
 
-        public string GetNextNo()
+        public string GetNextNo(string Branch)
         {
             int NextNo;
             String Number;
-            String query = "SELECT IFNULL(MAX(EXP_NO),0) AS EXP_NO FROM tblap_expences";
+            String query = "SELECT IFNULL(MAX(RIGHT(EXP_NO,8)),0) AS EXP_NO FROM TBLAP_EXPENCES WHERE EXP_BRANCHNO = '" + Branch + "'; ";
             DataSet ds = cls_Connection.getDataSet(query);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -76,8 +76,15 @@ namespace Account.Account
             {
                 NextNo = 1;
             }
-            Number = NextNo.ToString("0000");
+            Number = Branch + NextNo.ToString("000000000");
             return Number;
         }
+
+        public DataSet LoadSuplierInvoice(string Supplier)
+        {
+            String query = "SELECT INV_NO AS `Invoice No`, INV_DATE AS `Date`, INV_AMOUNT AS `Total Amount`, INV_REMARK AS `Remark`, 0 AS Status FROM TBLAP_INVOICE WHERE INV_SUP_NO = '" + Supplier + "'";
+            DataSet ds = cls_Connection.getDataSet(query);
+            return ds;
+        } 
     }
 }
