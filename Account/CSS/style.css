@@ -132,7 +132,10 @@ td,th{padding: 5px 10px;border: 1px solid silver;}
 	list-style: none;
 	border-left: 1px solid #d9d9d9;
 }
-
+.row{
+	margin-left: -15px;
+	margin-right: -15px;
+}
 .subnavbar .container > ul > li > a {
 	display: block;
 	
