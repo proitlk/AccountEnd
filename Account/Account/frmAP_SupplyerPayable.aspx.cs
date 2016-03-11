@@ -90,8 +90,8 @@ namespace Account.Account
             if (dr.FieldCount > 0)
             {
                 cmbBranch.DataSource = dr;
-                cmbBranch.DataTextField = "BNK_NAME";
-                cmbBranch.DataValueField = "BNK_NO";
+                cmbBranch.DataTextField = "BRCH_NAME";
+                cmbBranch.DataValueField = "BRCH_BRANCHNO";
                 cmbBranch.DataBind();
             }
             cmbBranch.SelectedIndex = 0;

@@ -59,8 +59,8 @@
                                 <div class="col-lg-12 row" runat="server" id="lblMsg">
                                 </div>
                                 <div class="col-lg-6">
-                                    <form id="frmMSupplier" class="form-horizontal" action="">
                                     <fieldset>
+                                        <form id="frmMSupplier" class="form-horizontal" action="">
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="SupplierNo">
@@ -166,7 +166,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtVAT" class="form-control" runat="server" MaxLength="10" required onkeypress="return IsNumericVAT(event);"></asp:TextBox>
+                                                <asp:TextBox ID="txtVAT" class="form-control" runat="server" MaxLength="10" required
+                                                    onkeypress="return IsNumericVAT(event);"></asp:TextBox>
                                                 <span id="errorVAT" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
@@ -179,7 +180,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtNBT" class="form-control" runat="server" MaxLength="10" required onkeypress="return IsNumericNBT(event);"></asp:TextBox>
+                                                <asp:TextBox ID="txtNBT" class="form-control" runat="server" MaxLength="10" required
+                                                    onkeypress="return IsNumericNBT(event);"></asp:TextBox>
                                                 <span id="errorNBT" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
@@ -206,8 +208,8 @@
                                                 Width="150px" />
                                         </div>
                                         <!-- /form-actions -->
+                                        </form>
                                     </fieldset>
-                                    </form>
                                 </div>
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-6">

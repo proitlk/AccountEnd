@@ -30,8 +30,8 @@
                                 <div class="col-lg-12 row" runat="server" id="lblMsg">
                                 </div>
                                 <div class="col-lg-6">
-                                    <form id="frmMBank" class="form-horizontal" action="">
                                     <fieldset>
+                                        <form id="frmMBank" class="form-horizontal" action="">
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="BankNo">
@@ -66,8 +66,8 @@
                                                 Width="150px" />
                                         </div>
                                         <!-- /form-actions -->
+                                        </form>
                                     </fieldset>
-                                    </form>
                                 </div>
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-6">

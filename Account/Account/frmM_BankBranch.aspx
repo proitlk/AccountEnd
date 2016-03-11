@@ -30,8 +30,8 @@
                                 <div class="col-lg-12 row" runat="server" id="lblMsg">
                                 </div>
                                 <div class="col-lg-6">
-                                    <form id="frmMBankBranch" class="form-horizontal" action="">
                                     <fieldset>
+                                        <form id="frmMBankBranch" class="form-horizontal" action="">
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="BankNo">
@@ -39,8 +39,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:DropDownList ID="cmbBank" runat="server" class="form-control"
-                                                    OnSelectedIndexChanged="cmbBank_SelectedIndexChanged" AutoPostBack="true">
+                                                <asp:DropDownList ID="cmbBank" runat="server" class="form-control" OnSelectedIndexChanged="cmbBank_SelectedIndexChanged"
+                                                    AutoPostBack="true">
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
@@ -52,7 +52,7 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtBranchNo" class="form-control" runat="server" Enabled =false
+                                                <asp:TextBox ID="txtBranchNo" class="form-control" runat="server" Enabled="false"
                                                     MaxLength="11" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
@@ -79,15 +79,15 @@
                                                 Width="150px" />
                                         </div>
                                         <!-- /form-actions -->
+                                        </form>
                                     </fieldset>
-                                    </form>
                                 </div>
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-6">
                                     <h4>
                                         Bank Branch Details</h4>
                                     <asp:GridView ID="gdvBankBranch" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" onrowcommand="gdvBankBranch_RowCommand">
+                                        AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" OnRowCommand="gdvBankBranch_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Bank No" HeaderText="Bank No" />
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Bank Name" HeaderText="Bank Name" />

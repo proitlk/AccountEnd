@@ -16,7 +16,8 @@ using System.Collections.Generic;
 //==============================================================
 //By            :   Thilanka
 //Date          :   10-Mar-2016
-//Description   :   Account Payable Files Invoice Form
+//Description   :   Account Payable Files Invoice Form 
+//                  to get the details for Supplier Payable
 //==============================================================
 
 namespace Account.Account
@@ -33,6 +34,7 @@ namespace Account.Account
             txtDate.Text = "dd/mm/yyyy";
             cmbBranch.Focus();
             cmbBranch.SelectedIndex = -1;
+            viewData();
         }
 
         private void LoadBranch()
@@ -56,10 +58,11 @@ namespace Account.Account
                 {
                     try
                     {
+                        String item = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
                         clsInvoice.InvoiceNo = Convert.ToInt32(txtInvoiceNo.Text.Trim());
                         clsInvoice.InvDate = txtDate.Text.Trim();
-                        clsInvoice.BranchNo = Convert.ToInt32(cmbBranch.SelectedIndex);
-                        clsInvoice.SupplierNo = Convert.ToInt32(txtAmount.Text.Trim());
+                        clsInvoice.BranchNo = Convert.ToInt32(item);
+                        clsInvoice.SupplierNo = Convert.ToInt32(hftxtSupplier.Value);
                         clsInvoice.Amount = Convert.ToDecimal(txtAmount.Text.Trim());
                         clsInvoice.Remark = txtRemark.Text.Trim();
                         clsInvoice.IsCancel = 0;
@@ -74,6 +77,7 @@ namespace Account.Account
                             lblMsg.Visible = true;
                             ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
                             Reset();
+                            viewData();
                         }
                         else
                         {
@@ -87,6 +91,13 @@ namespace Account.Account
                     {
                     } 
                 }
+                else
+                {
+                    lblMsg.InnerHtml = "Transaction fail...";
+                    lblMsg.Attributes.Add("class", "alert alert-danger");
+                    lblMsg.Visible = true;
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                }
             }
         }
 
@@ -99,6 +110,40 @@ namespace Account.Account
             else
             {
                 return true;
+            }
+        }
+
+        private void viewData()
+        {
+            DataTable dt = new DataTable();
+            DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
+            DataColumn pBranch = new DataColumn("Branch", Type.GetType("System.String"));
+            DataColumn pCode = new DataColumn("Invoice No", Type.GetType("System.String"));
+            DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
+            DataColumn pAmount = new DataColumn("Amount", Type.GetType("System.String"));
+            DataColumn pRemark = new DataColumn("Remark", Type.GetType("System.String"));
+
+            dt.Columns.Add(pDate);
+            dt.Columns.Add(pBranch);
+            dt.Columns.Add(pCode);
+            dt.Columns.Add(pSupplier);
+            dt.Columns.Add(pAmount);
+            dt.Columns.Add(pRemark);
+
+            DataSet ds = clsInvoice.GetToGrid();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = dt.NewRow();
+                dr["Date"] = ds.Tables[0].Rows[0]["Date"].ToString();
+                dr["Branch"] = ds.Tables[0].Rows[0]["Branch"].ToString();
+                dr["Invoice No"] = ds.Tables[0].Rows[0]["Invoice No"].ToString();
+                dr["Supplier"] = ds.Tables[0].Rows[0]["Supplier"].ToString();
+                dr["Amount"] = ds.Tables[0].Rows[0]["Amount"].ToString();
+                dr["Remark"] = ds.Tables[0].Rows[0]["Remark"].ToString();
+                
+                gdvInvoice.DataSource = ds.Tables[0];
+                gdvInvoice.DataBind();
+                dt = ds.Tables[0];
             }
         }
 
@@ -116,6 +161,7 @@ namespace Account.Account
             {
                 cls_CommonFunctions.SetTextBoxToZero(txtAmount);
             }
+            viewData();
             cmbBranch.Focus();
         }
 
@@ -143,6 +189,13 @@ namespace Account.Account
             }
         }
 
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gdvInvoice.PageIndex = e.NewPageIndex;
+            this.viewData();
+        }
+
+        //AutoComplete  - Get Supplier
         [WebMethod]
         public static string[] GetSupplier(string prefix)
         {

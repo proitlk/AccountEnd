@@ -54,7 +54,7 @@ namespace Account.Account
             String Number;
             try
             {
-                String query = "SELECT IFNULL(MAX(INV_NO),0) AS INV_NO FROM TBLAP_INVOICE WHERE INV_BRANCHNO = '" + Location + "'";
+                String query = "SELECT IFNULL(MAX(RIGHT(INV_NO,9)),0) AS INV_NO FROM TBLAP_INVOICE WHERE INV_BRANCHNO = '" + Location + "'";
                 DataSet ds = cls_Connection.getDataSet(query);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
@@ -72,6 +72,13 @@ namespace Account.Account
                 Number = "";
             }
             return Number;
+        }
+
+        public DataSet GetToGrid()
+        {
+            String query = "SELECT INV_DATE AS `Date`, BRCH_NAME AS `Branch`, INV_NO AS `Invoice No`, SUP_NAME AS `Supplier`, INV_AMOUNT AS Amount, INV_REMARK AS Remark FROM TBLAP_INVOICE AS I INNER JOIN TBLU_BRANCH B ON I.INV_BRANCHNO = B.BRCH_BRANCHNO INNER JOIN TBLM_SUPPLIER S ON I.INV_SUP_NO = S.SUP_NO; ";
+            DataSet ds = cls_Connection.getDataSet(query);
+            return ds;
         }
     }
 }

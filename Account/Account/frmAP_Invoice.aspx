@@ -104,8 +104,8 @@
                                             </div>
                                             <!-- /controls -->
                                             <div class="controls col-lg-9">
-                                                <asp:DropDownList ID="cmbBranch" runat="server" class="form-control" 
-                                                    AutoPostBack="true" onselectedindexchanged="cmbBranch_SelectedIndexChanged">
+                                                <asp:DropDownList ID="cmbBranch" runat="server" class="form-control" AutoPostBack="true"
+                                                    OnSelectedIndexChanged="cmbBranch_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
@@ -117,7 +117,8 @@
                                                     Invoice No</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtInvoiceNo" runat="server" class="form-control" MaxLength="11" required></asp:TextBox>
+                                                <asp:TextBox ID="txtInvoiceNo" runat="server" class="form-control" MaxLength="11"
+                                                    required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -140,7 +141,8 @@
                                                     Amount</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" MaxLength="10" required onkeypress="return IsNumeric(event);"></asp:TextBox>
+                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" MaxLength="10" required
+                                                    onkeypress="return IsNumeric(event);"></asp:TextBox>
                                                 <span id="error" style="color: Red; display: none">Please Enter Valid Number</span>
                                             </div>
                                             <!-- /controls -->
@@ -152,7 +154,7 @@
                                                     Remark</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="145" ></asp:TextBox>
+                                                <asp:TextBox ID="txtRemark" runat="server" class="form-control" MaxLength="145"></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -171,6 +173,22 @@
                                 <div class="col-lg-6">
                                 </div>
                                 <!-- /col-lg-6 -->
+                                <div class="col-lg-12">
+                                    <h4>
+                                        Invoice Details</h4>
+                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                        AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10">
+                                        <Columns>
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Date" HeaderText="Date" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Branch" HeaderText="Branch" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Invoice No" HeaderText="Invoice No" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Amount" HeaderText="Amount" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Remark" HeaderText="Remark" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                                <!-- /col-lg-12 -->
                             </div>
                         </div>
                     </div>
