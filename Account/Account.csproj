@@ -11,6 +11,7 @@
     <RootNamespace>Account</RootNamespace>
     <AssemblyName>Account</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ApplicationIcon>payment.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,17 +66,18 @@
     <Compile Include="Account\Account.Master.designer.cs">
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
+    <Compile Include="Account\controller\clsAP_AdvancedPayment.cs" />
     <Compile Include="Account\controller\clsAP_Invoice.cs" />
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
     <Compile Include="Account\controller\clsM_Bank.cs" />
     <Compile Include="Account\controller\clsM_BankBranch.cs" />
     <Compile Include="Account\controller\clsM_Supplier.cs" />
-    <Compile Include="Account\frmAP_AdvancedPAymenet.aspx.cs">
-      <DependentUpon>frmAP_AdvancedPAymenet.aspx</DependentUpon>
+    <Compile Include="Account\frmAP_AdvancedPayment.aspx.cs">
+      <DependentUpon>frmAP_AdvancedPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\frmAP_AdvancedPAymenet.aspx.designer.cs">
-      <DependentUpon>frmAP_AdvancedPAymenet.aspx</DependentUpon>
+    <Compile Include="Account\frmAP_AdvancedPayment.aspx.designer.cs">
+      <DependentUpon>frmAP_AdvancedPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\frmAP_AgeAnalysis.aspx.cs">
       <DependentUpon>frmAP_AgeAnalysis.aspx</DependentUpon>
@@ -200,7 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Account.Master" />
-    <Content Include="Account\frmAP_AdvancedPAymenet.aspx" />
+    <Content Include="Account\frmAP_AdvancedPayment.aspx" />
     <Content Include="Account\frmAP_AgeAnalysis.aspx" />
     <Content Include="Account\frmAP_BalanceConfirmation.aspx" />
     <Content Include="Account\frmAP_DuePayment.aspx" />
@@ -246,6 +248,7 @@
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\jquery.validation.net.webforms.js" />
     <Content Include="js\jquery.validation.net.webforms.min.js" />
+    <Content Include="payment.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="font\fontawesome-webfont.eot" />
