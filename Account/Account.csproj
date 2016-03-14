@@ -67,6 +67,7 @@
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
     <Compile Include="Account\controller\clsAP_AdvancedPayment.cs" />
+    <Compile Include="Account\controller\clsAP_AgeAnalyst.cs" />
     <Compile Include="Account\controller\clsAP_Invoice.cs" />
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
     <Compile Include="Account\controller\clsM_Bank.cs" />

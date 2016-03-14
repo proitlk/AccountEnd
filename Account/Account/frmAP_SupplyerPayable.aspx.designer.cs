@@ -86,6 +86,42 @@ namespace Account.Account {
         protected global::System.Web.UI.WebControls.GridView gdvInvoice;
         
         /// <summary>
+        /// cmbBank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbBank;
+        
+        /// <summary>
+        /// cmbBankBranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbBankBranch;
+        
+        /// <summary>
+        /// txtChequeno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtChequeno;
+        
+        /// <summary>
+        /// txtAccount_no control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccount_no;
+        
+        /// <summary>
         /// txtAmount control.
         /// </summary>
         /// <remarks>
@@ -93,6 +129,24 @@ namespace Account.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAmount;
+        
+        /// <summary>
+        /// txtPaidAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPaidAmount;
+        
+        /// <summary>
+        /// txtBalanceAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBalanceAmount;
         
         /// <summary>
         /// txtRemark control.

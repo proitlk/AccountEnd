@@ -96,7 +96,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="BankNo">
@@ -121,7 +121,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Supplier">
@@ -133,7 +133,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Amount">
@@ -144,7 +144,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="AdvancedAmount">
@@ -157,7 +157,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="BalanceAmount">
@@ -169,7 +169,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Remark">
@@ -181,7 +181,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /control-group -->
+                                        <!-- /form-group -->
                                         <div class="form-actions">
                                             <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" Width="150px"
                                                 OnClick="btnSave_Click" />

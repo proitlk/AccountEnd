@@ -48,8 +48,8 @@ namespace Account.Account
                         supplierPayable.Chequeno = "123456";
                         supplierPayable.Accountno = "124557";
                         supplierPayable.Totalamount = Convert.ToDouble(txtAmount.Text.Trim());
-                        supplierPayable.Paidamount = 0;
-                        supplierPayable.Balanceamount = 0;
+                        supplierPayable.Paidamount = Convert.ToDouble(txtPaidAmount.Text.Trim());
+                        supplierPayable.Balanceamount = Convert.ToDouble(txtBalanceAmount.Text.Trim());
                         supplierPayable.Remark = txtRemark.Text.Trim();
                         supplierPayable.Is_fixasset = 1;
                         supplierPayable.Dpr_cat_no = 1;
@@ -117,11 +117,39 @@ namespace Account.Account
             cmbBranch.SelectedIndex = -1;
         }
 
+        private void LoadBank()
+        {
+            cmbBank.Items.Clear();
+            MySqlDataReader dr = supplierPayable.LoadBank();
+            cmbBank.Items.Add("Select...");
+            while (dr.Read())
+            {
+                cmbBank.Items.Add(dr.GetString("BNK_NO") + "- " + dr.GetString("BNK_NAME"));
+            }
+            cmbBank.SelectedIndex = -1;
+        }
+
+        private void LoadBankBranch(int Bank)
+        {
+            cmbBankBranch.Items.Clear();
+            MySqlDataReader dr = supplierPayable.LoadBankBranch(Bank);
+            cmbBankBranch.Items.Add("Select...");
+            while (dr.Read())
+            {
+                cmbBankBranch.Items.Add(dr.GetString("BRC_NO") + "- " + dr.GetString("BRC_BRANCHNAME"));
+            }
+            cmbBankBranch.SelectedIndex = -1;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (cmbBranch.SelectedIndex == -1)
             {
                 LoadBranch();
+            }
+            if (cmbBank.SelectedIndex == -1)
+            {
+                LoadBank();
             }
             if (txtDate.Text == "")
             {
@@ -214,7 +242,7 @@ namespace Account.Account
             dt.Columns.Add(pInvoiceNo);
             dt.Columns.Add(pAmount);
             dt.Columns.Add(pRemark);
-            
+
             DataSet ds = supplierPayable.LoadSuplierInvoice(Supplier);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -234,6 +262,15 @@ namespace Account.Account
             if (hftxtSupplier.Value != "")
             {
                 viewData();
+            }
+        }
+
+        protected void cmbBank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String item = cmbBank.SelectedValue.Split(char.Parse("-"))[0];
+            if (item != "Select...")
+            {
+                LoadBankBranch(Convert.ToInt32(item));
             }
         }
     }

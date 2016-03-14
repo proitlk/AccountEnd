@@ -61,6 +61,20 @@ namespace Account.Account
             return drBranches;
         }
 
+        public MySqlDataReader LoadBank()
+        {
+            String query = "SELECT BNK_NO, BNK_NAME FROM TBLM_BANK";
+            MySqlDataReader drBranches = cls_Connection.getData(query);
+            return drBranches;
+        }
+
+        public MySqlDataReader LoadBankBranch(int BankNo)
+        {
+            String query = "SELECT BRC_NO, BRC_BRANCHNAME FROM TBLM_BANK_BRANCH WHERE BRC_BANK_BNK_NO = '" + BankNo + "'";
+            MySqlDataReader drBranches = cls_Connection.getData(query); 
+            return drBranches;
+        }
+
         public string GetNextNo(string Branch)
         {
             int NextNo;

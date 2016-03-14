@@ -19,7 +19,7 @@ namespace Account
         private static MySqlConnection connect = null;
 
         //Get Connection
-        private static MySqlConnection DBConnect()
+        public static MySqlConnection DBConnect()
         {
             try
             {
@@ -124,6 +124,22 @@ namespace Account
                 //error.createErrorLog(e.Message, e.Source, "Data Downloading Error");
                 closeConnection();
                 return null;
+            }
+        }
+
+        public DataSet GetDataSet(MySqlCommand SqlCmd)
+        {
+            DataSet SqlDS = new DataSet();
+            try
+            {
+                SqlCmd.Connection = DBConnect();
+                MySqlDataAdapter Sqldap = new MySqlDataAdapter(SqlCmd);
+                Sqldap.Fill(SqlDS);
+                return SqlDS;
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
             }
         }
 

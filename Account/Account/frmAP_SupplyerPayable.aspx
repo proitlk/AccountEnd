@@ -122,7 +122,7 @@
                                             </div>
                                             <!-- /controls -->
                                         </div>
-                                        <!-- /form-group -->
+                                        <!-- /form-group -->                                        
                                         <div class="form-group">
                                             <div class="col-lg-12">
                                                 <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False"
@@ -144,11 +144,81 @@
                                         <!-- /form-group -->
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
+                                                <label class="control-label" for="Bank">
+                                                    Bank</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:DropDownList ID="cmbBank" class="form-control" runat="server"
+                                                    AutoPostBack="true" onselectedindexchanged="cmbBank_SelectedIndexChanged">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="BankBranch">
+                                                    Branch</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:DropDownList ID="cmbBankBranch" class="form-control" runat="server" 
+                                                    AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Chequeno">
+                                                    Cheque No</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtChequeno" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Accountno">
+                                                    Account No</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtAccount_no" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
                                                 <label class="control-label" for="Amount">
                                                     Amount</label>
                                             </div>
                                             <div class="controls col-lg-9">
                                                 <asp:TextBox ID="txtAmount" runat="server" class="form-control" required></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="PaidAmount">
+                                                    Paid Amount</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtPaidAmount" runat="server" class="form-control" required></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="BalanceAmount">
+                                                    Balance Amount</label>
+                                            </div>
+                                            <div class="controls col-lg-9">
+                                                <asp:TextBox ID="txtBalanceAmount" runat="server" class="form-control" required></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
