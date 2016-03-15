@@ -77,14 +77,14 @@
                                                     From Date</label>
                                             </div>
                                             <div class="controls col-lg-3">
-                                                <asp:TextBox ID="txtToDate" class="form-control" runat="server" requid></asp:TextBox>
+                                                <asp:TextBox ID="txtFromDate" class="form-control" runat="server" requid></asp:TextBox>
                                             </div>
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Date">
                                                     To Date</label>
                                             </div>
                                             <div class="controls col-lg-3">
-                                                <asp:TextBox ID="txtFromDate" class="form-control" runat="server" requid></asp:TextBox>
+                                                <asp:TextBox ID="txtToDate" class="form-control" runat="server" requid></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -98,7 +98,8 @@
                                                 <asp:HiddenField ID="hftxtSupplier" runat="server" />
                                             </div> 
                                             <div class="col-lg-1">                                                
-                                                <asp:CheckBox ID="chbAll" runat="server" />
+                                                <asp:CheckBox ID="chbAll" runat="server" 
+                                                    oncheckedchanged="chbAll_CheckedChanged" AutoPostBack="true" />
                                             </div>                                             
                                             <!-- /controls -->
                                         </div>
@@ -107,7 +108,7 @@
                                                 <asp:Button ID="btnPreview" class="btn btn-primary" runat="server" Text="Preview" 
                                                 Width="200px" onclick="btnPreview_Click" />
                                                 <asp:Button ID="btnCancel" class="btn" runat="server" Text="Cancel" 
-                                                Width="200px" />
+                                                Width="200px" onclick="btnCancel_Click" />
                                             </div>                                            
                                             <!-- /controls -->
                                         </div>

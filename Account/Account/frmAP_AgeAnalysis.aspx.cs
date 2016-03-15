@@ -29,7 +29,15 @@ namespace Account.Account
         private void viewData()
         {
             string Supplier;
-            Supplier = "1";
+            if (chbAll.Checked == true)
+            {
+                Supplier = "ALL";
+            }
+            else
+            {
+                Supplier = hftxtSupplier.Value;
+            }
+
             DataTable dt = new DataTable();
             DataColumn pName = new DataColumn("SUP_NAME", Type.GetType("System.String"));
             DataColumn pCage1 = new DataColumn("CAGE_01", Type.GetType("System.String"));
@@ -49,7 +57,7 @@ namespace Account.Account
             dt.Columns.Add(pCage6);
             dt.Columns.Add(pAmount);
 
-            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier);
+            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier,Convert.ToDateTime(txtFromDate.Text),Convert.ToDateTime(txtToDate.Text));
             if (ds.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = dt.NewRow();
@@ -68,9 +76,47 @@ namespace Account.Account
             }
         }
 
+        private void Reset()
+        {
+            cls_CommonFunctions.ClearTextBox(txtSupplier);
+            chbAll.Checked = false;
+            viewData();
+            txtFromDate.Text = "dd/mm/yyyy";
+            txtToDate.Text = "dd/mm/yyyy";
+
+            DataTable dt = new DataTable();
+            DataColumn pName = new DataColumn("SUP_NAME", Type.GetType("System.String"));
+            DataColumn pCage1 = new DataColumn("CAGE_01", Type.GetType("System.String"));
+            DataColumn pCage2 = new DataColumn("CAGE_02", Type.GetType("System.String"));
+            DataColumn pCage3 = new DataColumn("CAGE_03", Type.GetType("System.String"));
+            DataColumn pCage4 = new DataColumn("CAGE_04", Type.GetType("System.String"));
+            DataColumn pCage5 = new DataColumn("CAGE_05", Type.GetType("System.String"));
+            DataColumn pCage6 = new DataColumn("CAGE_06", Type.GetType("System.String"));
+            DataColumn pAmount = new DataColumn("INV_AMOUNT", Type.GetType("System.String"));
+
+            dt.Columns.Add(pName);
+            dt.Columns.Add(pCage1);
+            dt.Columns.Add(pCage2);
+            dt.Columns.Add(pCage3);
+            dt.Columns.Add(pCage4);
+            dt.Columns.Add(pCage5);
+            dt.Columns.Add(pCage6);
+            dt.Columns.Add(pAmount);
+
+            gdvInvoice.DataSource = dt;
+            gdvInvoice.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (txtFromDate.Text == "")
+            {
+                txtFromDate.Text = "dd/mm/yyyy";
+            }
+            if (txtToDate.Text == "")
+            {
+                txtToDate.Text = "dd/mm/yyyy";
+            }
         }
 
         protected void btnPreview_Click(object sender, EventArgs e)
@@ -97,6 +143,24 @@ namespace Account.Account
                 }
             }
             return Supplier.ToArray();
+        }
+
+        protected void chbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAll.Checked == true)
+            {
+                txtSupplier.Text = "";
+                txtSupplier.Enabled = false;
+            }
+            if (chbAll.Checked == false)
+            {
+                txtSupplier.Enabled = true;
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }

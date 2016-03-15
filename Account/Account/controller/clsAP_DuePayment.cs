@@ -13,21 +13,19 @@ using MySql.Data.MySqlClient;
 
 namespace Account.Account
 {
-    public class clsAP_AgeAnalyst
+    public class clsAP_DuePayment
     {
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetAgeAnalyst(string Supplier,DateTime fromDate, DateTime toDate)
+        public DataSet GetDuePayment(string Supplier)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
-            string rtn = "USP_AP_AGEANALYST";
+            string rtn = "USP_AP_DUEPAYMENT";
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Supplier", Supplier);
-            cmd.Parameters.AddWithValue("@FromDate", fromDate);
-            cmd.Parameters.AddWithValue("@ToDate", toDate);
             DataSet ds = conn.GetDataSet(cmd);
             return ds;
         }
