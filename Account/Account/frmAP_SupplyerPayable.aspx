@@ -207,7 +207,7 @@
                                                     Paid Amount</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtPaidAmount" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtPaidAmount" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -218,7 +218,7 @@
                                                     Balance Amount</label>
                                             </div>
                                             <div class="controls col-lg-9">
-                                                <asp:TextBox ID="txtBalanceAmount" runat="server" class="form-control" required></asp:TextBox>
+                                                <asp:TextBox ID="txtBalanceAmount" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
                                         </div>

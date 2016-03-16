@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\CrystalDecisions.Web\10.5.3700.0__692fbea5521e1304\CrystalDecisions.Web.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.2.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -68,7 +77,9 @@
     </Compile>
     <Compile Include="Account\controller\clsAP_AdvancedPayment.cs" />
     <Compile Include="Account\controller\clsAP_AgeAnalyst.cs" />
+    <Compile Include="Account\controller\clsAP_DuePayment.cs" />
     <Compile Include="Account\controller\clsAP_Invoice.cs" />
+    <Compile Include="Account\controller\clsAP_PaymentVoucher.cs" />
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
     <Compile Include="Account\controller\clsM_Bank.cs" />
     <Compile Include="Account\controller\clsM_BankBranch.cs" />
@@ -185,6 +196,31 @@
     <Compile Include="Account\frmM_BankBranch.aspx.designer.cs">
       <DependentUpon>frmM_BankBranch.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Report\dsAccount.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAccount.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Report\rptAP_AgeAnalyst.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAP_AgeAnalyst.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\frmAP_ChequePrint.aspx.cs">
+      <DependentUpon>frmAP_ChequePrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmAP_ChequePrint.aspx.designer.cs">
+      <DependentUpon>frmAP_ChequePrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\frmAP_PaymentVoucher.aspx.cs">
+      <DependentUpon>frmAP_PaymentVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmAP_PaymentVoucher.aspx.designer.cs">
+      <DependentUpon>frmAP_PaymentVoucher.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\clsU_User.cs" />
     <Compile Include="Common\cls_CommonFunctions.cs" />
     <Compile Include="Common\cls_Connection.cs" />
@@ -219,6 +255,8 @@
     <Content Include="Account\frmM_Bank.aspx" />
     <Content Include="Account\frmM_Supplier.aspx" />
     <Content Include="Account\frmM_BankBranch.aspx" />
+    <Content Include="Account\frmAP_ChequePrint.aspx" />
+    <Content Include="Account\frmAP_PaymentVoucher.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
@@ -252,12 +290,32 @@
     <Content Include="payment.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Account\Report\dsAccount.xsc">
+      <DependentUpon>dsAccount.xsd</DependentUpon>
+    </None>
+    <None Include="Account\Report\dsAccount.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAccount.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Account\Report\dsAccount.xss">
+      <DependentUpon>dsAccount.xsd</DependentUpon>
+    </None>
     <None Include="font\fontawesome-webfont.eot" />
     <None Include="font\fontawesome-webfont.svgz" />
     <None Include="font\fontawesome-webfont.ttf" />
     <None Include="font\fontawesome-webfont.woff" />
     <None Include="font\fontawesome-webfontd41d.eot" />
     <None Include="font\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Account\Report\rptAP_AgeAnalyst.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAP_AgeAnalyst.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

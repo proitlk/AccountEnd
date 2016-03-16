@@ -70,13 +70,15 @@
 						    <li><a href="../Account/frmAP_Invoice.aspx">Invoice</a></li>
                             <li><a href="../Account/frmAP_AdvancedPayment.aspx">Advanced Payment</a></li>
                             <li><a href="../Account/frmAP_SupplyerPayable.aspx">Supplier Payable</a></li>
-						    <li><a href="#">Utility Payable</a></li>
+						    <li><a href="../Account/frmAP_UtilityPayable.aspx">Utility Payable</a></li>
+						    <li><a href="../Account/frmAP_PaymentVoucher.aspx">Payment Voucher</a></li>
+						    <li><a href="../Account/frmAP_ChequePrint.aspx">Cheque Print</a></li>						    
 						    <li><a href="../Account/frmAP_AgeAnalysis.aspx">Age Analysis</a></li>
-						    <li><a href="#">Due Payment</a></li>
-						    <li><a href="#">Tax Report</a></li>
-						    <li><a href="#">WHT Report</a></li>
+						    <li><a href="../Account/frmAP_DuePayment.aspx">Due Payment</a></li>
+						    <li><a href="../Account/frmAP_TaxReport.aspx">Tax Report</a></li>
+						    <li><a href="../Account/frmAP_WHTReport.aspx">WHT Report</a></li>
 						    <li><a href="#">Balance Confirmation</a></li>
-						    <li><a href="#">Payment History Report</a></li>
+						    <li><a href="../Account/frmAP_PaymentHistoryReport.aspx">Payment History Report</a></li>
                         </ul>     				
 				    </li>
 				    <li class="dropdown">

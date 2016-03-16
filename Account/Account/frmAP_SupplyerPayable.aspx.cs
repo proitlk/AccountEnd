@@ -30,6 +30,8 @@ namespace Account.Account
             txtDate.Text = "dd/mm/yyyy";
         }
 
+        private void 
+
         private void Save()
         {
             if (cls_CommonFunctions.IsCreate("AP004") == true)

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAccount" targetNamespace="http://tempuri.org/dsAccount.xsd" xmlns:mstns="http://tempuri.org/dsAccount.xsd" xmlns="http://tempuri.org/dsAccount.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAccount" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsAccount" msprop:Generator_UserDSName="dsAccount" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AgeAnalyst" msprop:Generator_UserTableName="AgeAnalyst" msprop:Generator_RowDeletedName="AgeAnalystRowDeleted" msprop:Generator_TableClassName="AgeAnalystDataTable" msprop:Generator_RowChangedName="AgeAnalystRowChanged" msprop:Generator_RowClassName="AgeAnalystRow" msprop:Generator_RowChangingName="AgeAnalystRowChanging" msprop:Generator_RowEvArgName="AgeAnalystRowChangeEvent" msprop:Generator_RowEvHandlerName="AgeAnalystRowChangeEventHandler" msprop:Generator_TablePropName="AgeAnalyst" msprop:Generator_TableVarName="tableAgeAnalyst" msprop:Generator_RowDeletingName="AgeAnalystRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SUP_NAME" msprop:Generator_UserColumnName="SUP_NAME" msprop:Generator_ColumnPropNameInRow="SUP_NAME" msprop:Generator_ColumnVarNameInTable="columnSUP_NAME" msprop:Generator_ColumnPropNameInTable="SUP_NAMEColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CAGE_01" msprop:Generator_UserColumnName="CAGE_01" msprop:Generator_ColumnPropNameInRow="CAGE_01" msprop:Generator_ColumnVarNameInTable="columnCAGE_01" msprop:Generator_ColumnPropNameInTable="CAGE_01Column" type="xs:double" minOccurs="0" />
+              <xs:element name="CAGE_02" msprop:Generator_UserColumnName="CAGE_02" msprop:Generator_ColumnPropNameInRow="CAGE_02" msprop:Generator_ColumnVarNameInTable="columnCAGE_02" msprop:Generator_ColumnPropNameInTable="CAGE_02Column" type="xs:double" minOccurs="0" />
+              <xs:element name="CAGE_03" msprop:Generator_UserColumnName="CAGE_03" msprop:Generator_ColumnPropNameInRow="CAGE_03" msprop:Generator_ColumnVarNameInTable="columnCAGE_03" msprop:Generator_ColumnPropNameInTable="CAGE_03Column" type="xs:double" minOccurs="0" />
+              <xs:element name="CAGE_04" msprop:Generator_UserColumnName="CAGE_04" msprop:Generator_ColumnPropNameInRow="CAGE_04" msprop:Generator_ColumnVarNameInTable="columnCAGE_04" msprop:Generator_ColumnPropNameInTable="CAGE_04Column" type="xs:double" minOccurs="0" />
+              <xs:element name="CAGE_05" msprop:Generator_UserColumnName="CAGE_05" msprop:Generator_ColumnPropNameInRow="CAGE_05" msprop:Generator_ColumnVarNameInTable="columnCAGE_05" msprop:Generator_ColumnPropNameInTable="CAGE_05Column" type="xs:double" minOccurs="0" />
+              <xs:element name="CAGE_06" msprop:Generator_UserColumnName="CAGE_06" msprop:Generator_ColumnPropNameInRow="CAGE_06" msprop:Generator_ColumnVarNameInTable="columnCAGE_06" msprop:Generator_ColumnPropNameInTable="CAGE_06Column" type="xs:double" minOccurs="0" />
+              <xs:element name="INV_AMOUNT" msprop:Generator_UserColumnName="INV_AMOUNT" msprop:Generator_ColumnPropNameInRow="INV_AMOUNT" msprop:Generator_ColumnVarNameInTable="columnINV_AMOUNT" msprop:Generator_ColumnPropNameInTable="INV_AMOUNTColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="FROMDATE" msprop:Generator_UserColumnName="FROMDATE" msprop:Generator_ColumnPropNameInRow="FROMDATE" msprop:Generator_ColumnVarNameInTable="columnFROMDATE" msprop:Generator_ColumnPropNameInTable="FROMDATEColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TODATE" msprop:Generator_UserColumnName="TODATE" msprop:Generator_ColumnPropNameInRow="TODATE" msprop:Generator_ColumnVarNameInTable="columnTODATE" msprop:Generator_ColumnPropNameInTable="TODATEColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

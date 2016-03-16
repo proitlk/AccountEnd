@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true"
     CodeBehind="frmAP_AgeAnalysis.aspx.cs" Inherits="Account.Account.frmAP_AgeAnalysis" %>
 
+<%@ Register Assembly="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
+    Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript">
@@ -119,19 +122,9 @@
                                 <div class="col-lg-12">
                                     <h4>
                                          </h4>
-                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" PageSize="10">
-                                        <Columns>
-                                            <asp:BoundField ItemStyle-Width="200px" DataField="SUP_NAME" HeaderText="Supplier" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_01" HeaderText="01 to 30" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_02" HeaderText="30 to 45" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_03" HeaderText="45 to 60" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_04" HeaderText="60 to 90" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_05" HeaderText="90 to 120" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="CAGE_06" HeaderText="Over 120" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="INV_AMOUNT" HeaderText="Outstandings" />
-                                        </Columns>
-                                    </asp:GridView>
+                                    <CR:CrystalReportViewer ID="crvAgeAnalyst" runat="server" AutoDataBind="true" 
+                                        DisplayGroupTree="False" EnableDatabaseLogonPrompt="False" 
+                                        EnableParameterPrompt="False" />
                                 </div>
                             </div>
                             <!-- /widget-content -->
