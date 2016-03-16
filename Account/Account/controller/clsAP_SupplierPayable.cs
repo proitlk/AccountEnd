@@ -39,6 +39,7 @@ namespace Account.Account
         public string Createuser;
         public DateTime Createdate;
         public int Status;
+        public DataTable dtSupplierPayable;
 
         public bool Save()
         {
@@ -46,6 +47,8 @@ namespace Account.Account
             {
                 String query = @"INSERT INTO TBLAP_EXPENCES VALUES ('" + No + "','" + Date + "','" + BranchNo + "','" + Sup_No + "','" + Bnk_brc_No + "','" + Bnk_No + "','" + Chequeno + "','" + Accountno + "','" + Totalamount + "','" + Paidamount + "','" + Balanceamount + "','" + Remark + "','" + Is_fixasset + "','" + Dpr_cat_no + "','" + Depreciation + "','" + Memo + "','" + Expence_type + "','" + Isvoucherprint + "','" + Ischequeprint + "','" + Createuser + "','" + Createdate + "','" + Status + "');";
                 cls_Connection.setData(query);
+
+                
                 return true;
             }
             catch (Exception)

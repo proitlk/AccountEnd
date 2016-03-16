@@ -73,7 +73,7 @@
                                 <div class="col-lg-6">
                                     <h4>
                                         Bank Details</h4>
-                                    <asp:GridView ID="gdvBank" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                    <asp:GridView ID="gdvBank" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
                                         AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" OnRowCommand="gdvBank_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Bank No" HeaderText="Bank No" />

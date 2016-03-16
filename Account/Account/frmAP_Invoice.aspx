@@ -176,7 +176,7 @@
                                 <div class="col-lg-12">
                                     <h4>
                                         Invoice Details</h4>
-                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
                                         AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Date" HeaderText="Date" />

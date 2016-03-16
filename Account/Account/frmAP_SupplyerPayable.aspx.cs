@@ -27,23 +27,23 @@ namespace Account.Account
             cls_CommonFunctions.ClearTextBox(txtPayableNo, txtSupplier, txtAmount, txtRemark);
             cls_CommonFunctions.SetTextBoxToZero(txtAmount);
             LoadBranch();
-            viewData();
             txtDate.Text = "dd/mm/yyyy";
+            FormatTable();
         }
 
         private void FormatTable()
         {
-            dt = new DataTable();
+            DataTable dtS = new DataTable();
             DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
             DataColumn pInvoiceNo = new DataColumn("Invoice No", Type.GetType("System.String"));
             DataColumn pAmount = new DataColumn("Total Amount", Type.GetType("System.String"));
             DataColumn pRemark = new DataColumn("Remark", Type.GetType("System.String"));
 
-            dt.Columns.Add(pDate);
-            dt.Columns.Add(pInvoiceNo);
-            dt.Columns.Add(pAmount);
-            dt.Columns.Add(pRemark);
-            gdvInvoice.DataSource = dt;
+            dtS.Columns.Add(pDate);
+            dtS.Columns.Add(pInvoiceNo);
+            dtS.Columns.Add(pAmount);
+            dtS.Columns.Add(pRemark);
+            gdvInvoice.DataSource = dtS;
             gdvInvoice.DataBind();
         }
 
@@ -78,6 +78,20 @@ namespace Account.Account
                         supplierPayable.Createuser = cls_LoginInfo.getLoginUser();
                         supplierPayable.Createdate = System.DateTime.Now;
                         supplierPayable.Status = 1;
+
+                        foreach (GridViewRow row in gdvInvoice.Rows)
+                        {
+                            DataRow dr;
+                            dr = dt.NewRow();
+
+                            for (int i = 0; i < row.Cells.Count; i++)
+                            {
+                                dr[i] = row.Cells[i].Text;
+                            }
+                            dt.Rows.Add(dr);
+                        }
+                        
+                        supplierPayable.dtSupplierPayable = dt;
 
                         if (supplierPayable.Save() == true)
                         {
@@ -160,7 +174,6 @@ namespace Account.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            FormatTable();
             if (cmbBranch.SelectedIndex == -1)
             {
                 LoadBranch();
@@ -250,7 +263,8 @@ namespace Account.Account
         private void viewData()
         {
             string Supplier = hftxtSupplier.Value;
-            
+            double TotalAmount = 0;
+
             DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
             DataColumn pInvoiceNo = new DataColumn("Invoice No", Type.GetType("System.String"));
             DataColumn pAmount = new DataColumn("Total Amount", Type.GetType("System.String"));
@@ -272,6 +286,11 @@ namespace Account.Account
                 gdvInvoice.DataSource = ds.Tables[0];
                 gdvInvoice.DataBind();
                 dt = ds.Tables[0];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    TotalAmount = TotalAmount + Convert.ToDouble(dt.Rows[i]["Total Amount"]);
+                }
+                txtAmount.Text = TotalAmount.ToString("0.00");
             }
         }
 

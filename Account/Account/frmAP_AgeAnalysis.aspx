@@ -119,12 +119,11 @@
                                     </form>
                                 </div>
                                 <!-- /col-lg-6 -->
-                                <div class="col-lg-12">
-                                    <h4>
-                                         </h4>
+                                <div class="col-lg-12 c-report">
+                                    <h4></h4>
                                     <CR:CrystalReportViewer ID="crvAgeAnalyst" runat="server" AutoDataBind="true" 
                                         DisplayGroupTree="False" EnableDatabaseLogonPrompt="False" 
-                                        EnableParameterPrompt="False" />
+                                        EnableParameterPrompt="False" DisplayToolbar="False" />
                                 </div>
                             </div>
                             <!-- /widget-content -->

@@ -43,7 +43,7 @@ textarea {
 .table td {
 	vertical-align: middle;
 }
-td,th{padding: 5px 10px;border: 1px solid silver;}
+td,th{padding: 5px 10px;/*border: 1px solid silver;*/}
 .table-bordered th {
 	background: #E9E9E9;
 	background:-moz-linear-gradient(top, #E9E9E9 0%, #E9E9E9 100%); /* FF3.6+ */
@@ -60,7 +60,10 @@ td,th{padding: 5px 10px;border: 1px solid silver;}
 	text-transform: uppercase;
 }
 
-
+.pagi-table td,th{padding:5px 0;}
+.pagi-table td a{padding: 5px 10px;border: 1px solid silver;}
+.pagi-table td span{padding: 5px 10px;border: 1px solid silver; background-color:#ddd;}
+.pagi-table td a:hover{padding: 5px 10px;border: 1px solid silver; background-color:#ddd;}
 
 
 

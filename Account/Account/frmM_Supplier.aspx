@@ -215,7 +215,7 @@
                                 <div class="col-lg-6">
                                     <h4>
                                         Supplier Details</h4>
-                                    <asp:GridView ID="gdvSupplier" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                    <asp:GridView ID="gdvSupplier" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
                                         AllowPaging="true" OnPageIndexChanging="OnPageIndexChanging" PageSize="10" OnRowCommand="gdvSupplier_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Supplier No" HeaderText="Supplier No" />
