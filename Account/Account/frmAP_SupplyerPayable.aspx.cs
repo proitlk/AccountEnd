@@ -60,10 +60,10 @@ namespace Account.Account
                         supplierPayable.Date = Convert.ToDateTime(txtDate.Text);
                         supplierPayable.BranchNo = Convert.ToInt32(item);
                         supplierPayable.Sup_No = Convert.ToInt32(hftxtSupplier.Value);
-                        supplierPayable.Bnk_brc_No = 1;
-                        supplierPayable.Bnk_No = 1;
-                        supplierPayable.Chequeno = "123456";
-                        supplierPayable.Accountno = "124557";
+                        supplierPayable.Bnk_brc_No = Convert.ToInt32(cmbBankBranch.SelectedValue.Split(char.Parse("-"))[0]); 
+                        supplierPayable.Bnk_No = Convert.ToInt32(cmbBank.SelectedValue.Split(char.Parse("-"))[0]); 
+                        supplierPayable.Chequeno = txtChequeno.Text.Trim();
+                        supplierPayable.Accountno = txtAccount_no.Text.Trim();
                         supplierPayable.Totalamount = Convert.ToDouble(txtAmount.Text.Trim());
                         supplierPayable.Paidamount = Convert.ToDouble(txtPaidAmount.Text.Trim());
                         supplierPayable.Balanceamount = Convert.ToDouble(txtBalanceAmount.Text.Trim());
@@ -79,19 +79,35 @@ namespace Account.Account
                         supplierPayable.Createdate = System.DateTime.Now;
                         supplierPayable.Status = 1;
 
+                        DataTable dtS = new DataTable();
+                        DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
+                        DataColumn pInvoiceNo = new DataColumn("Invoice No", Type.GetType("System.String"));
+                        DataColumn pAmount = new DataColumn("Total Amount", Type.GetType("System.String"));
+                        DataColumn pRemark = new DataColumn("Remark", Type.GetType("System.String"));
+                        DataColumn pc = new DataColumn("Check", Type.GetType("System.Boolean"));
+
+                        dtS.Columns.Add(pDate);
+                        dtS.Columns.Add(pInvoiceNo);
+                        dtS.Columns.Add(pAmount);
+                        dtS.Columns.Add(pRemark);
+                        dtS.Columns.Add(pc);
                         foreach (GridViewRow row in gdvInvoice.Rows)
                         {
                             DataRow dr;
-                            dr = dt.NewRow();
+                            dr = dtS.NewRow();
 
                             for (int i = 0; i < row.Cells.Count; i++)
                             {
-                                dr[i] = row.Cells[i].Text;
+                                dr["Date"] = row.Cells[0].Text;
+                                dr["Invoice No"] = row.Cells[1].Text;
+                                dr["Total Amount"] = row.Cells[2].Text;
+                                dr["Remark"] = row.Cells[3].Text;
+                                dr["Check"] = (row.FindControl("View") as CheckBox).Checked;
                             }
-                            dt.Rows.Add(dr);
+                            dtS.Rows.Add(dr);
                         }
-                        
-                        supplierPayable.dtSupplierPayable = dt;
+
+                        supplierPayable.dtSupplierPayable = dtS;
 
                         if (supplierPayable.Save() == true)
                         {

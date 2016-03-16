@@ -47,8 +47,18 @@ namespace Account.Account
             {
                 String query = @"INSERT INTO TBLAP_EXPENCES VALUES ('" + No + "','" + Date + "','" + BranchNo + "','" + Sup_No + "','" + Bnk_brc_No + "','" + Bnk_No + "','" + Chequeno + "','" + Accountno + "','" + Totalamount + "','" + Paidamount + "','" + Balanceamount + "','" + Remark + "','" + Is_fixasset + "','" + Dpr_cat_no + "','" + Depreciation + "','" + Memo + "','" + Expence_type + "','" + Isvoucherprint + "','" + Ischequeprint + "','" + Createuser + "','" + Createdate + "','" + Status + "');";
                 cls_Connection.setData(query);
+                if (dtSupplierPayable.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dtSupplierPayable.Rows.Count; i++)
+                    {
+                        if (Convert.ToBoolean(dtSupplierPayable.Rows[i]["Check"]) == true)
+                        {
+                            String queryS = @"INSERT INTO TBLAP_EXPENCESDTL VALUES ('" + No + "','" + dtSupplierPayable.Rows[i]["Date"] + "','" + BranchNo + "','" + dtSupplierPayable.Rows[i]["Invoice No"].ToString() + "','" + Convert.ToDouble(dtSupplierPayable.Rows[i]["Total Amount"]) + "','" + Convert.ToDouble(dtSupplierPayable.Rows[i]["Total Amount"]) + "','" + 0 + "','" + 1 + "');";
+                            cls_Connection.setData(queryS);
+                        }
+                    }
+                }
 
-                
                 return true;
             }
             catch (Exception)
@@ -74,7 +84,7 @@ namespace Account.Account
         public MySqlDataReader LoadBankBranch(int BankNo)
         {
             String query = "SELECT BRC_NO, BRC_BRANCHNAME FROM TBLM_BANK_BRANCH WHERE BRC_BANK_BNK_NO = '" + BankNo + "'";
-            MySqlDataReader drBranches = cls_Connection.getData(query); 
+            MySqlDataReader drBranches = cls_Connection.getData(query);
             return drBranches;
         }
 
@@ -102,6 +112,6 @@ namespace Account.Account
             String query = "SELECT INV_NO AS `Invoice No`, INV_DATE AS `Date`, INV_AMOUNT AS `Total Amount`, INV_REMARK AS `Remark`, 0 AS Status FROM TBLAP_INVOICE WHERE INV_SUP_NO = '" + Supplier + "'";
             DataSet ds = cls_Connection.getDataSet(query);
             return ds;
-        } 
+        }
     }
 }
