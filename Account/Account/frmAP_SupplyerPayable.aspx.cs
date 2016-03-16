@@ -20,6 +20,7 @@ namespace Account.Account
     {
         private ErrorLog error = new ErrorLog();
         clsAP_SupplierPayable supplierPayable = new clsAP_SupplierPayable();
+        DataTable dt = new DataTable();
 
         private void Reset()
         {
@@ -30,7 +31,21 @@ namespace Account.Account
             txtDate.Text = "dd/mm/yyyy";
         }
 
-        private void 
+        private void FormatTable()
+        {
+            dt = new DataTable();
+            DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
+            DataColumn pInvoiceNo = new DataColumn("Invoice No", Type.GetType("System.String"));
+            DataColumn pAmount = new DataColumn("Total Amount", Type.GetType("System.String"));
+            DataColumn pRemark = new DataColumn("Remark", Type.GetType("System.String"));
+
+            dt.Columns.Add(pDate);
+            dt.Columns.Add(pInvoiceNo);
+            dt.Columns.Add(pAmount);
+            dt.Columns.Add(pRemark);
+            gdvInvoice.DataSource = dt;
+            gdvInvoice.DataBind();
+        }
 
         private void Save()
         {
@@ -145,6 +160,7 @@ namespace Account.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            FormatTable();
             if (cmbBranch.SelectedIndex == -1)
             {
                 LoadBranch();
@@ -234,7 +250,7 @@ namespace Account.Account
         private void viewData()
         {
             string Supplier = hftxtSupplier.Value;
-            DataTable dt = new DataTable();
+            
             DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
             DataColumn pInvoiceNo = new DataColumn("Invoice No", Type.GetType("System.String"));
             DataColumn pAmount = new DataColumn("Total Amount", Type.GetType("System.String"));
