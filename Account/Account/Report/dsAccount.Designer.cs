@@ -634,6 +634,30 @@ namespace Account.Account.Report {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class PaymentVoucherDataTable : global::System.Data.TypedTableBase<PaymentVoucherRow> {
             
+            private global::System.Data.DataColumn columnVoucherNo;
+            
+            private global::System.Data.DataColumn columnDataColumn2;
+            
+            private global::System.Data.DataColumn columnDataColumn3;
+            
+            private global::System.Data.DataColumn columnDataColumn4;
+            
+            private global::System.Data.DataColumn columnDataColumn5;
+            
+            private global::System.Data.DataColumn columnDataColumn6;
+            
+            private global::System.Data.DataColumn columnDataColumn7;
+            
+            private global::System.Data.DataColumn columnDataColumn8;
+            
+            private global::System.Data.DataColumn columnDataColumn9;
+            
+            private global::System.Data.DataColumn columnDataColumn10;
+            
+            private global::System.Data.DataColumn columnDataColumn11;
+            
+            private global::System.Data.DataColumn columnDataColumn12;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public PaymentVoucherDataTable() {
                 this.TableName = "PaymentVoucher";
@@ -665,6 +689,90 @@ namespace Account.Account.Report {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VoucherNoColumn {
+                get {
+                    return this.columnVoucherNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn2Column {
+                get {
+                    return this.columnDataColumn2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn3Column {
+                get {
+                    return this.columnDataColumn3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn4Column {
+                get {
+                    return this.columnDataColumn4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn5Column {
+                get {
+                    return this.columnDataColumn5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn6Column {
+                get {
+                    return this.columnDataColumn6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn7Column {
+                get {
+                    return this.columnDataColumn7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn8Column {
+                get {
+                    return this.columnDataColumn8;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn9Column {
+                get {
+                    return this.columnDataColumn9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn10Column {
+                get {
+                    return this.columnDataColumn10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn11Column {
+                get {
+                    return this.columnDataColumn11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn12Column {
+                get {
+                    return this.columnDataColumn12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -693,9 +801,21 @@ namespace Account.Account.Report {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public PaymentVoucherRow AddPaymentVoucherRow() {
+            public PaymentVoucherRow AddPaymentVoucherRow(string VoucherNo, string DataColumn2, string DataColumn3, string DataColumn4, string DataColumn5, string DataColumn6, string DataColumn7, string DataColumn8, string DataColumn9, string DataColumn10, string DataColumn11, string DataColumn12) {
                 PaymentVoucherRow rowPaymentVoucherRow = ((PaymentVoucherRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        VoucherNo,
+                        DataColumn2,
+                        DataColumn3,
+                        DataColumn4,
+                        DataColumn5,
+                        DataColumn6,
+                        DataColumn7,
+                        DataColumn8,
+                        DataColumn9,
+                        DataColumn10,
+                        DataColumn11,
+                        DataColumn12};
                 rowPaymentVoucherRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPaymentVoucherRow);
                 return rowPaymentVoucherRow;
@@ -715,10 +835,46 @@ namespace Account.Account.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
+                this.columnVoucherNo = base.Columns["VoucherNo"];
+                this.columnDataColumn2 = base.Columns["DataColumn2"];
+                this.columnDataColumn3 = base.Columns["DataColumn3"];
+                this.columnDataColumn4 = base.Columns["DataColumn4"];
+                this.columnDataColumn5 = base.Columns["DataColumn5"];
+                this.columnDataColumn6 = base.Columns["DataColumn6"];
+                this.columnDataColumn7 = base.Columns["DataColumn7"];
+                this.columnDataColumn8 = base.Columns["DataColumn8"];
+                this.columnDataColumn9 = base.Columns["DataColumn9"];
+                this.columnDataColumn10 = base.Columns["DataColumn10"];
+                this.columnDataColumn11 = base.Columns["DataColumn11"];
+                this.columnDataColumn12 = base.Columns["DataColumn12"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
+                this.columnVoucherNo = new global::System.Data.DataColumn("VoucherNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVoucherNo);
+                this.columnDataColumn2 = new global::System.Data.DataColumn("DataColumn2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn2);
+                this.columnDataColumn3 = new global::System.Data.DataColumn("DataColumn3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn3);
+                this.columnDataColumn4 = new global::System.Data.DataColumn("DataColumn4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn4);
+                this.columnDataColumn5 = new global::System.Data.DataColumn("DataColumn5", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn5);
+                this.columnDataColumn6 = new global::System.Data.DataColumn("DataColumn6", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn6);
+                this.columnDataColumn7 = new global::System.Data.DataColumn("DataColumn7", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn7);
+                this.columnDataColumn8 = new global::System.Data.DataColumn("DataColumn8", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn8);
+                this.columnDataColumn9 = new global::System.Data.DataColumn("DataColumn9", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn9);
+                this.columnDataColumn10 = new global::System.Data.DataColumn("DataColumn10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn10);
+                this.columnDataColumn11 = new global::System.Data.DataColumn("DataColumn11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn11);
+                this.columnDataColumn12 = new global::System.Data.DataColumn("DataColumn12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn12);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1113,6 +1269,306 @@ namespace Account.Account.Report {
             internal PaymentVoucherRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tablePaymentVoucher = ((PaymentVoucherDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string VoucherNo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.VoucherNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VoucherNo\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.VoucherNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn2 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn2\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn3 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn3\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn4 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn4\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn5 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn5\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn6 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn6\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn7 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn7\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn8 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn8Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn8\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn8Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn9 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn9\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn10 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn10\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn11 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn11\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn12 {
+                get {
+                    try {
+                        return ((string)(this[this.tablePaymentVoucher.DataColumn12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataColumn12\' in table \'PaymentVoucher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePaymentVoucher.DataColumn12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsVoucherNoNull() {
+                return this.IsNull(this.tablePaymentVoucher.VoucherNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetVoucherNoNull() {
+                this[this.tablePaymentVoucher.VoucherNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn2Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn2Null() {
+                this[this.tablePaymentVoucher.DataColumn2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn3Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn3Null() {
+                this[this.tablePaymentVoucher.DataColumn3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn4Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn4Null() {
+                this[this.tablePaymentVoucher.DataColumn4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn5Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn5Null() {
+                this[this.tablePaymentVoucher.DataColumn5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn6Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn6Null() {
+                this[this.tablePaymentVoucher.DataColumn6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn7Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn7Null() {
+                this[this.tablePaymentVoucher.DataColumn7Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn8Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn8Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn8Null() {
+                this[this.tablePaymentVoucher.DataColumn8Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn9Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn9Null() {
+                this[this.tablePaymentVoucher.DataColumn9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn10Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn10Null() {
+                this[this.tablePaymentVoucher.DataColumn10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn11Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn11Null() {
+                this[this.tablePaymentVoucher.DataColumn11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn12Null() {
+                return this.IsNull(this.tablePaymentVoucher.DataColumn12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn12Null() {
+                this[this.tablePaymentVoucher.DataColumn12Column] = global::System.Convert.DBNull;
             }
         }
         
