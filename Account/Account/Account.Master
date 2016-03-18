@@ -89,7 +89,7 @@
 						    <span>Account Receivable</span>
 					    </a> 
 					    <ul class="dropdown-menu">
-                            <li><a href="#">Trade Receivable</a></li>
+                            <li><a href="../Account/frmAR_Trade_Loan_Receivable.aspx">Trade Receivable</a></li>
 						    <li><a href="#">Debtor Aging</a></li>
                             <li><a href="#">Acc Receivable Tax Report</a></li>
                             <li><a href="#">Salles Report</a></li>

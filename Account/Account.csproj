@@ -81,6 +81,7 @@
     <Compile Include="Account\controller\clsAP_Invoice.cs" />
     <Compile Include="Account\controller\clsAP_PaymentVoucher.cs" />
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
+    <Compile Include="Account\controller\clsAR_Trade_Loan_Receivable.cs" />
     <Compile Include="Account\controller\clsM_Bank.cs" />
     <Compile Include="Account\controller\clsM_BankBranch.cs" />
     <Compile Include="Account\controller\clsM_Supplier.cs" />
@@ -221,6 +222,19 @@
     <Compile Include="Account\frmAP_PaymentVoucher.aspx.designer.cs">
       <DependentUpon>frmAP_PaymentVoucher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\frmAR_Trade_Loan_Receivable.aspx.cs">
+      <DependentUpon>frmAR_Trade_Loan_Receivable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmAR_Trade_Loan_Receivable.aspx.designer.cs">
+      <DependentUpon>frmAR_Trade_Loan_Receivable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Report\rptAR_LoanReceivable.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAR_LoanReceivable.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\clsU_User.cs" />
     <Compile Include="Common\cls_CommonFunctions.cs" />
     <Compile Include="Common\cls_Connection.cs" />
@@ -257,6 +271,7 @@
     <Content Include="Account\frmM_BankBranch.aspx" />
     <Content Include="Account\frmAP_ChequePrint.aspx" />
     <Content Include="Account\frmAP_PaymentVoucher.aspx" />
+    <Content Include="Account\frmAR_Trade_Loan_Receivable.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
@@ -283,6 +298,7 @@
     <Content Include="Images\calendar.png" />
     <Content Include="js\base.js" />
     <Content Include="js\bootstrap.js" />
+    <Content Include="js\footer.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\jquery.validation.net.webforms.js" />
@@ -312,6 +328,10 @@
     <EmbeddedResource Include="Account\Report\rptAP_AgeAnalyst.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAP_AgeAnalyst.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Report\rptAR_LoanReceivable.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAR_LoanReceivable.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

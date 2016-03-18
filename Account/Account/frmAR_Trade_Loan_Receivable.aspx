@@ -1,9 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true"
-    CodeBehind="frmAP_AgeAnalysis.aspx.cs" Inherits="Account.Account.frmAP_AgeAnalysis" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true" CodeBehind="frmAR_Trade_Loan_Receivable.aspx.cs" Inherits="Account.Account.frmAR_Trade_Loan_Receivable" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
     Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript">
@@ -19,10 +17,10 @@
 
         //AutoComplete
         $(function() {
-            $("[id$=txtSupplier]").autocomplete({
+        $("[id$=txtContractCode]").autocomplete({
                 source: function(request, response) {
                     $.ajax({
-                        url: '<%=ResolveUrl("~/Account/frmAP_SupplyerPayable.aspx/GetSupplier") %>',
+                    url: '<%=ResolveUrl("~/Account/frmAR_Trade_Loan_Receivable.aspx/GetSupplier") %>',
                         data: "{ 'prefix': '" + request.term + "'}",
                         dataType: "json",
                         type: "POST",
@@ -63,7 +61,7 @@
                             <div class="widget-header">
                                 <i class="icon-user"></i>
                                 <h3>
-                                    Age Analysis</h3>
+                                    Trade / Loan Receivable</h3>
                             </div>
                             <!-- /widget-header -->
                             <div class="widget-content">
@@ -93,12 +91,12 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
-                                                <label class="control-label" for="Supplier">
-                                                    Supplier</label>
+                                                <label class="control-label" for="Date">
+                                                    Contract Code</label>
                                             </div>
                                             <div class="controls col-lg-8">
-                                                <asp:TextBox ID="txtSupplier" class="form-control" runat="server" requid></asp:TextBox>                                                
-                                                <asp:HiddenField ID="hftxtSupplier" runat="server" />
+                                                <asp:TextBox ID="txtContractCode" class="form-control" runat="server" requid></asp:TextBox>                                                
+                                                <asp:HiddenField ID="hftxtContractCode" runat="server" />
                                             </div> 
                                             <div class="">                                                
                                                 <asp:CheckBox ID="chbAll" runat="server" 
@@ -121,9 +119,9 @@
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-12 c-report">
                                     <h4></h4>
-                                    <CR:CrystalReportViewer ID="crvAgeAnalyst" runat="server" AutoDataBind="true" 
-                                        DisplayGroupTree="False" EnableDatabaseLogonPrompt="False" 
-                                        EnableParameterPrompt="False" DisplayToolbar="False" />
+                                    <CR:CrystalReportViewer ID="crvLoanReceivable" runat="server" 
+                                        AutoDataBind="true" DisplayGroupTree="False" DisplayToolbar="False" 
+                                        EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" />
                                 </div>
                             </div>
                             <!-- /widget-content -->
