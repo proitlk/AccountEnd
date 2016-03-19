@@ -115,35 +115,11 @@ namespace Account.Account
 
         private void viewData()
         {
-            DataTable dt = new DataTable();
-            DataColumn pDate = new DataColumn("Date", Type.GetType("System.String"));
-            DataColumn pBranch = new DataColumn("Branch", Type.GetType("System.String"));
-            DataColumn pCode = new DataColumn("Invoice No", Type.GetType("System.String"));
-            DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
-            DataColumn pAmount = new DataColumn("Amount", Type.GetType("System.String"));
-            DataColumn pRemark = new DataColumn("Remark", Type.GetType("System.String"));
-
-            dt.Columns.Add(pDate);
-            dt.Columns.Add(pBranch);
-            dt.Columns.Add(pCode);
-            dt.Columns.Add(pSupplier);
-            dt.Columns.Add(pAmount);
-            dt.Columns.Add(pRemark);
-
             DataSet ds = clsInvoice.GetToGrid();
             if (ds.Tables[0].Rows.Count > 0)
             {
-                DataRow dr = dt.NewRow();
-                dr["Date"] = ds.Tables[0].Rows[0]["Date"].ToString();
-                dr["Branch"] = ds.Tables[0].Rows[0]["Branch"].ToString();
-                dr["Invoice No"] = ds.Tables[0].Rows[0]["Invoice No"].ToString();
-                dr["Supplier"] = ds.Tables[0].Rows[0]["Supplier"].ToString();
-                dr["Amount"] = ds.Tables[0].Rows[0]["Amount"].ToString();
-                dr["Remark"] = ds.Tables[0].Rows[0]["Remark"].ToString();
-
                 gdvInvoice.DataSource = ds.Tables[0];
                 gdvInvoice.DataBind();
-                dt = ds.Tables[0];
             }
         }
 

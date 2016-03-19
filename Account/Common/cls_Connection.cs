@@ -139,7 +139,8 @@ namespace Account
             }
             catch (Exception Ex)
             {
-                throw Ex;
+                //throw Ex;
+                return null;
             }
         }
 

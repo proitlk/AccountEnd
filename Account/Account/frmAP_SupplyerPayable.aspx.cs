@@ -24,10 +24,13 @@ namespace Account.Account
 
         private void Reset()
         {
-            cls_CommonFunctions.ClearTextBox(txtPayableNo, txtSupplier, txtAmount, txtRemark);
-            cls_CommonFunctions.SetTextBoxToZero(txtAmount);
+            cls_CommonFunctions.ClearTextBox(txtPayableNo, txtSupplier, txtAmount, txtRemark,txtAccount_no, txtChequeno);
+            cls_CommonFunctions.SetTextBoxToZero(txtAmount,txtPaidAmount, txtBalanceAmount);
             LoadBranch();
             txtDate.Text = "dd/mm/yyyy";
+            cmbBranch.SelectedIndex = 0;
+            cmbBank.SelectedIndex = 0;
+            cmbBankBranch.SelectedIndex = 0;
             FormatTable();
         }
 
@@ -49,7 +52,7 @@ namespace Account.Account
 
         private void Save()
         {
-            if (cls_CommonFunctions.IsCreate("AP004") == true)
+            if (cls_CommonFunctions.IsCreate("AP04") == true)
             {
                 if (ValidateSupplier() == true)
                 {
@@ -204,7 +207,7 @@ namespace Account.Account
             }
             if (txtAmount.Text == "")
             {
-                cls_CommonFunctions.SetTextBoxToZero(txtAmount);
+                cls_CommonFunctions.SetTextBoxToZero(txtAmount, txtPaidAmount, txtBalanceAmount);
             }
             try
             {

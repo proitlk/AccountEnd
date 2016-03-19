@@ -118,7 +118,7 @@
                                             <div class="controls col-lg-9">
                                                 <asp:HiddenField ID="hftxtSupplier" runat="server" />
                                                 <asp:TextBox ID="txtSupplier" class="form-control" runat="server" AutoPostBack="true"></asp:TextBox>
-                                                <asp:Button ID="btnLoad" class="btn" runat="server" Text="Load" OnClick="btnLoad_Click" />
+                                                <asp:Button ID="btnLoad" class="btn" runat="server" Text="View" OnClick="btnLoad_Click" />
                                             </div>
                                             <!-- /controls -->
                                         </div>

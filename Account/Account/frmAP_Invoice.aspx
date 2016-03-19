@@ -183,8 +183,8 @@
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Branch" HeaderText="Branch" />
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Invoice No" HeaderText="Invoice No" />
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Amount" HeaderText="Amount" />
-                                            <asp:BoundField ItemStyle-Width="200px" DataField="Remark" HeaderText="Remark" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Amount" HeaderText="Amount" ItemStyle-HorizontalAlign="Right"/>
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Remark"  HeaderText="Remark" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>

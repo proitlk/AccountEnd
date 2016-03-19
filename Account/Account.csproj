@@ -229,6 +229,12 @@
     <Compile Include="Account\frmAR_Trade_Loan_Receivable.aspx.designer.cs">
       <DependentUpon>frmAR_Trade_Loan_Receivable.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Report\rptAP_PaymentVoucher.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAP_PaymentVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Account\Report\rptAR_LoanReceivable.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +245,7 @@
     <Compile Include="Common\cls_CommonFunctions.cs" />
     <Compile Include="Common\cls_Connection.cs" />
     <Compile Include="Common\cls_LoginInfo.cs" />
+    <Compile Include="Common\cls_Setup.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -328,6 +335,10 @@
     <EmbeddedResource Include="Account\Report\rptAP_AgeAnalyst.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAP_AgeAnalyst.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Report\rptAP_PaymentVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAP_PaymentVoucher.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\Report\rptAR_LoanReceivable.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

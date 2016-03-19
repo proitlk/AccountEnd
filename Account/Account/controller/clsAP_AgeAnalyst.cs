@@ -31,5 +31,13 @@ namespace Account.Account
             DataSet ds = conn.GetDataSet(cmd);
             return ds;
         }
+
+        public MySqlDataReader LoadBranch()
+        {
+            String query = "SELECT BRCH_BRANCHNO, BRCH_NAME FROM TBLU_BRANCH";
+            MySqlDataReader drBranches = cls_Connection.getData(query);
+            return drBranches;
+        }
+
     }
 }

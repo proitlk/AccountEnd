@@ -31,12 +31,12 @@
                                     <h4>
                                     </h4>
                                     <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" PageSize="10">
+                                        AllowPaging="true" PageSize="10" onrowcommand="gdvInvoice_RowCommand">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="EXP_NO" HeaderText="Voucher No" />
                                             <asp:BoundField ItemStyle-Width="100px" DataField="EXP_DATE" HeaderText="Date" />
                                             <asp:BoundField ItemStyle-Width="300px" DataField="SUP_NAME" HeaderText="Supplier Name" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="EXP_PAIDAMOUNT" HeaderText="Amount" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="EXP_PAIDAMOUNT" HeaderText="Amount" ItemStyle-HorizontalAlign="Right" />
                                             <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
                                                 <ItemTemplate>
                                                     <asp:LinkButton ID="View" runat="server" CommandName="View" class="btn btn-info"

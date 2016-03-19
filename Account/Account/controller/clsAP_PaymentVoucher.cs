@@ -18,14 +18,14 @@ namespace Account.Account
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetPaymentVoucherSummery(string Supplier)
+        public DataSet GetPaymentVoucherDtl(string VoucherNo)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
-            string rtn = "";
+            string rtn = "USP_AP_PAYMENTVOUCHER_DTL";
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Supplier", Supplier);
+            cmd.Parameters.AddWithValue("@VoucherNo", VoucherNo);
             DataSet ds = conn.GetDataSet(cmd);
             return ds;
         }
@@ -35,6 +35,17 @@ namespace Account.Account
             connect = cls_Connection.DBConnect();
             connect.Open();
             string rtn = "USP_AP_PAYMENTVOUCHER_SMRY";
+            MySqlCommand cmd = new MySqlCommand(rtn, connect);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = conn.GetDataSet(cmd);
+            return ds;
+        }
+
+        public DataSet GetChequeSummery()
+        {
+            connect = cls_Connection.DBConnect();
+            connect.Open();
+            string rtn = "USP_AP_CHEQUE_SMRY";
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
             DataSet ds = conn.GetDataSet(cmd);
