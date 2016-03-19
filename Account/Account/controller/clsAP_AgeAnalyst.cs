@@ -18,7 +18,7 @@ namespace Account.Account
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetAgeAnalyst(string Supplier,DateTime fromDate, DateTime toDate)
+        public DataSet GetAgeAnalyst(string Supplier, string Branch, DateTime fromDate, DateTime toDate)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
@@ -26,6 +26,7 @@ namespace Account.Account
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Supplier", Supplier);
+            cmd.Parameters.AddWithValue("@Branch", Branch);
             cmd.Parameters.AddWithValue("@FromDate", fromDate);
             cmd.Parameters.AddWithValue("@ToDate", toDate);
             DataSet ds = conn.GetDataSet(cmd);

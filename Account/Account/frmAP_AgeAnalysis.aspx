@@ -163,8 +163,8 @@
                                             <asp:BoundField ItemStyle-Width="100px" DataField="INV_AMOUNT" HeaderText="Outstandings" ItemStyle-HorizontalAlign="Right"  />
                                         </Columns>
                                     </asp:GridView>
-                                     <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Print" 
-                                                Width="100px" onclick="btnPreview_Click" />
+                                     <asp:Button ID="btnPrint" class="btn btn-primary" runat="server" Text="Print" 
+                                                Width="100px" onclick="btnPrint_Click" />
                                 </div>
                             </div>
                             <!-- /widget-content -->

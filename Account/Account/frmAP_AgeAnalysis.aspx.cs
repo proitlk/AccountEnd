@@ -29,17 +29,24 @@ namespace Account.Account
 
         private void viewData()
         {
-            string Supplier;
+            string Supplier = "ALL", Branch = "ALL";
             if (chbAll.Checked == true)
             {
                 Supplier = "ALL";
             }
-            else
+            else if (chbAll.Checked == false)
             {
                 Supplier = hftxtSupplier.Value;
             }
-
-            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
+            if (chbAllBranch.Checked == true)
+            {
+                Branch = "ALL";
+            }
+            else if (chbAllBranch.Checked == false)
+            {
+                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+            }
+            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
 
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -99,6 +106,81 @@ namespace Account.Account
             //ReportDocument cryRpt = new ReportDocument();
             //cryRpt.Load(Server.MapPath("Report.rptAP_AgeAnalyst.rpt"));
             //crvAgeAnalyst.ReportSource = cryRpt;
+            btnPrint.Visible = true;
+        }
+
+        private void PrintAgeAnalyst()
+        {
+            string Supplier = "ALL", Branch = "ALL";
+            if (chbAll.Checked == true)
+            {
+                Supplier = "ALL";
+            }
+            else if (chbAll.Checked == false)
+            {
+                Supplier = hftxtSupplier.Value;
+            }
+            if (chbAllBranch.Checked == true)
+            {
+                Branch = "ALL";
+            }
+            else if (chbAllBranch.Checked == false)
+            {
+                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+            }
+            cls_Setup Setup = new cls_Setup();
+            // Retrieve the row that contains the button
+            // from the Rows collection.
+            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                AgeAnalyst = new clsAP_AgeAnalyst();
+                ReportDocument objReport = new ReportDocument();
+                objReport = new Report.rptAP_AgeAnalyst();
+
+                if (Setup.GetCompany("1") == true)
+                {
+                    foreach (CrystalDecisions.CrystalReports.Engine.FormulaFieldDefinition FormulaName in objReport.DataDefinition.FormulaFields)
+                    {
+                        switch (FormulaName.Name)
+                        {
+                            case "Company":
+                                FormulaName.Text = "'" + Setup.ComName + "'";
+                                break;
+
+                            case "Address":
+                                FormulaName.Text = "'" + Setup.Address + "'";
+                                break;
+
+                            case "Telephone":
+                                FormulaName.Text = "'" + Setup.Telephone + "'";
+                                break;
+
+                            case "Fax":
+                                FormulaName.Text = "'" + Setup.Fax + "'";
+                                break;
+
+                            case "EMail":
+                                FormulaName.Text = "'" + Setup.EMail + "'";
+                                break;
+
+                            case "Web":
+                                FormulaName.Text = "'" + Setup.Web + "'";
+                                break;
+                        }
+                    }
+                }
+
+                objReport.SetDataSource(ds.Tables[0]);
+                try
+                {
+                    int Copies = 1;
+                    objReport.PrintToPrinter(Copies, false, 1, 99999);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
         }
 
         private void Reset()
@@ -136,6 +218,7 @@ namespace Account.Account
             {
                 LoadBranch();
             }
+            btnPrint.Visible = false;
         }
 
         protected void btnPreview_Click(object sender, EventArgs e)
@@ -193,6 +276,11 @@ namespace Account.Account
             {
                 cmbBranch.Enabled = true;
             }
+        }
+
+        protected void btnPrint_Click(object sender, EventArgs e)
+        {
+            PrintAgeAnalyst();
         }
     }
 }

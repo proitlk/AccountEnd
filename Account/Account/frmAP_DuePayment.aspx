@@ -76,13 +76,47 @@
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
                                                 <label class="control-label" for="Date">
+                                                    From Date</label>
+                                            </div>
+                                            <div class="controls col-lg-3">
+                                                <asp:TextBox ID="txtFromDate" class="form-control" runat="server" requid></asp:TextBox>
+                                            </div>
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Date">
+                                                    To Date</label>
+                                            </div>
+                                            <div class="controls col-lg-3">
+                                                <asp:TextBox ID="txtToDate" class="form-control" runat="server" requid></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Branch">
+                                                    Branch/ Location</label>
+                                            </div>
+                                            <div class="controls col-lg-8">
+                                                <asp:DropDownList ID="cmbBranch" class="form-control" runat="server" 
+                                                    AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="">                                                
+                                                <asp:CheckBox ID="chbAllBranch" runat="server" 
+                                                    oncheckedchanged="chbAllBranch_CheckedChanged" AutoPostBack="true" />
+                                            </div> 
+                                            <!-- /controls -->
+                                        </div>
+                                        <!-- /form-group -->
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Date">
                                                     Supplier</label>
                                             </div>
                                             <div class="controls col-lg-8">
                                                 <asp:TextBox ID="txtSupplier" class="form-control" runat="server" requid></asp:TextBox>
                                                 <asp:HiddenField ID="hftxtSupplier" runat="server" />
                                             </div>
-                                            <div class="col-lg-1">
+                                            <div class="">
                                                 <asp:CheckBox ID="chbAll" runat="server" OnCheckedChanged="chbAll_CheckedChanged"
                                                     AutoPostBack="true" />
                                             </div>
@@ -114,6 +148,8 @@
                                             <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" />
                                         </Columns>
                                     </asp:GridView>
+                                    <asp:Button ID="btnPrint" class="btn btn-primary" runat="server" Text="Print" 
+                                                Width="100px" onclick="btnPrint_Click" />
                                 </div>
                             </div>
                             <!-- /widget-content -->

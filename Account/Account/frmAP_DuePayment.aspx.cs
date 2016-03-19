@@ -138,5 +138,18 @@ namespace Account.Account
             }
             return Supplier.ToArray();
         }
+
+        protected void chbAllBranch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAllBranch.Checked == true)
+            {
+                cmbBranch.SelectedIndex = 0;
+                cmbBranch.Enabled = false;
+            }
+            if (chbAllBranch.Checked == false)
+            {
+                cmbBranch.Enabled = true;
+            }
+        }
     }
 }
