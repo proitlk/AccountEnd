@@ -31,6 +31,10 @@ namespace Account.Account.Report {
         
         private LoanReceivableDataTable tableLoanReceivable;
         
+        private DueAmountDataTable tableDueAmount;
+        
+        private PaymentHitoryDataTable tablePaymentHitory;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -65,6 +69,12 @@ namespace Account.Account.Report {
                 }
                 if ((ds.Tables["LoanReceivable"] != null)) {
                     base.Tables.Add(new LoanReceivableDataTable(ds.Tables["LoanReceivable"]));
+                }
+                if ((ds.Tables["DueAmount"] != null)) {
+                    base.Tables.Add(new DueAmountDataTable(ds.Tables["DueAmount"]));
+                }
+                if ((ds.Tables["PaymentHitory"] != null)) {
+                    base.Tables.Add(new PaymentHitoryDataTable(ds.Tables["PaymentHitory"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -108,6 +118,24 @@ namespace Account.Account.Report {
         public LoanReceivableDataTable LoanReceivable {
             get {
                 return this.tableLoanReceivable;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DueAmountDataTable DueAmount {
+            get {
+                return this.tableDueAmount;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PaymentHitoryDataTable PaymentHitory {
+            get {
+                return this.tablePaymentHitory;
             }
         }
         
@@ -179,6 +207,12 @@ namespace Account.Account.Report {
                 if ((ds.Tables["LoanReceivable"] != null)) {
                     base.Tables.Add(new LoanReceivableDataTable(ds.Tables["LoanReceivable"]));
                 }
+                if ((ds.Tables["DueAmount"] != null)) {
+                    base.Tables.Add(new DueAmountDataTable(ds.Tables["DueAmount"]));
+                }
+                if ((ds.Tables["PaymentHitory"] != null)) {
+                    base.Tables.Add(new PaymentHitoryDataTable(ds.Tables["PaymentHitory"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -227,6 +261,18 @@ namespace Account.Account.Report {
                     this.tableLoanReceivable.InitVars();
                 }
             }
+            this.tableDueAmount = ((DueAmountDataTable)(base.Tables["DueAmount"]));
+            if ((initTable == true)) {
+                if ((this.tableDueAmount != null)) {
+                    this.tableDueAmount.InitVars();
+                }
+            }
+            this.tablePaymentHitory = ((PaymentHitoryDataTable)(base.Tables["PaymentHitory"]));
+            if ((initTable == true)) {
+                if ((this.tablePaymentHitory != null)) {
+                    this.tablePaymentHitory.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,6 +288,10 @@ namespace Account.Account.Report {
             base.Tables.Add(this.tablePaymentVoucher);
             this.tableLoanReceivable = new LoanReceivableDataTable();
             base.Tables.Add(this.tableLoanReceivable);
+            this.tableDueAmount = new DueAmountDataTable();
+            base.Tables.Add(this.tableDueAmount);
+            this.tablePaymentHitory = new PaymentHitoryDataTable();
+            base.Tables.Add(this.tablePaymentHitory);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -256,6 +306,16 @@ namespace Account.Account.Report {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeLoanReceivable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeDueAmount() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializePaymentHitory() {
             return false;
         }
         
@@ -317,6 +377,10 @@ namespace Account.Account.Report {
         public delegate void PaymentVoucherRowChangeEventHandler(object sender, PaymentVoucherRowChangeEvent e);
         
         public delegate void LoanReceivableRowChangeEventHandler(object sender, LoanReceivableRowChangeEvent e);
+        
+        public delegate void DueAmountRowChangeEventHandler(object sender, DueAmountRowChangeEvent e);
+        
+        public delegate void PaymentHitoryRowChangeEventHandler(object sender, PaymentHitoryRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1287,6 +1351,517 @@ namespace Account.Account.Report {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DueAmountDataTable : global::System.Data.TypedTableBase<DueAmountRow> {
+            
+            private global::System.Data.DataColumn columnSupplier;
+            
+            private global::System.Data.DataColumn columnInvoiceNo;
+            
+            private global::System.Data.DataColumn columnOutstanding;
+            
+            private global::System.Data.DataColumn columnAdvancePaid;
+            
+            private global::System.Data.DataColumn columnBalanceDue;
+            
+            private global::System.Data.DataColumn columnFromDate;
+            
+            private global::System.Data.DataColumn columnToDate;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountDataTable() {
+                this.TableName = "DueAmount";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal DueAmountDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected DueAmountDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SupplierColumn {
+                get {
+                    return this.columnSupplier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn InvoiceNoColumn {
+                get {
+                    return this.columnInvoiceNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn OutstandingColumn {
+                get {
+                    return this.columnOutstanding;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn AdvancePaidColumn {
+                get {
+                    return this.columnAdvancePaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn BalanceDueColumn {
+                get {
+                    return this.columnBalanceDue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FromDateColumn {
+                get {
+                    return this.columnFromDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ToDateColumn {
+                get {
+                    return this.columnToDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountRow this[int index] {
+                get {
+                    return ((DueAmountRow)(this.Rows[index]));
+                }
+            }
+            
+            public event DueAmountRowChangeEventHandler DueAmountRowChanging;
+            
+            public event DueAmountRowChangeEventHandler DueAmountRowChanged;
+            
+            public event DueAmountRowChangeEventHandler DueAmountRowDeleting;
+            
+            public event DueAmountRowChangeEventHandler DueAmountRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddDueAmountRow(DueAmountRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountRow AddDueAmountRow(string Supplier, string InvoiceNo, double Outstanding, double AdvancePaid, double BalanceDue, System.DateTime FromDate, System.DateTime ToDate) {
+                DueAmountRow rowDueAmountRow = ((DueAmountRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Supplier,
+                        InvoiceNo,
+                        Outstanding,
+                        AdvancePaid,
+                        BalanceDue,
+                        FromDate,
+                        ToDate};
+                rowDueAmountRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDueAmountRow);
+                return rowDueAmountRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                DueAmountDataTable cln = ((DueAmountDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DueAmountDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnSupplier = base.Columns["Supplier"];
+                this.columnInvoiceNo = base.Columns["InvoiceNo"];
+                this.columnOutstanding = base.Columns["Outstanding"];
+                this.columnAdvancePaid = base.Columns["AdvancePaid"];
+                this.columnBalanceDue = base.Columns["BalanceDue"];
+                this.columnFromDate = base.Columns["FromDate"];
+                this.columnToDate = base.Columns["ToDate"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnSupplier = new global::System.Data.DataColumn("Supplier", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier);
+                this.columnInvoiceNo = new global::System.Data.DataColumn("InvoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoiceNo);
+                this.columnOutstanding = new global::System.Data.DataColumn("Outstanding", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutstanding);
+                this.columnAdvancePaid = new global::System.Data.DataColumn("AdvancePaid", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdvancePaid);
+                this.columnBalanceDue = new global::System.Data.DataColumn("BalanceDue", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBalanceDue);
+                this.columnFromDate = new global::System.Data.DataColumn("FromDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromDate);
+                this.columnToDate = new global::System.Data.DataColumn("ToDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToDate);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountRow NewDueAmountRow() {
+                return ((DueAmountRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DueAmountRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(DueAmountRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DueAmountRowChanged != null)) {
+                    this.DueAmountRowChanged(this, new DueAmountRowChangeEvent(((DueAmountRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DueAmountRowChanging != null)) {
+                    this.DueAmountRowChanging(this, new DueAmountRowChangeEvent(((DueAmountRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DueAmountRowDeleted != null)) {
+                    this.DueAmountRowDeleted(this, new DueAmountRowChangeEvent(((DueAmountRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DueAmountRowDeleting != null)) {
+                    this.DueAmountRowDeleting(this, new DueAmountRowChangeEvent(((DueAmountRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveDueAmountRow(DueAmountRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAccount ds = new dsAccount();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DueAmountDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PaymentHitoryDataTable : global::System.Data.TypedTableBase<PaymentHitoryRow> {
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryDataTable() {
+                this.TableName = "PaymentHitory";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal PaymentHitoryDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected PaymentHitoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryRow this[int index] {
+                get {
+                    return ((PaymentHitoryRow)(this.Rows[index]));
+                }
+            }
+            
+            public event PaymentHitoryRowChangeEventHandler PaymentHitoryRowChanging;
+            
+            public event PaymentHitoryRowChangeEventHandler PaymentHitoryRowChanged;
+            
+            public event PaymentHitoryRowChangeEventHandler PaymentHitoryRowDeleting;
+            
+            public event PaymentHitoryRowChangeEventHandler PaymentHitoryRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddPaymentHitoryRow(PaymentHitoryRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryRow AddPaymentHitoryRow() {
+                PaymentHitoryRow rowPaymentHitoryRow = ((PaymentHitoryRow)(this.NewRow()));
+                object[] columnValuesArray = new object[0];
+                rowPaymentHitoryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPaymentHitoryRow);
+                return rowPaymentHitoryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                PaymentHitoryDataTable cln = ((PaymentHitoryDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PaymentHitoryDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryRow NewPaymentHitoryRow() {
+                return ((PaymentHitoryRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PaymentHitoryRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(PaymentHitoryRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PaymentHitoryRowChanged != null)) {
+                    this.PaymentHitoryRowChanged(this, new PaymentHitoryRowChangeEvent(((PaymentHitoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PaymentHitoryRowChanging != null)) {
+                    this.PaymentHitoryRowChanging(this, new PaymentHitoryRowChangeEvent(((PaymentHitoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PaymentHitoryRowDeleted != null)) {
+                    this.PaymentHitoryRowDeleted(this, new PaymentHitoryRowChangeEvent(((PaymentHitoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PaymentHitoryRowDeleting != null)) {
+                    this.PaymentHitoryRowDeleting(this, new PaymentHitoryRowChangeEvent(((PaymentHitoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovePaymentHitoryRow(PaymentHitoryRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAccount ds = new dsAccount();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PaymentHitoryDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -1982,6 +2557,211 @@ namespace Account.Account.Report {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class DueAmountRow : global::System.Data.DataRow {
+            
+            private DueAmountDataTable tableDueAmount;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal DueAmountRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDueAmount = ((DueAmountDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Supplier {
+                get {
+                    try {
+                        return ((string)(this[this.tableDueAmount.SupplierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Supplier\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.SupplierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string InvoiceNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableDueAmount.InvoiceNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceNo\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.InvoiceNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double Outstanding {
+                get {
+                    try {
+                        return ((double)(this[this.tableDueAmount.OutstandingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Outstanding\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.OutstandingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double AdvancePaid {
+                get {
+                    try {
+                        return ((double)(this[this.tableDueAmount.AdvancePaidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AdvancePaid\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.AdvancePaidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public double BalanceDue {
+                get {
+                    try {
+                        return ((double)(this[this.tableDueAmount.BalanceDueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceDue\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.BalanceDueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FromDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableDueAmount.FromDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromDate\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.FromDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime ToDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableDueAmount.ToDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToDate\' in table \'DueAmount\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDueAmount.ToDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSupplierNull() {
+                return this.IsNull(this.tableDueAmount.SupplierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSupplierNull() {
+                this[this.tableDueAmount.SupplierColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsInvoiceNoNull() {
+                return this.IsNull(this.tableDueAmount.InvoiceNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetInvoiceNoNull() {
+                this[this.tableDueAmount.InvoiceNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsOutstandingNull() {
+                return this.IsNull(this.tableDueAmount.OutstandingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetOutstandingNull() {
+                this[this.tableDueAmount.OutstandingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsAdvancePaidNull() {
+                return this.IsNull(this.tableDueAmount.AdvancePaidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetAdvancePaidNull() {
+                this[this.tableDueAmount.AdvancePaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsBalanceDueNull() {
+                return this.IsNull(this.tableDueAmount.BalanceDueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetBalanceDueNull() {
+                this[this.tableDueAmount.BalanceDueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFromDateNull() {
+                return this.IsNull(this.tableDueAmount.FromDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFromDateNull() {
+                this[this.tableDueAmount.FromDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsToDateNull() {
+                return this.IsNull(this.tableDueAmount.ToDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetToDateNull() {
+                this[this.tableDueAmount.ToDateColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class PaymentHitoryRow : global::System.Data.DataRow {
+            
+            private PaymentHitoryDataTable tablePaymentHitory;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal PaymentHitoryRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePaymentHitory = ((PaymentHitoryDataTable)(this.Table));
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2061,6 +2841,68 @@ namespace Account.Account.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public LoanReceivableRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class DueAmountRowChangeEvent : global::System.EventArgs {
+            
+            private DueAmountRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountRowChangeEvent(DueAmountRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DueAmountRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class PaymentHitoryRowChangeEvent : global::System.EventArgs {
+            
+            private PaymentHitoryRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryRowChangeEvent(PaymentHitoryRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public PaymentHitoryRow Row {
                 get {
                     return this.eventRow;
                 }

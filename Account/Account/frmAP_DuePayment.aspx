@@ -143,9 +143,19 @@
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
                                             <asp:BoundField ItemStyle-Width="100px" DataField="InvoiceNo" HeaderText="Invoice No" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Outstanding" HeaderText="Outstanding" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="AdvancePaid" HeaderText="Advance Paid" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Outstanding" HeaderText="Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="AdvancePaid" HeaderText="Advance Paid" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" ItemStyle-HorizontalAlign="Right" />
+                                        </Columns>
+                                    </asp:GridView>
+                                     <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" ShowHeader="False" Font-Bold="True"
+                                        AllowPaging="true" PageSize="10">
+                                        <Columns>
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="InvoiceNo" HeaderText="Invoice No" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Outstanding" HeaderText="Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="AdvancePaid" HeaderText="Advance Paid" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" ItemStyle-HorizontalAlign="Right" />
                                         </Columns>
                                     </asp:GridView>
                                     <asp:Button ID="btnPrint" class="btn btn-primary" runat="server" Text="Print" 

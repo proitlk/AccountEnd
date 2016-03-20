@@ -18,7 +18,7 @@ namespace Account.Account
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetAgeAnalyst(string Supplier, string Branch, DateTime fromDate, DateTime toDate)
+        public DataSet GetAgeAnalyst(string Supplier, string Branch, string fromDate, string toDate)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();

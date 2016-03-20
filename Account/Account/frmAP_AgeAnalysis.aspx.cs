@@ -46,7 +46,7 @@ namespace Account.Account
             {
                 Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
             }
-            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
+            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
 
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -131,7 +131,7 @@ namespace Account.Account
             cls_Setup Setup = new cls_Setup();
             // Retrieve the row that contains the button
             // from the Rows collection.
-            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
+            DataSet ds = AgeAnalyst.GetAgeAnalyst(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
             if (ds.Tables[0].Rows.Count > 0)
             {
                 AgeAnalyst = new clsAP_AgeAnalyst();
@@ -187,9 +187,38 @@ namespace Account.Account
         {
             cls_CommonFunctions.ClearTextBox(txtSupplier);
             chbAll.Checked = false;
+            chbAllBranch.Checked = false;
+            txtSupplier.Enabled = true;
+            cmbBranch.Enabled = true;
             viewData();
             txtFromDate.Text = "dd/mm/yyyy";
             txtToDate.Text = "dd/mm/yyyy";
+            LoadBranch(); ;
+
+            DataTable dt = new DataTable();
+            DataColumn pName = new DataColumn("SUP_NAME", Type.GetType("System.String"));
+            DataColumn pCage1 = new DataColumn("CAGE_01", Type.GetType("System.String"));
+            DataColumn pCage2 = new DataColumn("CAGE_02", Type.GetType("System.String"));
+            DataColumn pCage3 = new DataColumn("CAGE_03", Type.GetType("System.String"));
+            DataColumn pCage4 = new DataColumn("CAGE_04", Type.GetType("System.String"));
+            DataColumn pCage5 = new DataColumn("CAGE_05", Type.GetType("System.String"));
+            DataColumn pCage6 = new DataColumn("CAGE_06", Type.GetType("System.String"));
+            DataColumn pAmount = new DataColumn("INV_AMOUNT", Type.GetType("System.String"));
+
+            dt.Columns.Add(pName);
+            dt.Columns.Add(pCage1);
+            dt.Columns.Add(pCage2);
+            dt.Columns.Add(pCage3);
+            dt.Columns.Add(pCage4);
+            dt.Columns.Add(pCage5);
+            dt.Columns.Add(pCage6);
+            dt.Columns.Add(pAmount);
+
+            gdvTotal.DataSource = dt;
+            gdvTotal.DataBind();
+            gdvInvoice.DataSource = dt;
+            gdvInvoice.DataBind();
+            btnPrint.Visible = false;
         }
 
         private void LoadBranch()
