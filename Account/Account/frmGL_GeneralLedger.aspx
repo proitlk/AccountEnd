@@ -60,8 +60,10 @@
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="Edate" HeaderText="Date" />                                            
                                             <asp:BoundField ItemStyle-Width="300px" DataField="des" HeaderText="Description" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Dr" HeaderText="Amount Dr" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Cr" HeaderText="Amount Cr" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Amount" HeaderText="Amount" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Dr" HeaderText="Dr" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Cr" HeaderText="Cr" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Balance" HeaderText="Balance" ItemStyle-HorizontalAlign="Right" />
                                         </Columns>
                                     </asp:GridView>
           

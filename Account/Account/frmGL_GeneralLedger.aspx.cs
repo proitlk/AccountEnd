@@ -20,7 +20,9 @@ namespace Account.Account
 
         private void viewData()
         {
-            DataSet ds = GeneralLedger.Get(Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
+            string Branch = "";
+            Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+            DataSet ds = GeneralLedger.GetGeneralLedger(Branch);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 gdvInvoice.DataSource = ds.Tables[0];
@@ -28,20 +30,17 @@ namespace Account.Account
             }
             DataTable dt = new DataTable();
             DataColumn pEdate = new DataColumn("Edate", Type.GetType("System.String"));
-            DataColumn pcatog_id = new DataColumn("catog_id", Type.GetType("System.String"));
-            DataColumn pName = new DataColumn("Name", Type.GetType("System.String"));
-            DataColumn pchq = new DataColumn("chq", Type.GetType("System.String"));
-            DataColumn ppay = new DataColumn("pay", Type.GetType("System.String"));
             DataColumn pdes = new DataColumn("des", Type.GetType("System.String"));
-            DataColumn pamount = new DataColumn("amount", Type.GetType("System.String"));
-
+            DataColumn pAmount = new DataColumn("Amount", Type.GetType("System.String"));
+            DataColumn pDr = new DataColumn("Dr", Type.GetType("System.String"));
+            DataColumn pCr = new DataColumn("Cr", Type.GetType("System.String"));
+            DataColumn pBalance = new DataColumn("Balance", Type.GetType("System.String"));
             dt.Columns.Add(pEdate);
-            dt.Columns.Add(pcatog_id);
-            dt.Columns.Add(pName);
-            dt.Columns.Add(pchq);
-            dt.Columns.Add(ppay);
             dt.Columns.Add(pdes);
-            dt.Columns.Add(pamount);
+            dt.Columns.Add(pAmount);
+            dt.Columns.Add(pDr);
+            dt.Columns.Add(pCr);
+            dt.Columns.Add(pBalance);
             double amount = 0;
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
@@ -50,15 +49,13 @@ namespace Account.Account
             DataRow dr;
             dr = dt.NewRow();
             dr["Edate"] = "";
-            dr["catog_id"] = "";
-            dr["Name"] = "";
-            dr["pay"] = "";
-            dr["chq"] = "";
-            dr["des"] = "Total";
-            dr["amount"] = amount.ToString("0.00");
+            dr["des"] = "";
+            dr["Amount"] = amount.ToString("0.00");
+            dr["Dr"] = amount.ToString("0.00");
+            dr["Cr"] = amount.ToString("0.00");
+            dr["Balance"] = amount.ToString("0.00");
+
             dt.Rows.Add(dr);
-            gdvTotal.DataSource = dt;
-            gdvTotal.DataBind();
         }
 
         private void LoadCategoty()
@@ -83,7 +80,7 @@ namespace Account.Account
 
         protected void btnPreview_Click(object sender, EventArgs e)
         {
-
+            viewData();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

@@ -18,15 +18,13 @@ namespace Account.Account
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetGeneralLedger(string Branch, string fromDate, string toDate)
+        public DataSet GetGeneralLedger(string Branch)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
-            string rtn = "";
+            string rtn = "USP_GL_GENERALLEDGER_SELECT";
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@FromDate", fromDate);
-            cmd.Parameters.AddWithValue("@ToDate", toDate);
             cmd.Parameters.AddWithValue("@Expens", Branch);
             DataSet ds = conn.GetDataSet(cmd);
             return ds;
