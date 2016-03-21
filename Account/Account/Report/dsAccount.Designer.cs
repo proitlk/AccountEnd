@@ -35,6 +35,8 @@ namespace Account.Account.Report {
         
         private PaymentHitoryDataTable tablePaymentHitory;
         
+        private TrialBalanceDataTable tableTrialBalance;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -75,6 +77,9 @@ namespace Account.Account.Report {
                 }
                 if ((ds.Tables["PaymentHitory"] != null)) {
                     base.Tables.Add(new PaymentHitoryDataTable(ds.Tables["PaymentHitory"]));
+                }
+                if ((ds.Tables["TrialBalance"] != null)) {
+                    base.Tables.Add(new TrialBalanceDataTable(ds.Tables["TrialBalance"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -136,6 +141,15 @@ namespace Account.Account.Report {
         public PaymentHitoryDataTable PaymentHitory {
             get {
                 return this.tablePaymentHitory;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TrialBalanceDataTable TrialBalance {
+            get {
+                return this.tableTrialBalance;
             }
         }
         
@@ -213,6 +227,9 @@ namespace Account.Account.Report {
                 if ((ds.Tables["PaymentHitory"] != null)) {
                     base.Tables.Add(new PaymentHitoryDataTable(ds.Tables["PaymentHitory"]));
                 }
+                if ((ds.Tables["TrialBalance"] != null)) {
+                    base.Tables.Add(new TrialBalanceDataTable(ds.Tables["TrialBalance"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -273,6 +290,12 @@ namespace Account.Account.Report {
                     this.tablePaymentHitory.InitVars();
                 }
             }
+            this.tableTrialBalance = ((TrialBalanceDataTable)(base.Tables["TrialBalance"]));
+            if ((initTable == true)) {
+                if ((this.tableTrialBalance != null)) {
+                    this.tableTrialBalance.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -292,6 +315,8 @@ namespace Account.Account.Report {
             base.Tables.Add(this.tableDueAmount);
             this.tablePaymentHitory = new PaymentHitoryDataTable();
             base.Tables.Add(this.tablePaymentHitory);
+            this.tableTrialBalance = new TrialBalanceDataTable();
+            base.Tables.Add(this.tableTrialBalance);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -316,6 +341,11 @@ namespace Account.Account.Report {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializePaymentHitory() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeTrialBalance() {
             return false;
         }
         
@@ -381,6 +411,8 @@ namespace Account.Account.Report {
         public delegate void DueAmountRowChangeEventHandler(object sender, DueAmountRowChangeEvent e);
         
         public delegate void PaymentHitoryRowChangeEventHandler(object sender, PaymentHitoryRowChangeEvent e);
+        
+        public delegate void TrialBalanceRowChangeEventHandler(object sender, TrialBalanceRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1862,6 +1894,255 @@ namespace Account.Account.Report {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TrialBalanceDataTable : global::System.Data.TypedTableBase<TrialBalanceRow> {
+            
+            private global::System.Data.DataColumn columnDESCRIPTION;
+            
+            private global::System.Data.DataColumn columnDR;
+            
+            private global::System.Data.DataColumn columnCR;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceDataTable() {
+                this.TableName = "TrialBalance";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TrialBalanceDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected TrialBalanceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DESCRIPTIONColumn {
+                get {
+                    return this.columnDESCRIPTION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DRColumn {
+                get {
+                    return this.columnDR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CRColumn {
+                get {
+                    return this.columnCR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceRow this[int index] {
+                get {
+                    return ((TrialBalanceRow)(this.Rows[index]));
+                }
+            }
+            
+            public event TrialBalanceRowChangeEventHandler TrialBalanceRowChanging;
+            
+            public event TrialBalanceRowChangeEventHandler TrialBalanceRowChanged;
+            
+            public event TrialBalanceRowChangeEventHandler TrialBalanceRowDeleting;
+            
+            public event TrialBalanceRowChangeEventHandler TrialBalanceRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddTrialBalanceRow(TrialBalanceRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceRow AddTrialBalanceRow(string DESCRIPTION, string DR, string CR) {
+                TrialBalanceRow rowTrialBalanceRow = ((TrialBalanceRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        DESCRIPTION,
+                        DR,
+                        CR};
+                rowTrialBalanceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTrialBalanceRow);
+                return rowTrialBalanceRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                TrialBalanceDataTable cln = ((TrialBalanceDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TrialBalanceDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
+                this.columnDR = base.Columns["DR"];
+                this.columnCR = base.Columns["CR"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRIPTION);
+                this.columnDR = new global::System.Data.DataColumn("DR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDR);
+                this.columnCR = new global::System.Data.DataColumn("CR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCR);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceRow NewTrialBalanceRow() {
+                return ((TrialBalanceRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TrialBalanceRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(TrialBalanceRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TrialBalanceRowChanged != null)) {
+                    this.TrialBalanceRowChanged(this, new TrialBalanceRowChangeEvent(((TrialBalanceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TrialBalanceRowChanging != null)) {
+                    this.TrialBalanceRowChanging(this, new TrialBalanceRowChangeEvent(((TrialBalanceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TrialBalanceRowDeleted != null)) {
+                    this.TrialBalanceRowDeleted(this, new TrialBalanceRowChangeEvent(((TrialBalanceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TrialBalanceRowDeleting != null)) {
+                    this.TrialBalanceRowDeleting(this, new TrialBalanceRowChangeEvent(((TrialBalanceRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveTrialBalanceRow(TrialBalanceRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAccount ds = new dsAccount();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TrialBalanceDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2762,6 +3043,96 @@ namespace Account.Account.Report {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class TrialBalanceRow : global::System.Data.DataRow {
+            
+            private TrialBalanceDataTable tableTrialBalance;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TrialBalanceRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTrialBalance = ((TrialBalanceDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DESCRIPTION {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrialBalance.DESCRIPTIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESCRIPTION\' in table \'TrialBalance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrialBalance.DESCRIPTIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DR {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrialBalance.DRColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DR\' in table \'TrialBalance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrialBalance.DRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string CR {
+                get {
+                    try {
+                        return ((string)(this[this.tableTrialBalance.CRColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CR\' in table \'TrialBalance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTrialBalance.CRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDESCRIPTIONNull() {
+                return this.IsNull(this.tableTrialBalance.DESCRIPTIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDESCRIPTIONNull() {
+                this[this.tableTrialBalance.DESCRIPTIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDRNull() {
+                return this.IsNull(this.tableTrialBalance.DRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDRNull() {
+                this[this.tableTrialBalance.DRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCRNull() {
+                return this.IsNull(this.tableTrialBalance.CRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCRNull() {
+                this[this.tableTrialBalance.CRColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2903,6 +3274,37 @@ namespace Account.Account.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public PaymentHitoryRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class TrialBalanceRowChangeEvent : global::System.EventArgs {
+            
+            private TrialBalanceRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceRowChangeEvent(TrialBalanceRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TrialBalanceRow Row {
                 get {
                     return this.eventRow;
                 }

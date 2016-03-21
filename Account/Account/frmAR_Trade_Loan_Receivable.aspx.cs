@@ -29,31 +29,68 @@ namespace Account.Account
 
         private void viewData()
         {
-            string ContractCode;
+            DataSet ds = new DataSet();
+            string ContractCode = "", Branch = "", Product = "";
             if (chbAll.Checked == true)
             {
                 ContractCode = "ALL";
             }
-            else
+            else if (chbAll.Checked == false)
             {
                 ContractCode = hftxtContractCode.Value;
             }
+            if (chbAllBranch.Checked == true)
+            {
+                Branch = "ALL";
+            }
+            else if (chbAllBranch.Checked == false)
+            {
+                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+            }
+            if (chbAllProduct.Checked == true)
+            {
+                Product = "ALL";
+            }
+            else if (chbAllProduct.Checked == false)
+            {
+                Product = cmbProduct.SelectedValue;
+                if (Product == "1")
+                {
+                    ds = Receivable.GetLoanReceivable(ContractCode, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
+                }
+            }
 
-            DataSet ds = Receivable.GetLoanReceivable(ContractCode, Convert.ToDateTime(txtFromDate.Text), Convert.ToDateTime(txtToDate.Text));
-            ReportDocument objReport = new ReportDocument();
-            objReport = new Report.rptAR_LoanReceivable();
-            objReport.SetDataSource(ds.Tables[0]);
-            crvLoanReceivable.ReportSource = objReport;
-            crvLoanReceivable.RefreshReport();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                gdvInvoice.DataSource = ds.Tables[0];
+                gdvInvoice.DataBind();
+            }
         }
 
         private void Reset()
         {
             cls_CommonFunctions.ClearTextBox(txtContractCode);
             chbAll.Checked = false;
+            chbAllBranch.Checked = false;
+            chbAllProduct.Checked = false;
+            txtContractCode.Enabled = true;
+            cmbBranch.Enabled = true;
+            cmbProduct.Enabled = true;
             viewData();
             txtFromDate.Text = "dd/mm/yyyy";
             txtToDate.Text = "dd/mm/yyyy";
+        }
+
+        private void LoadBranch()
+        {
+            cmbBranch.Items.Clear();
+            MySqlDataReader dr = Receivable.LoadBranch();
+            cmbBranch.Items.Add("Select...");
+            while (dr.Read())
+            {
+                cmbBranch.Items.Add(dr.GetString("BRCH_BRANCHNO") + "- " + dr.GetString("BRCH_NAME"));
+            }
+            cmbBranch.SelectedIndex = -1;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -66,6 +103,11 @@ namespace Account.Account
             {
                 txtToDate.Text = "dd/mm/yyyy";
             }
+            if (cmbBranch.SelectedIndex == -1)
+            {
+                LoadBranch();
+            }
+            btnPrint.Visible = false;
         }
 
         protected void chbAll_CheckedChanged(object sender, EventArgs e)
@@ -110,6 +152,37 @@ namespace Account.Account
                 }
             }
             return Supplier.ToArray();
+        }
+
+        protected void chbAllProduct_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAllProduct.Checked == true)
+            {
+                cmbProduct.SelectedIndex = 0;
+                cmbProduct.Enabled = false;
+            }
+            if (chbAllProduct.Checked == false)
+            {
+                cmbProduct.Enabled = true;
+            }
+        }
+
+        protected void chbAllBranch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAllBranch.Checked == true)
+            {
+                cmbBranch.SelectedIndex = 0;
+                cmbBranch.Enabled = false;
+            }
+            if (chbAllBranch.Checked == false)
+            {
+                cmbBranch.Enabled = true;
+            }
+        }
+
+        protected void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

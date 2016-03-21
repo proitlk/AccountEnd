@@ -4,7 +4,7 @@
     Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <script type="text/javascript">
+<script type="text/javascript">
         //Calender - Datetimepicker
         $(function() {
             $("[id$=txtFromDate]").datepicker({
@@ -91,6 +91,42 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="controls col-lg-3">
+                                                <label class="control-label" for="Product">
+                                                    Product</label>
+                                            </div>
+                                            <div class="controls col-lg-8">
+                                                <asp:DropDownList ID="cmbProduct" class="form-control" runat="server" 
+                                                    AutoPostBack="true">
+                                                    <asp:ListItem Value="1">RBF</asp:ListItem>
+                                                    <asp:ListItem Value="2">PRB</asp:ListItem>
+                                                    <asp:ListItem Value="3">MC</asp:ListItem>
+                                                    <asp:ListItem Value="4"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="">                                                
+                                                <asp:CheckBox ID="chbAllProduct" runat="server" 
+                                                     AutoPostBack="true" oncheckedchanged="chbAllProduct_CheckedChanged" />
+                                            </div> 
+                                            <!-- /controls -->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
+                                                <label class="control-label" for="Branch">
+                                                    Branch/ Location</label>
+                                            </div>
+                                            <div class="controls col-lg-8">
+                                                <asp:DropDownList ID="cmbBranch" class="form-control" runat="server" 
+                                                    AutoPostBack="true">
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="">                                                
+                                                <asp:CheckBox ID="chbAllBranch" runat="server" 
+                                                    oncheckedchanged="chbAllBranch_CheckedChanged" AutoPostBack="true" />
+                                            </div> 
+                                            <!-- /controls -->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-3">
                                                 <label class="control-label" for="Date">
                                                     Contract Code</label>
                                             </div>
@@ -119,9 +155,32 @@
                                 <!-- /col-lg-6 -->
                                 <div class="col-lg-12 c-report">
                                     <h4></h4>
-                                    <CR:CrystalReportViewer ID="crvLoanReceivable" runat="server" 
-                                        AutoDataBind="true" DisplayGroupTree="False" DisplayToolbar="False" 
-                                        EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" />
+                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                        AllowPaging="true" PageSize="10">
+                                        <Columns>
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="ContractCode" HeaderText="Contract Code" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="CustomerName" HeaderText="Customer Name" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="LoanGrantDate" HeaderText="Loan Grant Date"/>
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="CapitalOutstandind" HeaderText="Capital Outstandind" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="InterestOutstanding" HeaderText="Interest Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="OverDue" HeaderText="Over Due" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="TotalOutstanding" HeaderText="Total Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                        </Columns>
+                                    </asp:GridView>
+                                     <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" ShowHeader="False" Font-Bold="True"
+                                        AllowPaging="true" PageSize="10">
+                                        <Columns>
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="ContractCode" HeaderText="Contract Code" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="CustomerName" HeaderText="Customer Name" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="Loan Grant Date" HeaderText="Loan Grant Date"/>
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="CapitalOutstandind" HeaderText="Capital Outstandind" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="InterestOutstanding" HeaderText="Interest Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="OverDue" HeaderText="Over Due" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="TotalOutstanding" HeaderText="Total Outstanding" ItemStyle-HorizontalAlign="Right" />
+                                        </Columns>
+                                    </asp:GridView>
+                                    <asp:Button ID="btnPrint" class="btn btn-primary" runat="server" Text="Print" 
+                                                Width="100px" onclick="btnPrint_Click" />
                                 </div>
                             </div>
                             <!-- /widget-content -->

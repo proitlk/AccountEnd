@@ -11,7 +11,7 @@
 namespace Account.Account {
     
     
-    public partial class frmAR_Trade_Loan_Receivable {
+    public partial class frmCB_BankReconciliation {
         
         /// <summary>
         /// lblMsg control.
@@ -41,24 +41,6 @@ namespace Account.Account {
         protected global::System.Web.UI.WebControls.TextBox txtToDate;
         
         /// <summary>
-        /// cmbProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbProduct;
-        
-        /// <summary>
-        /// chbAllProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbAllProduct;
-        
-        /// <summary>
         /// cmbBranch control.
         /// </summary>
         /// <remarks>
@@ -75,33 +57,6 @@ namespace Account.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chbAllBranch;
-        
-        /// <summary>
-        /// txtContractCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractCode;
-        
-        /// <summary>
-        /// hftxtContractCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hftxtContractCode;
-        
-        /// <summary>
-        /// chbAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbAll;
         
         /// <summary>
         /// btnPreview control.
@@ -138,14 +93,5 @@ namespace Account.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvTotal;
-        
-        /// <summary>
-        /// btnPrint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrint;
     }
 }

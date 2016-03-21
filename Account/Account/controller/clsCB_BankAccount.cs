@@ -13,19 +13,18 @@ using MySql.Data.MySqlClient;
 
 namespace Account.Account
 {
-    public class clsAR_Trade_Loan_Receivable
+    public class clsCB_BankAccount
     {
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetLoanReceivable(string ContractCode, string Branch, string fromDate, string toDate)
+        public DataSet GetBankAccount(string fromDate, string toDate)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
-            string rtn = "USP_AR_LOANRECEIVABLE";
+            string rtn = "USP_CB_BANKACOUNT";
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@ContractCode", ContractCode);
             cmd.Parameters.AddWithValue("@FromDate", fromDate);
             cmd.Parameters.AddWithValue("@ToDate", toDate);
             DataSet ds = conn.GetDataSet(cmd);

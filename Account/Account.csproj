@@ -75,6 +75,8 @@
     <Compile Include="Account\Account.Master.designer.cs">
       <DependentUpon>Account.Master</DependentUpon>
     </Compile>
+    <Compile Include="Account\controller\clsAP_Expence.cs" />
+    <Compile Include="Account\controller\clsAP_PaymentHistory.cs" />
     <Compile Include="Account\controller\clsAP_AdvancedPayment.cs" />
     <Compile Include="Account\controller\clsAP_AgeAnalyst.cs" />
     <Compile Include="Account\controller\clsAP_DuePayment.cs" />
@@ -82,6 +84,10 @@
     <Compile Include="Account\controller\clsAP_PaymentVoucher.cs" />
     <Compile Include="Account\controller\clsAP_SupplierPayable.cs" />
     <Compile Include="Account\controller\clsAR_Trade_Loan_Receivable.cs" />
+    <Compile Include="Account\controller\clsCB_BankAccount.cs" />
+    <Compile Include="Account\controller\clsCB_BankReconciliation.cs" />
+    <Compile Include="Account\controller\clsFR_TrialBalance.cs" />
+    <Compile Include="Account\controller\clsGL_GeneralLedger.cs" />
     <Compile Include="Account\controller\clsM_Bank.cs" />
     <Compile Include="Account\controller\clsM_BankBranch.cs" />
     <Compile Include="Account\controller\clsM_Supplier.cs" />
@@ -229,10 +235,22 @@
     <Compile Include="Account\frmAR_Trade_Loan_Receivable.aspx.designer.cs">
       <DependentUpon>frmAR_Trade_Loan_Receivable.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Report\rptFR_TrialBalance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptFR_TrialBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Account\Report\rptAP_DuePayment.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptAP_DuePayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\Report\rptAP_PaymentHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAP_PaymentHistory.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Account\Report\rptAP_PaymentVoucher.cs">
@@ -246,6 +264,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptAR_LoanReceivable.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Account\frmCB_BankAccount.aspx.cs">
+      <DependentUpon>frmCB_BankAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmCB_BankAccount.aspx.designer.cs">
+      <DependentUpon>frmCB_BankAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\frmCB_BankReconciliation.aspx.cs">
+      <DependentUpon>frmCB_BankReconciliation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmCB_BankReconciliation.aspx.designer.cs">
+      <DependentUpon>frmCB_BankReconciliation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\frmFR_TrialBalance.aspx.cs">
+      <DependentUpon>frmFR_TrialBalance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmFR_TrialBalance.aspx.designer.cs">
+      <DependentUpon>frmFR_TrialBalance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\frmAP_Expences.aspx.cs">
+      <DependentUpon>frmAP_Expences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmAP_Expences.aspx.designer.cs">
+      <DependentUpon>frmAP_Expences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\frmGL_GeneralLedger.aspx.cs">
+      <DependentUpon>frmGL_GeneralLedger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmGL_GeneralLedger.aspx.designer.cs">
+      <DependentUpon>frmGL_GeneralLedger.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\clsU_User.cs" />
     <Compile Include="Common\cls_CommonFunctions.cs" />
@@ -285,6 +338,11 @@
     <Content Include="Account\frmAP_ChequePrint.aspx" />
     <Content Include="Account\frmAP_PaymentVoucher.aspx" />
     <Content Include="Account\frmAR_Trade_Loan_Receivable.aspx" />
+    <Content Include="Account\frmCB_BankAccount.aspx" />
+    <Content Include="Account\frmCB_BankReconciliation.aspx" />
+    <Content Include="Account\frmFR_TrialBalance.aspx" />
+    <Content Include="Account\frmAP_Expences.aspx" />
+    <Content Include="Account\frmGL_GeneralLedger.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
@@ -342,9 +400,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAP_AgeAnalyst.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Account\Report\rptFR_TrialBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptFR_TrialBalance.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Account\Report\rptAP_DuePayment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAP_DuePayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Report\rptAP_PaymentHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAP_PaymentHistory.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\Report\rptAP_PaymentVoucher.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

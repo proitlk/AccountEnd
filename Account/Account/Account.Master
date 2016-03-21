@@ -10,23 +10,14 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
         rel="stylesheet">
-
     <script src="../js/jquery-1.7.2.min.js"></script>
-
     <script src="../js/bootstrap.js"></script>
-
     <script src="../js/base.js"></script>
-
     <script src="../js/jquery.validate.min.js"></script>
-
     <script type="text/javascript" src="../js/jquery.validation.net.webforms.min.js"></script>
-
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
-
     <script type="../js/jquery.validation.net.webforms.min.js"></script>
-
     <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css" />
-
     <script src="../js/footer.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -87,12 +78,13 @@
                             <li><a href="../Account/frmAP_WHTReport.aspx">WHT Report</a></li>
                             <li><a href="../Account/frmAP_BalanceConfirmation.aspx">Balance Confirmation</a></li>
                             <li><a href="../Account/frmAP_PaymentHistoryReport.aspx">Payment History Report</a></li>
+                            <li><a href="../Account/frmAP_Expences.aspx">Expences Report</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-list-alt"></i><span>Account Receivable</span> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="../Account/frmAR_Trade_Loan_Receivable.aspx">Trade Receivable</a></li>
+                            <li><a href="../Account/frmAR_Trade_Loan_Receivable.aspx">Trade/Loan Receivable</a></li>
                             <li><a href="#">Debtor Aging</a></li>
                             <li><a href="#">Acc Receivable Tax Report</a></li>
                             <li><a href="#">Salles Report</a></li>
@@ -106,8 +98,8 @@
                         <i class="icon-book"></i><span>&nbsp;&nbsp;&nbsp;&nbsp;Cash Book&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Bank Accounts</a></li>
-                            <li><a href="#">Bank Reconcile</a></li>
+                            <li><a href="../Account/frmCB_BankAccount.aspx">Bank Accounts</a></li>
+                            <li><a href="../Account/frmCB_BankReconciliation.aspx">Bank Reconcile</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -129,14 +121,15 @@
                         <i class="icon-briefcase"></i><span>&nbsp;&nbsp;General Ledger&nbsp;&nbsp;</span>
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Journal Voucher</a></li>
-                            <li><a href="#">Control Accounts</a></li>
+                            <li><a href="../Account/frmGL_JournalVoucher.aspx">Journal Voucher</a></li>
+                            <li><a href="../Account/frmGL_GeneralLedger.aspx">General Ledger</a></li>
+                             <li><a href="#">Control Accounts</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                         <i class=" icon-list"></i><span>Financial Report</span> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Trial Balance</a></li>
+                            <li><a href="../Account/frmFR_TrialBalance.aspx">Trial Balance</a></li>
                             <li><a href="#">Income Statement</a></li>
                             <li><a href="#">Statement Of Financial Position</a></li>
                             <li><a href="#">Cash Flow Statement</a></li>

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true"
-    CodeBehind="frmAP_PaymentHistoryReport.aspx.cs" Inherits="Account.Account.frmAP_PaymentHistoryReport" %>
+    CodeBehind="frmCB_BankReconciliation.aspx.cs" Inherits="Account.Account.frmCB_BankReconciliation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -13,40 +13,6 @@
                 dateFormat: "dd/mm/yy"
             });
         });
-
-        //AutoComplete
-        $(function() {
-            $("[id$=txtSupplier]").autocomplete({
-                source: function(request, response) {
-                    $.ajax({
-                        url: '<%=ResolveUrl("~/Account/frmAP_SupplyerPayable.aspx/GetSupplier") %>',
-                        data: "{ 'prefix': '" + request.term + "'}",
-                        dataType: "json",
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        success: function(data) {
-                            response($.map(data.d, function(item) {
-                                return {
-                                    label: item.split('-')[0],
-                                    val: item.split('-')[1]
-                                }
-                            }))
-                        },
-                        error: function(response) {
-                            alert(response.responseText);
-                        },
-                        failure: function(response) {
-                            alert(response.responseText);
-                        }
-                    });
-                },
-                select: function(e, i) {
-                    $("[id$=hftxtSupplier]").val(i.item.val);
-                },
-                minLength: 1
-            });
-        });
-
     </script>
 
 </asp:Content>
@@ -60,7 +26,7 @@
                             <div class="widget-header">
                                 <i class="icon-user"></i>
                                 <h3>
-                                    Payment History Report</h3>
+                                    Bank Reconciliation</h3>
                             </div>
                             <!-- /widget-header -->
                             <div class="widget-content">
@@ -107,21 +73,6 @@
                                         </div>
                                         <!-- /form-group -->
                                         <div class="form-group">
-                                            <div class="controls col-lg-3">
-                                                <label class="control-label" for="Date">
-                                                    Supplier</label>
-                                            </div>
-                                            <div class="controls col-lg-8">
-                                                <asp:TextBox ID="txtSupplier" class="form-control" runat="server" requid></asp:TextBox>
-                                                <asp:HiddenField ID="hftxtSupplier" runat="server" />
-                                            </div>
-                                            <div class="">
-                                                <asp:CheckBox ID="chbAll" runat="server" OnCheckedChanged="chbAll_CheckedChanged"
-                                                    AutoPostBack="true" />
-                                            </div>
-                                            <!-- /controls -->
-                                        </div>
-                                        <div class="form-group">
                                             <div class="controls col-lg-12">
                                                 <asp:Button ID="btnPreview" class="btn btn-primary" runat="server" Text="Preview"
                                                     Width="200px" OnClick="btnPreview_Click" />
@@ -138,27 +89,35 @@
                                     <h4>
                                     </h4>
                                     <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" PageSize="10">
+                                        AllowPaging="true" PageSize="10" 
+                                        onpageindexchanging="gdvInvoice_PageIndexChanging">
                                         <Columns>
-                                            <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="InvoiceNo" HeaderText="Invoice No" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Outstanding" HeaderText="Outstanding" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="AdvancePaid" HeaderText="Advance Paid" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="ContractCode" HeaderText="Contract Code" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="CustomerName" HeaderText="Customer Name" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="chequ_no" HeaderText="Cheque No" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="chequ_amount" HeaderText="Cheque Amount"
+                                                ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="LoanGrantDate" HeaderText="LoanGrant Date"
+                                                ItemStyle-HorizontalAlign="Right" />
+                                            <asp:TemplateField ShowHeader="False" ItemStyle-Width="10px">
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="View" runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
                                     </asp:GridView>
-                                     <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" ShowHeader="False" Font-Bold="True"
-                                        AllowPaging="true" PageSize="10">
+                                    <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                        ShowHeader="False" Font-Bold="True" AllowPaging="true" PageSize="10">
                                         <Columns>
-                                            <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="InvoiceNo" HeaderText="Invoice No" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Outstanding" HeaderText="Outstanding" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="AdvancePaid" HeaderText="Advance Paid" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="ContractCode" HeaderText="Contract Code" />
+                                            <asp:BoundField ItemStyle-Width="200px" DataField="CustomerName" HeaderText="Customer Name" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="chequ_no" HeaderText="Cheque No" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="chequ_amount" HeaderText="Cheque Amount"
+                                                ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="LoanGrantDate" HeaderText="LoanGrant Date"
+                                                ItemStyle-HorizontalAlign="Right" />
                                         </Columns>
                                     </asp:GridView>
-                                    <asp:Button ID="btnPrint" class="btn btn-primary" runat="server" Text="Print" 
-                                                Width="100px" onclick="btnPrint_Click" />
                                 </div>
                             </div>
                             <!-- /widget-content -->
