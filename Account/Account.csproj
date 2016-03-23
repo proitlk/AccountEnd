@@ -300,6 +300,13 @@
     <Compile Include="Account\frmGL_GeneralLedger.aspx.designer.cs">
       <DependentUpon>frmGL_GeneralLedger.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\frmGL_JournalVoucherReport.aspx.cs">
+      <DependentUpon>frmGL_JournalVoucherReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\frmGL_JournalVoucherReport.aspx.designer.cs">
+      <DependentUpon>frmGL_JournalVoucherReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\clsU_User.cs" />
     <Compile Include="Common\cls_CommonFunctions.cs" />
     <Compile Include="Common\cls_Connection.cs" />
@@ -343,6 +350,7 @@
     <Content Include="Account\frmFR_TrialBalance.aspx" />
     <Content Include="Account\frmAP_Expences.aspx" />
     <Content Include="Account\frmGL_GeneralLedger.aspx" />
+    <Content Include="Account\frmGL_JournalVoucherReport.aspx" />
     <Content Include="CSS\bootstrap-responsive.min.css" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />

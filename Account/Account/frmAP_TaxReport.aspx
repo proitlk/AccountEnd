@@ -137,7 +137,7 @@
                                 <div class="col-lg-12">
                                     <h4>
                                     </h4>
-                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
+                                    <asp:GridView ID="gdvInvoice" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
                                         AllowPaging="true" PageSize="10">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />

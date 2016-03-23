@@ -27,54 +27,60 @@ namespace Account.Account
         clsAP_DuePayment DuePayment = new clsAP_DuePayment();
         private void viewData()
         {
-            string Supplier = "", Branch = "";
-            if (chbAll.Checked == true)
+            try
             {
-                Supplier = "ALL";
-            }
-            else
-            {
-                Supplier = hftxtSupplier.Value;
-            }
-            if (chbAllBranch.Checked == true)
-            {
-                Branch = "ALL";
-            }
-            else if (chbAllBranch.Checked == false)
-            {
-                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
-            }
-            DataTable dt = new DataTable();
-            DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
-            DataColumn pInvoiceNo = new DataColumn("InvoiceNo", Type.GetType("System.String"));
-            DataColumn pNetAmount = new DataColumn("NetAmount", Type.GetType("System.String"));
-            DataColumn pVAT = new DataColumn("VAT", Type.GetType("System.String"));
-            DataColumn pNBT = new DataColumn("NBT", Type.GetType("System.String"));
-            DataColumn pOtherTAX = new DataColumn("OtherTAX", Type.GetType("System.String"));
-            DataColumn pGrossAmount = new DataColumn("GrossAmount", Type.GetType("System.String"));
+                string Supplier = "", Branch = "";
+                if (chbAll.Checked == true)
+                {
+                    Supplier = "ALL";
+                }
+                else
+                {
+                    Supplier = hftxtSupplier.Value;
+                }
+                if (chbAllBranch.Checked == true)
+                {
+                    Branch = "ALL";
+                }
+                else if (chbAllBranch.Checked == false)
+                {
+                    Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+                }
+                DataTable dt = new DataTable();
+                DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
+                DataColumn pInvoiceNo = new DataColumn("InvoiceNo", Type.GetType("System.String"));
+                DataColumn pNetAmount = new DataColumn("NetAmount", Type.GetType("System.String"));
+                DataColumn pVAT = new DataColumn("VAT", Type.GetType("System.String"));
+                DataColumn pNBT = new DataColumn("NBT", Type.GetType("System.String"));
+                DataColumn pOtherTAX = new DataColumn("OtherTAX", Type.GetType("System.String"));
+                DataColumn pGrossAmount = new DataColumn("GrossAmount", Type.GetType("System.String"));
 
-            dt.Columns.Add(pSupplier);
-            dt.Columns.Add(pInvoiceNo);
-            dt.Columns.Add(pNetAmount);
-            dt.Columns.Add(pVAT);
-            dt.Columns.Add(pNBT);
-            dt.Columns.Add(pOtherTAX);
-            dt.Columns.Add(pGrossAmount);
+                dt.Columns.Add(pSupplier);
+                dt.Columns.Add(pInvoiceNo);
+                dt.Columns.Add(pNetAmount);
+                dt.Columns.Add(pVAT);
+                dt.Columns.Add(pNBT);
+                dt.Columns.Add(pOtherTAX);
+                dt.Columns.Add(pGrossAmount);
 
-            //DataSet ds = .(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
+                //DataSet ds = .(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
 
-            DataRow dr;
-            dr = dt.NewRow();
-            dr["Supplier"] = "";
-            dr["InvoiceNo"] = "";
-            dr["NetAmount"] = "0.00";
-            dr["VAT"] = "0.00";
-            dr["NBT"] = "0.00";
-            dr["OtherTAX"] = "0.00";
-            dr["GrossAmount"] = "0.00";
-            dt.Rows.Add(dr);
-            gdvInvoice.DataSource = dt;
-            gdvInvoice.DataBind();
+                DataRow dr;
+                dr = dt.NewRow();
+                dr["Supplier"] = "";
+                dr["InvoiceNo"] = "";
+                dr["NetAmount"] = "0.00";
+                dr["VAT"] = "0.00";
+                dr["NBT"] = "0.00";
+                dr["OtherTAX"] = "0.00";
+                dr["GrossAmount"] = "0.00";
+                dt.Rows.Add(dr);
+                gdvInvoice.DataSource = dt;
+                gdvInvoice.DataBind();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void Reset()

@@ -26,6 +26,7 @@ namespace Account.Account
             MySqlCommand cmd = new MySqlCommand(rtn, connect);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ContractCode", ContractCode);
+            cmd.Parameters.AddWithValue("@Branch", Branch);
             cmd.Parameters.AddWithValue("@FromDate", fromDate);
             cmd.Parameters.AddWithValue("@ToDate", toDate);
             DataSet ds = conn.GetDataSet(cmd);

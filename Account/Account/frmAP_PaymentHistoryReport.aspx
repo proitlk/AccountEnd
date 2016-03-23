@@ -147,7 +147,7 @@
                                             <asp:BoundField ItemStyle-Width="100px" DataField="BalanceDue" HeaderText="Balance Due" ItemStyle-HorizontalAlign="Right" />
                                         </Columns>
                                     </asp:GridView>
-                                     <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" ShowHeader="False" Font-Bold="True"
+                                     <asp:GridView ID="gdvTotal" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false" ShowHeader="False" Font-Bold="True"
                                         AllowPaging="true" PageSize="10">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="200px" DataField="Supplier" HeaderText="Supplier" />

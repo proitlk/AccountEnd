@@ -150,7 +150,7 @@
                                             <asp:BoundField ItemStyle-Width="100px" DataField="INV_AMOUNT" HeaderText="Outstandings" ItemStyle-HorizontalAlign="Right"  />
                                         </Columns>
                                     </asp:GridView>
-                                    <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false" ShowHeader="False"
+                                    <asp:GridView ID="gdvTotal" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false" ShowHeader="False"
                                         AllowPaging="true" PageSize="10" Font-Bold="True">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="200px" DataField="SUP_NAME" HeaderText="Supplier" />

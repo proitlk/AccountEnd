@@ -23,61 +23,69 @@ namespace Account.Account
 
         private void viewData()
         {
-            string Supplier = "", Branch = "";
-            if (chbAll.Checked == true)
+            try
             {
-                Supplier = "ALL";
-            }
-            else
-            {
-                Supplier = hftxtSupplier.Value;
-            }
-            if (chbAllBranch.Checked == true)
-            {
-                Branch = "ALL";
-            }
-            else if (chbAllBranch.Checked == false)
-            {
-                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
-            }
-            DataTable dt = new DataTable();
-            DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
-            DataColumn pInvoiceNo = new DataColumn("InvoiceNo", Type.GetType("System.String"));
-            DataColumn pOutstanding = new DataColumn("Outstanding", Type.GetType("System.String"));
-            DataColumn pAdvancePaid = new DataColumn("AdvancePaid", Type.GetType("System.String"));
-            DataColumn pBalanceDue = new DataColumn("BalanceDue", Type.GetType("System.String"));
+                string Supplier = "", Branch = "";
+                if (chbAll.Checked == true)
+                {
+                    Supplier = "ALL";
+                }
+                else
+                {
+                    Supplier = hftxtSupplier.Value;
+                }
+                if (chbAllBranch.Checked == true)
+                {
+                    Branch = "ALL";
+                }
+                else if (chbAllBranch.Checked == false)
+                {
+                    Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+                }
+                DataTable dt = new DataTable();
+                DataColumn pSupplier = new DataColumn("Supplier", Type.GetType("System.String"));
+                DataColumn pInvoiceNo = new DataColumn("InvoiceNo", Type.GetType("System.String"));
+                DataColumn pOutstanding = new DataColumn("Outstanding", Type.GetType("System.String"));
+                DataColumn pAdvancePaid = new DataColumn("AdvancePaid", Type.GetType("System.String"));
+                DataColumn pBalanceDue = new DataColumn("BalanceDue", Type.GetType("System.String"));
 
-            dt.Columns.Add(pSupplier);
-            dt.Columns.Add(pInvoiceNo);
-            dt.Columns.Add(pOutstanding);
-            dt.Columns.Add(pAdvancePaid);
-            dt.Columns.Add(pBalanceDue);
+                dt.Columns.Add(pSupplier);
+                dt.Columns.Add(pInvoiceNo);
+                dt.Columns.Add(pOutstanding);
+                dt.Columns.Add(pAdvancePaid);
+                dt.Columns.Add(pBalanceDue);
 
-            DataSet ds = PaymentHistory.GetPaymentHistory(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
-            if (ds.Tables[0].Rows.Count > 0)
-            {
+                DataSet ds = PaymentHistory.GetPaymentHistory(Supplier, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
                 gdvInvoice.DataSource = ds.Tables[0];
                 gdvInvoice.DataBind();
-            }
-            double Outstanding = 0, AdvancePaid = 0, BalanceDue = 0;
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                Outstanding = Outstanding + Convert.ToDouble(ds.Tables[0].Rows[i]["Outstanding"]);
-                AdvancePaid = AdvancePaid + Convert.ToDouble(ds.Tables[0].Rows[i]["AdvancePaid"]);
-                BalanceDue = BalanceDue + Convert.ToDouble(ds.Tables[0].Rows[i]["BalanceDue"]);
-            }
-            DataRow dr;
-            dr = dt.NewRow();
-            dr["Supplier"] = "Total";
-            dr["InvoiceNo"] = "";
-            dr["Outstanding"] = Outstanding.ToString("0.00");
-            dr["AdvancePaid"] = AdvancePaid.ToString("0.00");
-            dr["BalanceDue"] = BalanceDue.ToString("0.00");
-            dt.Rows.Add(dr);
-            gdvTotal.DataSource = dt;
-            gdvTotal.DataBind();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    gdvInvoice.DataSource = ds.Tables[0];
+                    gdvInvoice.DataBind();
+                }
+                double Outstanding = 0, AdvancePaid = 0, BalanceDue = 0;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    Outstanding = Outstanding + Convert.ToDouble(ds.Tables[0].Rows[i]["Outstanding"]);
+                    AdvancePaid = AdvancePaid + Convert.ToDouble(ds.Tables[0].Rows[i]["AdvancePaid"]);
+                    BalanceDue = BalanceDue + Convert.ToDouble(ds.Tables[0].Rows[i]["BalanceDue"]);
+                }
+                DataRow dr;
+                dr = dt.NewRow();
+                dr["Supplier"] = "Total";
+                dr["InvoiceNo"] = "";
+                dr["Outstanding"] = Outstanding.ToString("0.00");
+                dr["AdvancePaid"] = AdvancePaid.ToString("0.00");
+                dr["BalanceDue"] = BalanceDue.ToString("0.00");
+                dt.Rows.Add(dr);
+                gdvTotal.DataSource = dt;
+                gdvTotal.DataBind();
 
-            btnPrint.Visible = true;
+                btnPrint.Visible = true;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void PrintPaymentHistory()

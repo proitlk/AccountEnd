@@ -20,55 +20,63 @@ namespace Account.Account
 
         private void viewData()
         {
-            string Branch = "";
-            if (chbAllBranch.Checked == true)
+            try
             {
-                Branch = "ALL";
-            }
-            else if (chbAllBranch.Checked == false)
-            {
-                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
-            }
+                string Branch = "";
+                if (chbAllBranch.Checked == true)
+                {
+                    Branch = "ALL";
+                }
+                else if (chbAllBranch.Checked == false)
+                {
+                    Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+                }
 
-            DataSet ds = Expence.GetExpence(Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
-            if (ds.Tables[0].Rows.Count > 0)
-            {
+                DataSet ds = Expence.GetExpence(Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
                 gdvInvoice.DataSource = ds.Tables[0];
                 gdvInvoice.DataBind();
-            }
-            DataTable dt = new DataTable();
-            DataColumn pEdate = new DataColumn("Edate", Type.GetType("System.String"));
-            DataColumn pcatog_id = new DataColumn("catog_id", Type.GetType("System.String"));
-            DataColumn pName = new DataColumn("Name", Type.GetType("System.String"));
-            DataColumn pchq = new DataColumn("chq", Type.GetType("System.String"));
-            DataColumn ppay = new DataColumn("pay", Type.GetType("System.String"));
-            DataColumn pdes = new DataColumn("des", Type.GetType("System.String"));
-            DataColumn pamount = new DataColumn("amount", Type.GetType("System.String"));
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    gdvInvoice.DataSource = ds.Tables[0];
+                    gdvInvoice.DataBind();
+                }
+                DataTable dt = new DataTable();
+                DataColumn pEdate = new DataColumn("Edate", Type.GetType("System.String"));
+                DataColumn pcatog_id = new DataColumn("catog_id", Type.GetType("System.String"));
+                DataColumn pName = new DataColumn("Name", Type.GetType("System.String"));
+                DataColumn pchq = new DataColumn("chq", Type.GetType("System.String"));
+                DataColumn ppay = new DataColumn("pay", Type.GetType("System.String"));
+                DataColumn pdes = new DataColumn("des", Type.GetType("System.String"));
+                DataColumn pamount = new DataColumn("amount", Type.GetType("System.String"));
 
-            dt.Columns.Add(pEdate);
-            dt.Columns.Add(pcatog_id);
-            dt.Columns.Add(pName);
-            dt.Columns.Add(pchq);
-            dt.Columns.Add(ppay);
-            dt.Columns.Add(pdes);
-            dt.Columns.Add(pamount);
-            double amount = 0;
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                amount = amount + Convert.ToDouble(ds.Tables[0].Rows[i]["amount"]);
+                dt.Columns.Add(pEdate);
+                dt.Columns.Add(pcatog_id);
+                dt.Columns.Add(pName);
+                dt.Columns.Add(pchq);
+                dt.Columns.Add(ppay);
+                dt.Columns.Add(pdes);
+                dt.Columns.Add(pamount);
+                double amount = 0;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    amount = amount + Convert.ToDouble(ds.Tables[0].Rows[i]["amount"]);
+                }
+                DataRow dr;
+                dr = dt.NewRow();
+                dr["Edate"] = "";
+                dr["catog_id"] = "";
+                dr["Name"] = "";
+                dr["pay"] = "";
+                dr["chq"] = "";
+                dr["des"] = "Total";
+                dr["amount"] = amount.ToString("0.00");
+                dt.Rows.Add(dr);
+                gdvTotal.DataSource = dt;
+                gdvTotal.DataBind();
             }
-            DataRow dr;
-            dr = dt.NewRow();
-            dr["Edate"] = "";
-            dr["catog_id"] = "";
-            dr["Name"] = "";
-            dr["pay"] = "";
-            dr["chq"] = "";
-            dr["des"] = "Total";
-            dr["amount"] = amount.ToString("0.00");
-            dt.Rows.Add(dr);
-            gdvTotal.DataSource = dt;
-            gdvTotal.DataBind();
+            catch (Exception)
+            {
+            }
         }
 
         private void Reset()

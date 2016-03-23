@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true"
-    CodeBehind="frmAP_Expences.aspx.cs" Inherits="Account.Account.frmAP_Expences" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Account/Account.Master" AutoEventWireup="true" CodeBehind="frmGL_JournalVoucherReport.aspx.cs" Inherits="Account.Account.frmGL_JournalVoucherReport" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript">
@@ -26,7 +24,7 @@
                             <div class="widget-header">
                                 <i class="icon-user"></i>
                                 <h3>
-                                    Expences Report</h3>
+                                    Journal Voucher Report</h3>
                             </div>
                             <!-- /widget-header -->
                             <div class="widget-content">
@@ -55,23 +53,7 @@
                                                 <asp:TextBox ID="txtToDate" class="form-control" runat="server" requid></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="controls col-lg-4">
-                                                <label class="control-label" for="Branch">
-                                                    Expences Category</label>
-                                            </div>
-                                            <div class="controls col-lg-7">
-                                                <asp:DropDownList ID="cmbBranch" class="form-control" runat="server" AutoPostBack="true">
-                                                </asp:DropDownList>
-                                            </div>
-                                            <div class="">
-                                                <asp:CheckBox ID="chbAllBranch" runat="server" OnCheckedChanged="chbAllBranch_CheckedChanged"
-                                                    AutoPostBack="true" />
-                                            </div>
-                                            <!-- /controls -->
-                                        </div>
-                                        <!-- /form-group -->
+                                        </div>                                        
                                         <div class="form-group">
                                             <div class="controls col-lg-12">
                                                 <asp:Button ID="btnPreview" class="btn btn-primary" runat="server" Text="Preview"
@@ -91,27 +73,12 @@
                                     <asp:GridView ID="gdvInvoice" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
                                         AllowPaging="true" PageSize="10" OnPageIndexChanging="gdvInvoice_PageIndexChanging">
                                         <Columns>
-                                            <asp:BoundField ItemStyle-Width="150px" DataField="Edate" HeaderText="Date" />
-                                            <asp:BoundField ItemStyle-Width="50px" DataField="catog_id" HeaderText="Category No" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Name" HeaderText="Category" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="chq" HeaderText="Cheque" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="pay" HeaderText="Pay" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="des" HeaderText="Description" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="amount" HeaderText="Amount" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="JV_DATE" HeaderText="Date" />
+                                            <asp:BoundField ItemStyle-Width="500px" DataField="JV_DESCRIPTION" HeaderText="Description" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="JV_DR" HeaderText="Cheque" ItemStyle-HorizontalAlign="Right" />
+                                            <asp:BoundField ItemStyle-Width="100px" DataField="JV_CR" HeaderText="Amount" ItemStyle-HorizontalAlign="Right" />
                                         </Columns>
-                                    </asp:GridView>
-                                    <asp:GridView ID="gdvTotal" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false"
-                                        ShowHeader="False" Font-Bold="True" AllowPaging="true" PageSize="10">
-                                        <Columns>
-                                            <asp:BoundField ItemStyle-Width="150px" DataField="Edate" HeaderText="Date" />
-                                            <asp:BoundField ItemStyle-Width="50px" DataField="catog_id" HeaderText="Category No" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="Name" HeaderText="Category" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="chq" HeaderText="Cheque" ItemStyle-HorizontalAlign="Right" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="pay" HeaderText="Pay" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="des" HeaderText="Description" />
-                                            <asp:BoundField ItemStyle-Width="100px" DataField="amount" HeaderText="Amount" ItemStyle-HorizontalAlign="Right" />
-                                        </Columns>
-                                    </asp:GridView>
+                                    </asp:GridView>                                    
                                 </div>
                             </div>
                             <!-- /widget-content -->

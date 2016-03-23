@@ -98,9 +98,9 @@
                                                 <asp:DropDownList ID="cmbProduct" class="form-control" runat="server" 
                                                     AutoPostBack="true">
                                                     <asp:ListItem Value="1">RBF</asp:ListItem>
-                                                    <asp:ListItem Value="2">PRB</asp:ListItem>
-                                                    <asp:ListItem Value="3">MC</asp:ListItem>
-                                                    <asp:ListItem Value="4"></asp:ListItem>
+                                                    <asp:ListItem Value="2">HB</asp:ListItem>
+                                                    <asp:ListItem Value="3">PRBF</asp:ListItem>
+                                                    <asp:ListItem Value="4">CS</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
                                             <div class="">                                                
