@@ -71,7 +71,7 @@
                                     <h4>
                                     </h4>
                                     <asp:GridView ID="gdvInvoice" CssClass="table table-bordered pagi-table" runat="server" AutoGenerateColumns="false"
-                                        AllowPaging="true" PageSize="10" OnPageIndexChanging="gdvInvoice_PageIndexChanging">
+                                        AllowPaging="true" PageSize="2" OnPageIndexChanging="gdvInvoice_PageIndexChanging">
                                         <Columns>
                                             <asp:BoundField ItemStyle-Width="100px" DataField="JV_DATE" HeaderText="Date" />
                                             <asp:BoundField ItemStyle-Width="500px" DataField="JV_DESCRIPTION" HeaderText="Description" />
