@@ -29,41 +29,47 @@ namespace Account.Account
 
         private void viewData()
         {
-            DataSet ds = new DataSet();
-            string ContractCode = "", Branch = "", Product = "";
-            if (chbAll.Checked == true)
+            try
             {
-                ContractCode = "ALL";
-            }
-            else if (chbAll.Checked == false)
-            {
-                ContractCode = hftxtContractCode.Value;
-            }
-            if (chbAllBranch.Checked == true)
-            {
-                Branch = "ALL";
-            }
-            else if (chbAllBranch.Checked == false)
-            {
-                Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
-            }
-            if (chbAllProduct.Checked == true)
-            {
-                Product = "ALL";
-            }
-            else if (chbAllProduct.Checked == false)
-            {
-                Product = cmbProduct.SelectedValue;
-                if (Product == "1")
+                DataSet ds = new DataSet();
+                string ContractCode = "", Branch = "", Product = "";
+                if (chbAll.Checked == true)
                 {
-                    ds = Receivable.GetLoanReceivable(ContractCode, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text));
+                    ContractCode = "ALL";
+                }
+                else if (chbAll.Checked == false)
+                {
+                    ContractCode = hftxtContractCode.Value;
+                }
+                if (chbAllBranch.Checked == true)
+                {
+                    Branch = "ALL";
+                }
+                else if (chbAllBranch.Checked == false)
+                {
+                    Branch = cmbBranch.SelectedValue.Split(char.Parse("-"))[0];
+                }
+                if (chbAllProduct.Checked == true)
+                {
+                    Product = "ALL";
+                }
+                else if (chbAllProduct.Checked == false)
+                {
+                    Product = cmbProduct.SelectedValue;
+                    //if (Product == "1")
+                    //{
+                    ds = Receivable.GetLoanReceivable(ContractCode, Branch, Convert.ToString(txtFromDate.Text), Convert.ToString(txtToDate.Text), Product);
+                    //}
+                }
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    gdvInvoice.DataSource = ds.Tables[0];
+                    gdvInvoice.DataBind();
                 }
             }
-
-            if (ds.Tables[0].Rows.Count > 0)
+            catch (Exception)
             {
-                gdvInvoice.DataSource = ds.Tables[0];
-                gdvInvoice.DataBind();
             }
         }
 

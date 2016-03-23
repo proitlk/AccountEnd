@@ -13,7 +13,7 @@
                 //                buttonImage: '../Images/calendar.png'
             });
         });
-        
+
         function HideLabel() {
             var seconds = 3;
             setTimeout(function() {
@@ -56,9 +56,19 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="controls col-lg-1">
+                                                <label class="control-label" for="Date">
+                                                    Remark</label>
+                                            </div>
+                                            <div class="controls col-lg-6">
+                                                <asp:TextBox ID="txtRemark" class="form-control" runat="server"></asp:TextBox>
+                                            </div>
+                                            <!-- /controls -->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls col-lg-1">
                                                 <label class="control-label" for="Entry">
                                                     1st Entry</label>
-                                            </div>                                          
+                                            </div>
                                             <!-- /controls -->
                                         </div>
                                         <div class="form-group">
@@ -72,7 +82,6 @@
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
-                                        
                                             <div class="controls col-lg-1">
                                                 <label class="control-label" for="AmountDr">
                                                     Dr</label>
@@ -82,7 +91,6 @@
                                                 <asp:TextBox ID="txtAmountDr" class="form-control" runat="server" MaxLength="11"></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
-                                        
                                             <div class="controls col-lg-1">
                                                 <label class="control-label" for="Amount Cr">
                                                     Cr</label>
@@ -97,7 +105,7 @@
                                             <div class="controls col-lg-1">
                                                 <label class="control-label" for="Date">
                                                     2nd Entry</label>
-                                            </div>                                          
+                                            </div>
                                             <!-- /controls -->
                                         </div>
                                         <div class="form-group">
@@ -111,7 +119,6 @@
                                                 </asp:DropDownList>
                                             </div>
                                             <!-- /controls -->
-                                        
                                             <div class="controls col-lg-1">
                                                 <label class="control-label" for="Amount">
                                                     Dr</label>
@@ -121,7 +128,6 @@
                                                 <asp:TextBox ID="txtAmountDr2" class="form-control" runat="server" MaxLength="11"></asp:TextBox>
                                             </div>
                                             <!-- /controls -->
-                                        
                                             <div class="controls col-lg-1">
                                                 <label class="control-label" for="Amount">
                                                     Cr</label>
@@ -133,10 +139,10 @@
                                             <!-- /controls -->
                                         </div>
                                         <div class="form-actions">
-                                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" 
-                                                Width="150px" onclick="btnSave_Click" />
-                                            <asp:Button ID="btnClear" class="btn" runat="server" Text="Cancel" 
-                                                Width="150px" onclick="btnClear_Click" />
+                                            <asp:Button ID="btnSave" class="btn btn-primary" runat="server" Text="Save" Width="150px"
+                                                OnClick="btnSave_Click" />
+                                            <asp:Button ID="btnClear" class="btn" runat="server" Text="Cancel" Width="150px"
+                                                OnClick="btnClear_Click" />
                                         </div>
                                         <!-- /form-actions -->
                                     </fieldset>

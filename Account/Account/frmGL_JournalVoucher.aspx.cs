@@ -22,6 +22,7 @@ namespace Account.Account
         private void Reset()
         {
             txtDate.Text = "dd/mm/yyyy";
+            cls_CommonFunctions.ClearTextBox(txtRemark);
             cls_CommonFunctions.SetTextBoxToZero(txtAmountDr, txtAmountDr2, txtAmountCr, txtAmountCr2);
             LoadCategoty();
         }

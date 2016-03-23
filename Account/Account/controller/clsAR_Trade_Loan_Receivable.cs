@@ -18,7 +18,7 @@ namespace Account.Account
         private static MySqlConnection connect = null;
         cls_Connection conn = new cls_Connection();
 
-        public DataSet GetLoanReceivable(string ContractCode, string Branch, string fromDate, string toDate)
+        public DataSet GetLoanReceivable(string ContractCode, string Branch, string fromDate, string toDate, string Product)
         {
             connect = cls_Connection.DBConnect();
             connect.Open();
@@ -29,6 +29,7 @@ namespace Account.Account
             cmd.Parameters.AddWithValue("@Branch", Branch);
             cmd.Parameters.AddWithValue("@FromDate", fromDate);
             cmd.Parameters.AddWithValue("@ToDate", toDate);
+            cmd.Parameters.AddWithValue("@Product", Product);
             DataSet ds = conn.GetDataSet(cmd);
             return ds;
         }
